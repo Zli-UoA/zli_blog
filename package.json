@@ -10,9 +10,7 @@
     "prettier:check": "prettier --check 'src/**/*.{ts,tsx}'",
     "prettier:fmt": "prettier --write 'src/**/*.{ts,tsx}'",
     "eslint:check": "eslint 'src/**/*.{ts,tsx}'",
-    "eslint:fix": "eslint --fix 'src/**/*.{ts,tsx}'",
-    "lint": "npm run prettier:check; npm run eslint:check",
-    "fmt": "npm run prettier:fmt; npm run eslint:fix"
+    "eslint:fix": "eslint --fix 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "react": "^18.2.0",
