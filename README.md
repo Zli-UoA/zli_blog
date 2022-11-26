@@ -17,9 +17,13 @@
 - [React v18.2.0](https://ja.reactjs.org/)
 - [Typescript v4.6.4](https://www.typescriptlang.org/)
 - [SWR](https://swr.vercel.app/ja)
-- [React Hook Form](https://react-hook-form.com/)
+- [React Hook Form 7.39.5](https://react-hook-form.com/)
 - [classnames](https://github.com/JedWatson/classnames)
-- [React router v6](https://reactrouter.com/en/main)
+- [React router v6.4.3](https://reactrouter.com/en/main)
+- [Vanilla extract](https://vanilla-extract.style/)
+  - [css](https://vanilla-extract.style/documentation/getting-started/)
+  - [sprinkles](https://vanilla-extract.style/documentation/packages/sprinkles/)
+  - [recipes](https://vanilla-extract.style/documentation/packages/recipes/)
 
 ### リンター・フォーマッター
 
