@@ -1,4 +1,4 @@
-# mock
+# レベル１ヘディング
 
 これはテスト用の記事です。
 
@@ -36,6 +36,6 @@ hoge hoge `hoge` hoge hoge ~hoge~ *hoge*
 
 [hoge](hoge)
 
-![](assets/articles/mock/eyecatch.png)
+![](/src/assets/articles/mock/eyeCatch.png)
 
 hoge
