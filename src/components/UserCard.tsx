@@ -1,5 +1,6 @@
 import { Image } from '@/utils/components/Image'
 import { HStack, VStack } from '@/utils/components/Stack'
+import { introduction, name } from './UserCard.css'
 
 type User = {
   iconUrl: string
@@ -23,8 +24,8 @@ export const UserCard: React.FC<{
           }}
         />
         <VStack style={{ gap: 10 }}>
-          <h1>{user.name}</h1>
-          <p>{user.introduction}</p>
+          <h1 className={name}>{user.name}</h1>
+          <p className={introduction}>{user.introduction}</p>
         </VStack>
       </HStack>
     </section>
