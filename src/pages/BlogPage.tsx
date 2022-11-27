@@ -11,6 +11,16 @@ import { UserCard } from '@/components/UserCard'
 import { extractMetaData, removeMetaData } from '@/utils/lib/mdMetaData'
 import { MarkdownViewer } from '@/utils/components/MdViewer'
 import { PageTitle } from '@/utils/components/PageTitle'
+import { ExternalLink } from '@/utils/components/ExternalLink'
+import { AdditionalInformation } from '@/utils/components/AdditionalInformation'
+import { NavigationLink } from '@/utils/components/NavigationLink'
+
+const footerLinks = [
+  { label: 'Twitter', url: 'https://twitter.com/zliofficial?lang=en' },
+  { label: 'Connpass', url: 'https://zli.connpass.com/' },
+  { label: 'Qiita', url: 'https://qiita.com/organizations/zli' },
+  { label: 'GitHub', url: 'https://github.com/zli-UoA' },
+]
 
 export const BlogPage: React.FC = () => {
   const [article, setArticle] = useState('')
@@ -42,11 +52,15 @@ export const BlogPage: React.FC = () => {
           <Link to="/">
             <Logo />
           </Link>
-          <HStack style={{ gap: 12, alignItems: 'center' }}>
-            <Link to="">Blog</Link>
-            <Link to="">Member</Link>
-            <Link to="">About</Link>
-          </HStack>
+          <nav>
+            <HStack style={{ gap: 12, alignItems: 'center' }}>
+              <NavigationLink to="/" active>
+                Blog
+              </NavigationLink>
+              <NavigationLink to="/">Member</NavigationLink>
+              <NavigationLink to="/">About</NavigationLink>
+            </HStack>
+          </nav>
         </HStack>
       </Header>
       <main>
@@ -79,7 +93,23 @@ export const BlogPage: React.FC = () => {
           <Spacer size={80} />
         </VStack>
       </main>
-      <Footer>ふったー</Footer>
+      <Footer>
+        <HStack style={{ justifyContent: 'between' }}>
+          <VStack style={{ justifyContent: 'between' }}>
+            <Logo />
+            <AdditionalInformation>
+              Copy right ©︎ 2020 Zli
+            </AdditionalInformation>
+          </VStack>
+          <VStack style={{ justifyContent: 'between', gap: 8 }}>
+            {footerLinks.map(({ label, url }, i) => (
+              <ExternalLink to={url} key={i}>
+                {label}
+              </ExternalLink>
+            ))}
+          </VStack>
+        </HStack>
+      </Footer>
     </Page>
   )
 }
