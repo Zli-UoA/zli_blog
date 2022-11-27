@@ -10,6 +10,9 @@ export const fontSize = {
   px12: style({
     fontSize: '12px',
   }),
+  px14: style({
+    fontSize: '14px',
+  }),
   px16: style({
     fontSize: '16px',
   }),
