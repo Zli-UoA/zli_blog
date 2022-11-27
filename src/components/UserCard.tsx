@@ -23,7 +23,7 @@ export const UserCard: React.FC<{
             radius: 'rounded',
           }}
         />
-        <VStack style={{ gap: 10 }}>
+        <VStack style={{ gap: 8 }}>
           <h1 className={name}>{user.name}</h1>
           <p className={introduction}>{user.introduction}</p>
         </VStack>
