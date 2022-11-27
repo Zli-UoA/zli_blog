@@ -31,8 +31,8 @@ const stackPropBase = {
       0: {
         gap: '0px',
       },
-      10: {
-        gap: '10px',
+      8: {
+        gap: '8px',
       },
       12: {
         gap: '12px',
