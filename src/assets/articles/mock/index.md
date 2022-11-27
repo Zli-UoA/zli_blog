@@ -1,3 +1,9 @@
+---
+title: ここに記事タイトルを記入
+authorId: eraser5th
+tags: hoge fuga
+---
+
 # レベル１ヘディング
 
 これはテスト用の記事です。
