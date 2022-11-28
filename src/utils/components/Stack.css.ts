@@ -52,6 +52,15 @@ export const vStack = recipe({
   ...stackPropBase,
 })
 
+export const vStackFill = recipe({
+  base: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+  },
+  ...stackPropBase,
+})
+
 export const hStack = recipe({
   base: {
     display: 'flex',
