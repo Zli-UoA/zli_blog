@@ -2,17 +2,17 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import { BlogPage } from './pages/BlogPage'
 
 export enum routes {
-  BLOG = "/blog/:blogName"
+  BLOG = '/blog/:blogName',
 }
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Navigate to={routes.BLOG} />
+    path: '/',
+    element: <Navigate to={routes.BLOG} />,
   },
   {
     path: routes.BLOG,
-    element: <BlogPage />
+    element: <BlogPage />,
   },
 ])
 
