@@ -22,7 +22,7 @@ const footerLinks = [
   { label: 'GitHub', url: 'https://github.com/zli-UoA' },
 ]
 
-export const BlogPage: React.FC = () => {
+export const BlogPagePC: React.FC = () => {
   const [article, setArticle] = useState('')
 
   useEffect(() => {
