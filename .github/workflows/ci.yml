@@ -20,6 +20,6 @@ jobs:
         run: |
           npm ci
 
-      - name: Run ESLint
+      - name: Run ESLint & Prettier check
         run: |
           npm run lint
