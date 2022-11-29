@@ -98,7 +98,7 @@ export const BlogPagePC: React.FC = () => {
           <VStack style={{ justifyContent: 'between' }}>
             <Logo />
             <AdditionalInformation>
-              Copy right ©︎ 2020 Zli
+              Copy right ©︎ 2022 Zli
             </AdditionalInformation>
           </VStack>
           <VStack style={{ justifyContent: 'between', gap: 8 }}>

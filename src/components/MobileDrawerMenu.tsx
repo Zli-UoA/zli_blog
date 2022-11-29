@@ -47,7 +47,7 @@ export const MobileDrawerMenu: React.FC<{
                 </ExternalLink>
               ))}
               <AdditionalInformation>
-                Copy right ©︎ 2020 Zli
+                Copy right ©︎ 2022w Zli
               </AdditionalInformation>
             </VStack>
           </Footer>
