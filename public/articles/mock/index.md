@@ -1,4 +1,10 @@
-# mock
+---
+title: ここに記事タイトルを記入
+authorId: eraser5th
+tags: hoge fuga
+---
+
+# レベル１ヘディング
 
 これはテスト用の記事です。
 
@@ -36,6 +42,6 @@ hoge hoge `hoge` hoge hoge ~hoge~ *hoge*
 
 [hoge](hoge)
 
-![](assets/articles/mock/eyecatch.png)
+![](/src/assets/articles/mock/eyeCatch.png)
 
 hoge
