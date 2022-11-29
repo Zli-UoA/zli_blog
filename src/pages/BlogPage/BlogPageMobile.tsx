@@ -26,7 +26,7 @@ export const BlogPageMobile: React.FC = () => {
   const drawer = useOpen(false)
 
   useEffect(() => {
-    fetch('/src/assets/articles/mock/index.md')
+    fetch('/articles/mock/index.md')
       .then((res) => res.text())
       .then((data) => setArticle(data))
       .catch((e) => {
@@ -61,7 +61,7 @@ export const BlogPageMobile: React.FC = () => {
         <VStack style={{ alignItems: 'center' }}>
           <Spacer size={40} />
           <Image
-            src="/src/assets/articles/mock/eyeCatch.png"
+            src="/articles/mock/eyeCatch.png"
             alt="eyeCatch"
             style={{
               height: 270,
@@ -78,7 +78,7 @@ export const BlogPageMobile: React.FC = () => {
           <Spacer size={64} />
           <UserCard
             user={{
-              iconUrl: '/src/assets/articles/mock/eyeCatch.png',
+              iconUrl: '/articles/mock/eyeCatch.png',
               name: metaData.authorId ? metaData.authorId[0] : '',
               introduction:
                 '自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介',
