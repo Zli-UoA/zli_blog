@@ -1,0 +1,10 @@
+{
+  "articles": [
+    {
+      "dirName": "mock",
+      "title": "記事タイトル",
+      "tags": [],
+      "authorId": "eraser5th"
+    }
+  ]
+}
