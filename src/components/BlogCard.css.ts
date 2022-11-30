@@ -1,11 +1,7 @@
-import { fontSize, fontWeight, lineHeight } from "@/utils/style/text.css";
-import { style } from "@vanilla-extract/css";
+import { fontSize, fontWeight, lineHeight } from '@/utils/style/text.css'
+import { style } from '@vanilla-extract/css'
 
-export const title = style([
-  fontSize.px16,
-  fontWeight.bold,
-  lineHeight.per175,
-])
+export const title = style([fontSize.px16, fontWeight.bold, lineHeight.per175])
 
 export const authorName = style([
   fontSize.px14,
