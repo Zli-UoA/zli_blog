@@ -1,6 +1,6 @@
 import { getBlog } from '@/api/getBlog'
+import { Blog } from '@/models/Blog'
 import { useMobile } from '@/utils/hooks/useMobile'
-import { extractMetaData, removeMetaData } from '@/utils/lib/mdMetaData'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { BlogPageMobile } from './BlogPageMobile'
@@ -17,13 +17,6 @@ const footerLinks = [
   { label: 'Qiita', url: 'https://qiita.com/organizations/zli' },
   { label: 'GitHub', url: 'https://github.com/zli-UoA' },
 ]
-
-export type Blog = {
-  mdText: string
-  title: string
-  eyeCatchUrl: string
-  tags: string[]
-}
 
 export type Author = {
   id: string
@@ -56,25 +49,14 @@ const useBlogPage = (): {
   useEffect(() => {
     const hoge = async (): Promise<void> => {
       setLoading(true)
-      const data = await getBlog(blogName ?? '')
-      const metaData = extractMetaData<{
-        title: [string]
-        authorId: [string]
-        tags: string[]
-      }>(data)
-
+      const blog = await getBlog(blogName ?? '')
       setData({
-        blog: {
-          mdText: removeMetaData(data),
-          title: metaData.title ? metaData.title[0] : '',
-          eyeCatchUrl: '/articles/' + (blogName ?? '') + '/eyeCatch.png',
-          tags: metaData.tags ? metaData.tags : [],
-        },
+        blog,
         author: {
-          id: metaData.authorId ? metaData.authorId[0] : '',
+          id: blog.authorId ? blog.authorId[0] : '',
           iconUrl:
             '/articles/' +
-            (metaData.authorId ? metaData.authorId[0] : '') +
+            (blog.authorId ? blog.authorId[0] : '') +
             '/eyeCatch.png',
           introduction: '',
         },
