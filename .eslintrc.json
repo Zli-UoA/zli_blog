@@ -42,6 +42,51 @@
         "tsx": "never"
       }
     ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "newlines-between": "never", // import groups の間 1行あける
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "alphabetize": { "order": "asc", "caseInsensitive": true }, // 大文字小文字関係なくアルファベット順にしたい
+        "pathGroups": [
+          {
+            "pattern": "src/models/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "src/api/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "src/util/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "src/pages/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "src/assets/**",
+            "group": "internal",
+            "position": "before"
+          }
+        ]
+      }
+    ],
     // @typescript-eslint
     "@typescript-eslint/explicit-function-return-type": ["error"],
     "@typescript-eslint/no-duplicate-imports": ["error"],
