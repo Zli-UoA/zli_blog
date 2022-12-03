@@ -1,4 +1,5 @@
 import { getBlog } from '@/api/getBlog'
+import { Author } from '@/models/Author'
 import { Blog } from '@/models/Blog'
 import { useMobile } from '@/utils/hooks/useMobile'
 import { useEffect, useState } from 'react'
@@ -17,12 +18,6 @@ const footerLinks = [
   { label: 'Qiita', url: 'https://qiita.com/organizations/zli' },
   { label: 'GitHub', url: 'https://github.com/zli-UoA' },
 ]
-
-export type Author = {
-  id: string
-  iconUrl: string
-  introduction: string
-}
 
 export type BlogPageProps = {
   blog: Blog | undefined
