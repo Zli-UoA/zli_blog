@@ -1,3 +1,4 @@
+import { getAuthorById } from '@/api/getAuthorById'
 import { getBlog } from '@/api/getBlog'
 import { Author } from '@/models/Author'
 import { Blog } from '@/models/Blog'
@@ -36,24 +37,28 @@ const useBlogPage = (): {
   const { blogName } = useParams()
 
   useEffect(() => {
-    const hoge = async (): Promise<void> => {
+    const fetcher = async (blogName: string): Promise<void> => {
       setLoading(true)
-      const blog = await getBlog(blogName ?? '')
-      setBlog(blog)
-      setAuthor({
-        id: blog.authorId ? blog.authorId[0] : '',
-        iconUrl:
-          '/articles/' +
-          (blog.authorId ? blog.authorId[0] : '') +
-          '/eyeCatch.png',
-        introduction: '',
-      })
-
+      setBlog(await getBlog(blogName))
       setLoading(false)
     }
 
-    hoge().catch((e) => console.log(e))
+    if (blogName) {
+      fetcher(blogName).catch((e) => console.log(e))
+    }
   }, [blogName])
+
+  useEffect(() => {
+    const fetcher = async (authorId: string): Promise<void> => {
+      setLoading(true)
+      setAuthor(await getAuthorById(authorId))
+      setLoading(false)
+    }
+
+    if (blog) {
+      fetcher(blog.authorId).catch((e) => console.log(e))
+    }
+  }, [blog])
 
   return {
     blog: blog,
