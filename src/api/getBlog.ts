@@ -1,8 +1,8 @@
-import { Blog } from "@/models/Blog";
-import { extractMetaData, removeMetaData } from "@/utils/lib/mdMetaData";
+import { Blog } from '@/models/Blog'
+import { extractMetaData, removeMetaData } from '@/utils/lib/mdMetaData'
 
 export const getBlog = async (blogName: string): Promise<Blog> => {
-  const res = await fetch('/articles/' + blogName + '/index.md');
+  const res = await fetch('/articles/' + blogName + '/index.md')
   const data = await res.text()
 
   const metaData = extractMetaData<{
@@ -12,10 +12,10 @@ export const getBlog = async (blogName: string): Promise<Blog> => {
   }>(data)
 
   return {
-    authorId: metaData.authorId ? metaData.authorId[0] : "",
-    title: metaData.title ? metaData.title[0] : "",
+    authorId: metaData.authorId ? metaData.authorId[0] : '',
+    title: metaData.title ? metaData.title[0] : '',
     tags: metaData.tags ? metaData.tags : [],
-    eyeCatchUrl: "/articles/" + blogName + "/eyeCatch.png",
-    mdText: removeMetaData(data)
+    eyeCatchUrl: '/articles/' + blogName + '/eyeCatch.png',
+    mdText: removeMetaData(data),
   }
 }
