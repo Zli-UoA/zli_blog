@@ -7,7 +7,7 @@ export const getAuthorById = async (authorId: string): Promise<Author> => {
 
   return {
     id: authorId,
-    iconUrl: "/authors/" + authorId + "icon.png",
+    iconUrl: "/authors/" + authorId + "/icon.png",
     introduction: removeMetaData(mdData),
   }
 }
