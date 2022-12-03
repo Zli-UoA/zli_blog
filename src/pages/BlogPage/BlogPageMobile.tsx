@@ -7,16 +7,17 @@ import { MarkdownViewer } from '@/utils/components/MdViewer'
 import { PageTitle } from '@/utils/components/PageTitle'
 import { useOpen } from '@/utils/hooks/useOpen'
 import { MobileDrawerMenu } from '@/components/MobileDrawerMenu'
-import { Blog, FooterLink } from '.'
+import { BlogPageProps } from '.'
 import { MobileHeader } from '@/components/MobileHeader'
 
-export const BlogPageMobile: React.FC<{
-  blog: Blog | undefined
-  footerLinks: FooterLink[]
-}> = ({ blog, footerLinks }) => {
+export const BlogPageMobile: React.FC<BlogPageProps> = ({
+  blog,
+  author,
+  footerLinks,
+}) => {
   const drawer = useOpen()
 
-  if (!blog) {
+  if (!blog || !author) {
     return (
       <Page title="Blog">
         <MobileHeader onClickMenuIcon={drawer.open} />
@@ -60,10 +61,9 @@ export const BlogPageMobile: React.FC<{
           <Spacer size={64} />
           <UserCard
             user={{
-              iconUrl: '/articles/mock/eyeCatch.png',
-              name: blog.author.id,
-              introduction:
-                '自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介',
+              iconUrl: author.iconUrl,
+              name: author.id,
+              introduction: author.introduction,
             }}
           />
           <Spacer size={80} />

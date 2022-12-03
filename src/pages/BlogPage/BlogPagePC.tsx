@@ -5,15 +5,16 @@ import { VStack } from '@/utils/components/Stack'
 import { UserCard } from '@/components/UserCard'
 import { MarkdownViewer } from '@/utils/components/MdViewer'
 import { PageTitle } from '@/utils/components/PageTitle'
-import { Blog, FooterLink } from '.'
+import { BlogPageProps } from '.'
 import { PCHeader } from '@/components/PCHeader'
 import { PCFooter } from '@/components/PCFooter'
 
-export const BlogPagePC: React.FC<{
-  blog: Blog | undefined
-  footerLinks: FooterLink[]
-}> = ({ blog, footerLinks }) => {
-  if (!blog) {
+export const BlogPagePC: React.FC<BlogPageProps> = ({
+  blog,
+  author,
+  footerLinks,
+}) => {
+  if (!blog || !author) {
     return (
       <Page title="Blog">
         <PCHeader />
@@ -53,10 +54,9 @@ export const BlogPagePC: React.FC<{
           <Spacer size={64} />
           <UserCard
             user={{
-              iconUrl: blog.author.iconUrl,
-              name: blog.author.id,
-              introduction:
-                '自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介',
+              iconUrl: author.iconUrl,
+              name: author.id,
+              introduction: author.introduction,
             }}
           />
           <Spacer size={80} />
