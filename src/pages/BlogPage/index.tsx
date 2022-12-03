@@ -30,10 +30,8 @@ const useBlogPage = (): {
   author: Author | undefined
   loading: boolean
 } => {
-  const [data, setData] = useState<{
-    blog: Blog
-    author: Author
-  }>()
+  const [blog, setBlog] = useState<Blog>()
+  const [author, setAuthor] = useState<Author>()
   const [loading, setLoading] = useState(false)
   const { blogName } = useParams()
 
@@ -41,16 +39,14 @@ const useBlogPage = (): {
     const hoge = async (): Promise<void> => {
       setLoading(true)
       const blog = await getBlog(blogName ?? '')
-      setData({
-        blog,
-        author: {
-          id: blog.authorId ? blog.authorId[0] : '',
-          iconUrl:
-            '/articles/' +
-            (blog.authorId ? blog.authorId[0] : '') +
-            '/eyeCatch.png',
-          introduction: '',
-        },
+      setBlog(blog)
+      setAuthor({
+        id: blog.authorId ? blog.authorId[0] : '',
+        iconUrl:
+          '/articles/' +
+          (blog.authorId ? blog.authorId[0] : '') +
+          '/eyeCatch.png',
+        introduction: '',
       })
 
       setLoading(false)
@@ -60,8 +56,8 @@ const useBlogPage = (): {
   }, [blogName])
 
   return {
-    blog: data?.blog,
-    author: data?.author,
+    blog: blog,
+    author: author,
     loading,
   }
 }
