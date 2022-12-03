@@ -1,9 +1,9 @@
+import { ReactComponent as Logo } from '@/assets/Logo.svg'
 import { FooterLink } from '@/pages/BlogListPage'
 import { AdditionalInformation } from '@/utils/components/AdditionalInformation'
 import { ExternalLink } from '@/utils/components/ExternalLink'
 import { Footer } from '@/utils/components/Footer'
 import { HStack, VStack } from '@/utils/components/Stack'
-import { ReactComponent as Logo } from '@/assets/Logo.svg'
 
 export const PCFooter: React.FC<{
   footerLinks: FooterLink[]
