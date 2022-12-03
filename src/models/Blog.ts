@@ -1,5 +1,5 @@
 export interface Blog {
-  authorId?: string
+  authorId: string
   title: string
   eyeCatchUrl: string
   mdText: string
