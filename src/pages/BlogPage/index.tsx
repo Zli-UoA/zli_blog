@@ -22,18 +22,34 @@ export type Blog = {
   mdText: string
   title: string
   eyeCatchUrl: string
-  author: {
-    id: string
-    iconUrl: string
-  }
   tags: string[]
 }
 
+export type Author = {
+  id: string
+  iconUrl: string
+  introduction: string
+}
+
+export type BlogPageProps = {
+  blog: Blog | undefined
+  author: Author | undefined
+  footerLinks: FooterLink[]
+}
+
 const useBlogPage = (): {
-  data: Blog | undefined
+  data:
+    | {
+        blog: Blog
+        author: Author
+      }
+    | undefined
   loading: boolean
 } => {
-  const [data, setData] = useState<Blog>()
+  const [data, setData] = useState<{
+    blog: Blog
+    author: Author
+  }>()
   const [loading, setLoading] = useState(false)
   const { blogName } = useParams()
 
@@ -46,19 +62,24 @@ const useBlogPage = (): {
         authorId: [string]
         tags: string[]
       }>(data)
+
       setData({
-        mdText: removeMetaData(data),
-        title: metaData.title ? metaData.title[0] : '',
-        eyeCatchUrl: '/articles/' + (blogName ?? '') + '/eyeCatch.png',
+        blog: {
+          mdText: removeMetaData(data),
+          title: metaData.title ? metaData.title[0] : '',
+          eyeCatchUrl: '/articles/' + (blogName ?? '') + '/eyeCatch.png',
+          tags: metaData.tags ? metaData.tags : [],
+        },
         author: {
           id: metaData.authorId ? metaData.authorId[0] : '',
           iconUrl:
             '/articles/' +
             (metaData.authorId ? metaData.authorId[0] : '') +
             '/eyeCatch.png',
+          introduction: '',
         },
-        tags: metaData.tags ? metaData.tags : [],
       })
+
       setLoading(false)
     }
 
@@ -77,8 +98,20 @@ export const BlogPage: React.FC = () => {
   const { data } = useBlogPage()
 
   if (isMobile) {
-    return <BlogPageMobile blog={data} footerLinks={footerLinks} />
+    return (
+      <BlogPageMobile
+        blog={data?.blog}
+        author={data?.author}
+        footerLinks={footerLinks}
+      />
+    )
   }
 
-  return <BlogPagePC blog={data} footerLinks={footerLinks} />
+  return (
+    <BlogPagePC
+      blog={data?.blog}
+      author={data?.author}
+      footerLinks={footerLinks}
+    />
+  )
 }
