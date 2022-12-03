@@ -26,12 +26,8 @@ export type BlogPageProps = {
 }
 
 const useBlogPage = (): {
-  data:
-    | {
-        blog: Blog
-        author: Author
-      }
-    | undefined
+  blog: Blog | undefined
+  author: Author | undefined
   loading: boolean
 } => {
   const [data, setData] = useState<{
@@ -64,7 +60,8 @@ const useBlogPage = (): {
   }, [blogName])
 
   return {
-    data,
+    blog: data?.blog,
+    author: data?.author,
     loading,
   }
 }
@@ -72,23 +69,13 @@ const useBlogPage = (): {
 export const BlogPage: React.FC = () => {
   const isMobile = useMobile()
 
-  const { data } = useBlogPage()
+  const { blog, author } = useBlogPage()
 
   if (isMobile) {
     return (
-      <BlogPageMobile
-        blog={data?.blog}
-        author={data?.author}
-        footerLinks={footerLinks}
-      />
+      <BlogPageMobile blog={blog} author={author} footerLinks={footerLinks} />
     )
   }
 
-  return (
-    <BlogPagePC
-      blog={data?.blog}
-      author={data?.author}
-      footerLinks={footerLinks}
-    />
-  )
+  return <BlogPagePC blog={blog} author={author} footerLinks={footerLinks} />
 }
