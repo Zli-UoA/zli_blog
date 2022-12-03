@@ -1,8 +1,8 @@
+import { Link } from 'react-router-dom'
+import { ReactComponent as Logo } from '@/assets/Logo.svg'
 import { Header } from '@/utils/components/Header'
 import { NavigationLink } from '@/utils/components/NavigationLink'
 import { HStack } from '@/utils/components/Stack'
-import { Link } from 'react-router-dom'
-import { ReactComponent as Logo } from '@/assets/Logo.svg'
 
 export const PCHeader: React.FC = () => {
   return (

@@ -1,5 +1,5 @@
-import { fontSize, fontWeight, lineHeight } from '@/utils/style/text.css'
 import { style } from '@vanilla-extract/css'
+import { fontSize, fontWeight, lineHeight } from '@/utils/style/text.css'
 
 export const name = style([fontSize.px20, fontWeight.bold, lineHeight.per150])
 

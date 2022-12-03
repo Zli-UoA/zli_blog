@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import { Header } from '@/utils/components/Header'
-import { HStack } from '@/utils/components/Stack'
 import { ReactComponent as Logo } from '@/assets/Logo.svg'
 import { ReactComponent as MenuIcon } from '@/assets/Menu.svg'
+import { Header } from '@/utils/components/Header'
+import { HStack } from '@/utils/components/Stack'
 
 export const MobileHeader: React.FC<{
   onClickMenuIcon: () => void

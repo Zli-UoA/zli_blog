@@ -1,7 +1,7 @@
+import { useEffect, useState } from 'react'
 import { getBlogInfoList } from '@/api/getBlogInfoList'
 import { BlogInfo } from '@/models/BlogInfo'
 import { useMobile } from '@/utils/hooks/useMobile'
-import { useEffect, useState } from 'react'
 import { BlogListPageMobile } from './BlogListPageMobile'
 import { BlogListPagePC } from './BlogListPagePC'
 

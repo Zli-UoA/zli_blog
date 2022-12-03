@@ -1,10 +1,10 @@
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { getAuthorById } from '@/api/getAuthorById'
 import { getBlog } from '@/api/getBlog'
 import { Author } from '@/models/Author'
 import { Blog } from '@/models/Blog'
 import { useMobile } from '@/utils/hooks/useMobile'
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
 import { BlogPageMobile } from './BlogPageMobile'
 import { BlogPagePC } from './BlogPagePC'
 
