@@ -25,13 +25,13 @@ const useBlogListPage = (): {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    const hoge = async (): Promise<void> => {
+    const fetcher = async (): Promise<void> => {
       setLoading(true)
       setData(await getBlogInfoList())
       setLoading(false)
     }
 
-    hoge().catch((e) => console.log(e))
+    fetcher().catch((e) => console.log(e))
   }, [])
 
   return {
