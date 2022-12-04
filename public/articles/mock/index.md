@@ -38,10 +38,10 @@ const hoge = () => {
 }
 ```
 
-hoge hoge `hoge` hoge hoge ~hoge~ *hoge*
+hoge hoge `hoge` hoge hoge ~~hoge~~ *hoge*
 
 [hoge](hoge)
 
-![](/src/assets/articles/mock/eyeCatch.png)
+![](/articles/mock/eyeCatch.png)
 
 hoge
