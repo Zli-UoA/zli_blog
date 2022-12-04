@@ -8,6 +8,7 @@ import { H1, H2, H3, H4, H5, H6 } from './components/Heading'
 import { Ul } from './components/List'
 import { Paragraph } from './components/Paragraph'
 import { Pre } from './components/Pre'
+import { Table, Td, Th } from './components/Table'
 
 export const MarkdownViewer: React.FC<{
   mdText: string
@@ -29,6 +30,9 @@ export const MarkdownViewer: React.FC<{
         del: Del,
         ul: Ul,
         a: Anchor,
+        table: Table,
+        th: Th,
+        td: Td,
       }}
     >
       {mdText}
