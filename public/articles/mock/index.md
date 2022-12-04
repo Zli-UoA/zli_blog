@@ -42,7 +42,7 @@ const hoge = () => {
 
 hoge hoge `hoge` hoge hoge ~~hoge~~ *hoge*
 
-[hoge](hoge)
+[hoge](https://twitter.com/eraser5th)
 
 ![](/articles/mock/eyeCatch.png)
 
