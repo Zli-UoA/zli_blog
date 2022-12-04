@@ -36,6 +36,8 @@ export const CodeBlock: React.FC<{
       customStyle={{
         margin: '16px 0px',
         borderRadius: '4px',
+        fontSize: '16px',
+        fontFamily: 'monospace',
       }}
     >
       {String(children).replace(/\n$/, '')}
