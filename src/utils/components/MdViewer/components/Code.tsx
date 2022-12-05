@@ -37,6 +37,7 @@ export const CodeBlock: React.FC<{
         margin: '16px 0px',
         borderRadius: '4px',
         fontSize: '16px',
+        wordSpacing: '4px',
         fontFamily: 'monospace',
       }}
     >
