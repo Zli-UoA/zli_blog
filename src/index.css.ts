@@ -5,4 +5,5 @@ globalStyle(':root', {
   background: color.black,
   color: color.white,
   minHeight: '100vh',
+  fontFamily: 'sans-serif',
 })
