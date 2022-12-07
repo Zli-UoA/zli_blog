@@ -41,6 +41,15 @@ export const fontWeight = {
     fontWeight: 'normal',
   }),
   bold: style({
-    fontWeight: 'normal',
+    fontWeight: 'bold',
+  }),
+}
+
+export const fontFamily = {
+  normal: style({
+    fontFamily: 'sans-serif',
+  }),
+  monospace: style({
+    fontFamily: 'monospace',
   }),
 }
