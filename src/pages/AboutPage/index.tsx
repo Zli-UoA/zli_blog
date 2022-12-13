@@ -1,6 +1,6 @@
+import { useEffect, useState } from 'react'
 import { getAbout } from '@/api/getAbout'
 import { useMobile } from '@/utils/hooks/useMobile'
-import { useEffect, useState } from 'react'
 import { AboutPageMobile } from './AboutPageMobile'
 import { AboutPagePC } from './AboutPagePC'
 
