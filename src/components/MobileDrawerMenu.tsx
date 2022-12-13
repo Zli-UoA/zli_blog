@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
 import { ReactComponent as CloseIcon } from '@/assets/Close.svg'
 import { ReactComponent as Logo } from '@/assets/Logo.svg'
+import { routes } from '@/Router'
 import { AdditionalInformation } from '@/utils/components/AdditionalInformation'
 import { Drawer } from '@/utils/components/Drawer'
 import { ExternalLink } from '@/utils/components/ExternalLink'
@@ -9,6 +9,7 @@ import { Header } from '@/utils/components/Header'
 import { NavigationLink } from '@/utils/components/NavigationLink'
 import { Spacer } from '@/utils/components/Spacer'
 import { HStack, VStack } from '@/utils/components/Stack'
+import { Link } from 'react-router-dom'
 
 export const MobileDrawerMenu: React.FC<{
   isOpen: boolean
@@ -32,11 +33,11 @@ export const MobileDrawerMenu: React.FC<{
         <VStack style={{ justifyContent: 'between' }} fill>
           <nav>
             <VStack style={{ gap: 12, alignItems: 'start' }}>
-              <NavigationLink to="/" active>
+              <NavigationLink to={routes.BLOG_LIST} active>
                 Blog
               </NavigationLink>
               <NavigationLink to="/">Member</NavigationLink>
-              <NavigationLink to="/">About</NavigationLink>
+              <NavigationLink to={routes.ABOUT}>About</NavigationLink>
             </VStack>
           </nav>
           <Footer>
