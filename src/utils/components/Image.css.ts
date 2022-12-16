@@ -40,11 +40,10 @@ export const image = recipe({
         borderRadius: '9999px',
       },
     },
-  },
-
-  defaultVariants: {
-    ratio: 'square',
-    height: 20,
-    radius: 'rounded',
+    border: {
+      none: {
+        border: 'none',
+      },
+    },
   },
 })
