@@ -1,6 +1,6 @@
 import { recipe } from '@vanilla-extract/recipes'
 
-export type SpacingSize = 16 | 24 | 32 | 40 | 56 | 64 | 80
+export type SpacingSize = 16 | 24 | 32 | 40 | 56 | 64 | 80 | 'grow'
 
 const createSpacingStyle = (
   size: SpacingSize
@@ -22,6 +22,9 @@ export const spacer = recipe({
       56: createSpacingStyle(56),
       64: createSpacingStyle(64),
       80: createSpacingStyle(80),
+      grow: {
+        flexGrow: 1,
+      },
     },
   },
 })
