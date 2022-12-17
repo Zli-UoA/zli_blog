@@ -1,7 +1,8 @@
 {
-  "articles": [
+  "authors": [
     {
-      "authorId": "eraser5th",
+      "id": "eraser5th",
+      "displayName": "ERASER"
     }
   ]
 }
