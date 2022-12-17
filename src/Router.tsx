@@ -31,3 +31,11 @@ const router = createBrowserRouter([
 export const AppRouter: React.FC = () => {
   return <RouterProvider router={router} />
 }
+
+export const isInBlog = (path: string): boolean => {
+  return path.slice(0, 5) === routes.BLOG_LIST
+}
+
+export const isInAbout = (path: string): boolean => {
+  return path.slice(0, 6) === routes.ABOUT
+}
