@@ -1,12 +1,79 @@
 # Zli Blog
 
-デザイン： [figma](https://www.figma.com/file/BeealdPJxbboY3Uh9k17vg/ZliBlog?node-id=109%3A990&t=cqelnDMyiYIpFclv-1)
+## デザイン
 
-## 使用するもの
+[figma](https://www.figma.com/file/BeealdPJxbboY3Uh9k17vg/ZliBlog?node-id=109%3A990&t=cqelnDMyiYIpFclv-1)
 
-### 環境
+## 環境
 
 - [node v17.2.0](https://nodejs.org/ja/)
+
+## 記事の投稿方法
+
+大まかな流れとしては
+
+1. ブランチを切る
+2. 自身をメンバーに追加（初回のみ）
+3. 記事を追加
+4. PR を投げてレビューしてもらう（誰にしてもらうかは決めてない。とりま@shinbunbun に）
+5. 問題なけれマージして完了
+
+### 2. 自身をメンバーに追加（初回のみ）
+
+1. `/public/authors/list.json` に自分の id と displayName を追加する。id は a\~z, A\~Z, 0\~9, -, \_のみでお願いします。
+2. `/public/authors`内に先ほど list に追加した id のディレクトリを作成する。
+3. 作成したディレクトリ内に、表示したいアイコンを`icon.png`で配置。
+4. 同ディレクトリ内に、自己紹介を`index.md`で配置
+
+### 3. 記事を追加
+
+1. `/public/articles`内に a\~z, A\~Z, 0\~9, -, \_のみを使った自分で識別できる名前のディレクトリを作成する。（例：zli_no_blog_wo_tukutta_hanashi）。
+2. 作成したディレクトリにアイキャッチを`eyeCatch.png`で配置。
+3. 同ディレクトリに、記事を`index.md`で配置
+
+記事の最初にはいくつかのメタデータを含めてもらう必要があります。以下のような形でお願いします。
+
+```md
+---
+authorId: eraser5th
+title: ZliのBlogを作った話
+tags: React hoge fuga
+---
+
+# hogehoge
+```
+
+authorId には、メンバー追加の際に決めたものを使ってください。
+
+title にはその記事のタイトルを容れてください。
+
+タグを追加したくない場合には、`tags:`はそのままにして、タグを容れなければ大丈夫です。
+また日本語でタグを追加する場合、空白を全角にしないよう気をつけてください。
+
+4. `/public/articles/list.json`に以下の形式で記事の情報を登録する。
+
+```
+{
+  "dirName": "zli_no_blog_wo_tukutta_hanashi", // 作成したディレクトリの名前
+  "title": "ZliのBlogを作った話",              // 記事のタイトル
+  "tags": ["React", "hoge", "fuga"],           // タグを配列で
+  "authorId": "eraser5th"                      // 自身のid
+}
+```
+
+## 執筆時に見ためを確認したい場合。
+
+プロジェクトのルートで以下を実行すると開発サーバが立ち上がる。
+
+```sh
+npm run dev
+```
+
+表示された URl にアクセスすれば確認可能。
+
+# 以下開発者向け(wip)
+
+## 使用するもの
 
 ### ビルドツール
 
@@ -49,7 +116,7 @@
 
 ```
 
-### src 案1
+### src 案 1
 
 コードはこの中に配置する。
 
@@ -81,7 +148,7 @@
 
 #### components
 
-汎用的なReactコンポーネントを配置。
+汎用的な React コンポーネントを配置。
 
 #### pages
 
@@ -117,4 +184,5 @@ pages
 
 アイコン（ブラウザのタブに表示されるやつ）などを配置。
 
-### 
+###
+```
