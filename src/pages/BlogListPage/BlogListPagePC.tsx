@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { BlogCard } from '@/components/BlogCard'
 import { PCFooter } from '@/components/PCFooter'
 import { PCHeader } from '@/components/PCHeader'
@@ -8,6 +7,7 @@ import { Page } from '@/utils/components/Page'
 import { PageTitle } from '@/utils/components/PageTitle'
 import { Spacer } from '@/utils/components/Spacer'
 import { VStack } from '@/utils/components/Stack'
+import { Link } from 'react-router-dom'
 import { FooterLink } from '.'
 
 export const BlogListPagePC: React.FC<{
@@ -27,6 +27,7 @@ export const BlogListPagePC: React.FC<{
             <Spacer size={80} />
           </VStack>
         </main>
+        <Spacer size="grow" />
         <PCFooter footerLinks={footerLinks} />
       </Page>
     )
@@ -52,6 +53,7 @@ export const BlogListPagePC: React.FC<{
           <Spacer size={80} />
         </VStack>
       </main>
+      <Spacer size="grow" />
       <PCFooter footerLinks={footerLinks} />
     </Page>
   )
