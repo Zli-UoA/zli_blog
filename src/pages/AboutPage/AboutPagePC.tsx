@@ -1,28 +1,28 @@
 import { PCFooter } from '@/components/PCFooter'
 import { PCHeader } from '@/components/PCHeader'
-import { UserCard } from '@/components/UserCard'
 import { Image } from '@/utils/components/Image'
 import { MarkdownViewer } from '@/utils/components/MdViewer'
 import { Page } from '@/utils/components/Page'
 import { PageTitle } from '@/utils/components/PageTitle'
 import { Spacer } from '@/utils/components/Spacer'
 import { VStack } from '@/utils/components/Stack'
-import { BlogPageProps } from '.'
+import { FooterLink } from '.'
 
-export const BlogPagePC: React.FC<BlogPageProps> = ({
-  blog,
-  author,
-  footerLinks,
-}) => {
-  if (!blog || !author) {
+export const AboutPagePC: React.FC<{
+  about: string | undefined
+  footerLinks: FooterLink[]
+}> = ({ about, footerLinks }) => {
+  if (!about) {
     return (
-      <Page title="Blog">
+      <Page title="About">
         <PCHeader />
         <main>
           <VStack style={{ alignItems: 'center' }}>
-            <Spacer size={40} />
+            <Spacer size={32} />
+            <PageTitle>About</PageTitle>
+            <Spacer size={32} />
             now loading
-            <Spacer size={56} />
+            <Spacer size={80} />
           </VStack>
         </main>
         <Spacer size="grow" />
@@ -32,34 +32,25 @@ export const BlogPagePC: React.FC<BlogPageProps> = ({
   }
 
   return (
-    <Page title={blog.title}>
+    <Page title="About">
       <PCHeader />
       <main>
         <VStack style={{ alignItems: 'center' }}>
           <Spacer size={40} />
           <Image
-            src={blog.eyeCatchUrl}
+            src="/about/Logo.svg"
             alt="eyeCatch"
             style={{
               height: 270,
-              ratio: 'screen',
-              radius: 8,
+              border: 'none',
             }}
           />
           <Spacer size={32} />
-          <PageTitle>{blog.title}</PageTitle>
+          <PageTitle>About</PageTitle>
           <Spacer size={56} />
           <article>
-            <MarkdownViewer mdText={blog.mdText} />
+            <MarkdownViewer mdText={about} />
           </article>
-          <Spacer size={64} />
-          <UserCard
-            user={{
-              iconUrl: author.iconUrl,
-              name: author.id,
-              introduction: author.introduction,
-            }}
-          />
           <Spacer size={80} />
         </VStack>
       </main>
