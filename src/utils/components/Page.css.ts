@@ -6,6 +6,8 @@ export const page = style({
 })
 
 export const pageInner = style({
+  display: 'flex',
+  flexDirection: 'column',
   minHeight: '100vh',
   maxWidth: '730px',
   margin: 'auto',
