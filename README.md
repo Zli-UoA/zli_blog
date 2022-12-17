@@ -20,14 +20,14 @@
 
 ### 2. 自身をメンバーに追加（初回のみ）
 
-1. `/public/authors/list.json` に自分の id と displayName を追加する。id は a~z, A~Z, 0~9, -, \_のみでお願いします。
+1. `/public/authors/list.json` に自分の id と displayName を追加する。id は a\~z, A\~Z, 0\~9, -, \_のみでお願いします。
 2. `/public/authors`内に先ほど list に追加した id のディレクトリを作成する。
 3. 作成したディレクトリ内に、表示したいアイコンを`icon.png`で配置。
 4. 同ディレクトリ内に、自己紹介を`index.md`で配置
 
 ### 3. 記事を追加
 
-1. `/public/articles`内に a~z, A~Z, 0~9, -, \_のみを使った自分で識別できる名前のディレクトリを作成する。（例：zli_no_blog_wo_tukutta_hanashi）。
+1. `/public/articles`内に a\~z, A\~Z, 0\~9, -, \_のみを使った自分で識別できる名前のディレクトリを作成する。（例：zli_no_blog_wo_tukutta_hanashi）。
 2. 作成したディレクトリにアイキャッチを`eyeCatch.png`で配置。
 3. 同ディレクトリに、記事を`index.md`で配置
 
