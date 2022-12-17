@@ -13,7 +13,6 @@ export const AboutPageMobile: React.FC<{
   about: string | undefined
   footerLinks: FooterLink[]
 }> = ({ about, footerLinks }) => {
-  console.log(about)
   const drawer = useOpen()
 
   if (!about) {
