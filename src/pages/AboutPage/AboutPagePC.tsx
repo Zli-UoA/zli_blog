@@ -25,6 +25,7 @@ export const AboutPagePC: React.FC<{
             <Spacer size={80} />
           </VStack>
         </main>
+        <Spacer size="grow" />
         <PCFooter footerLinks={footerLinks} />
       </Page>
     )
@@ -41,8 +42,7 @@ export const AboutPagePC: React.FC<{
             alt="eyeCatch"
             style={{
               height: 270,
-              ratio: 'screen',
-              radius: 8,
+              border: 'none',
             }}
           />
           <Spacer size={32} />
@@ -54,6 +54,7 @@ export const AboutPagePC: React.FC<{
           <Spacer size={80} />
         </VStack>
       </main>
+      <Spacer size="grow" />
       <PCFooter footerLinks={footerLinks} />
     </Page>
   )

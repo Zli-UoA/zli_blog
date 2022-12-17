@@ -49,8 +49,7 @@ export const AboutPageMobile: React.FC<{
             alt="eyeCatch"
             style={{
               height: 270,
-              ratio: 'screen',
-              radius: 8,
+              border: 'none',
             }}
           />
           <Spacer size={32} />
