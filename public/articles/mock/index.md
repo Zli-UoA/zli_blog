@@ -1,5 +1,5 @@
 ---
-title: ここに記事タイトルを記入
+title: モック記事
 authorId: eraser5th
 tags: hoge fuga
 ---
@@ -8,23 +8,23 @@ tags: hoge fuga
 
 これはテスト用の記事です。
 
-## レベル2ヘディング
+## レベル 2 ヘディング
 
 hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge
 
-### レベル3ヘディング
+### レベル 3 ヘディング
 
 hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge
 
-#### レベル4ヘディング
+#### レベル 4 ヘディング
 
 hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge
 
-##### レベル5ヘディング
+##### レベル 5 ヘディング
 
 hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge
 
-###### レベル6ヘディング
+###### レベル 6 ヘディング
 
 hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge
 
@@ -36,11 +36,10 @@ hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge 
 - hoge
 
 ```javascript
-const hoge = () => {
-}
+const hoge = () => {}
 ```
 
-hoge hoge `hoge` hoge hoge ~~hoge~~ *hoge*
+hoge hoge `hoge` hoge hoge ~~hoge~~ _hoge_
 
 [hoge](https://twitter.com/eraser5th)
 
@@ -49,7 +48,7 @@ hoge hoge `hoge` hoge hoge ~~hoge~~ *hoge*
 hoge
 
 | hoge | hoge |
-| --- | --- |
+| ---- | ---- |
 | hoge | hoge |
 | hoge | hoge |
 | hoge | hoge |
