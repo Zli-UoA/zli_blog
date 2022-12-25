@@ -5,7 +5,6 @@ export const footer = style({
 })
 
 export const footerInner = style({
-  maxWidth: '730px',
-  margin: 'auto',
+  width: '100%',
   padding: '24px 0',
 })

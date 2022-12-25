@@ -9,6 +9,6 @@ export const pageInner = style({
   display: 'flex',
   flexDirection: 'column',
   minHeight: '100vh',
-  maxWidth: '730px',
+  maxWidth: '930px',
   margin: 'auto',
 })
