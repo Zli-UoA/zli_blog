@@ -1,8 +1,6 @@
 import { BlogCard } from '@/components/BlogCard'
 import { MobileDrawerMenu } from '@/components/MobileDrawerMenu'
 import { MobileHeader } from '@/components/MobileHeader'
-import { footerLinks } from '@/consts/footerLinks'
-import { BlogInfo } from '@/models/BlogInfo'
 import { ItemList } from '@/utils/components/ItemList'
 import { Page } from '@/utils/components/Page'
 import { PageTitle } from '@/utils/components/PageTitle'

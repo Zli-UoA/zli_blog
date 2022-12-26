@@ -1,6 +1,5 @@
 import { MobileDrawerMenu } from '@/components/MobileDrawerMenu'
 import { MobileHeader } from '@/components/MobileHeader'
-import { footerLinks } from '@/consts/footerLinks'
 import { Image } from '@/utils/components/Image'
 import { MarkdownViewer } from '@/utils/components/MdViewer'
 import { Page } from '@/utils/components/Page'
