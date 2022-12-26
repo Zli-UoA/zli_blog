@@ -3,7 +3,7 @@ export type FooterLink = {
   label: string
 }
 
-export const footerLinks: FooterLink[] = [
+export const footerLinks: readonly FooterLink[] = [
   { label: 'Twitter', url: 'https://twitter.com/zliofficial' },
   { label: 'Connpass', url: 'https://zli.connpass.com/' },
   { label: 'Qiita', url: 'https://qiita.com/organizations/zli' },
