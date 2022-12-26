@@ -1,7 +1,7 @@
 import { PCFooter } from '@/components/PCFooter'
 import { PCHeader } from '@/components/PCHeader'
 import { Image } from '@/utils/components/Image'
-import { MarkdownViewer } from '@/utils/components/MdViewer'
+import { MarkdownViewer } from '@/utils/components/MarkdownViewer'
 import { Page } from '@/utils/components/Page'
 import { PageTitle } from '@/utils/components/PageTitle'
 import { Spacer } from '@/utils/components/Spacer'
