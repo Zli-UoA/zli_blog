@@ -1,6 +1,7 @@
 import { PCFooter } from '@/components/PCFooter'
 import { PCHeader } from '@/components/PCHeader'
 import { UserCard } from '@/components/UserCard'
+import { footerLinks } from '@/consts/footerLinks'
 import { Image } from '@/utils/components/Image'
 import { MarkdownViewer } from '@/utils/components/MdViewer'
 import { Page } from '@/utils/components/Page'
@@ -9,11 +10,7 @@ import { Spacer } from '@/utils/components/Spacer'
 import { VStack } from '@/utils/components/Stack'
 import { BlogPageProps } from '.'
 
-export const BlogPagePC: React.FC<BlogPageProps> = ({
-  blog,
-  author,
-  footerLinks,
-}) => {
+export const BlogPagePC: React.FC<BlogPageProps> = ({ blog, author }) => {
   if (!blog || !author) {
     return (
       <Page title="Blog">

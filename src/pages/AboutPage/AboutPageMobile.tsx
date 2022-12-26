@@ -1,5 +1,6 @@
 import { MobileDrawerMenu } from '@/components/MobileDrawerMenu'
 import { MobileHeader } from '@/components/MobileHeader'
+import { footerLinks } from '@/consts/footerLinks'
 import { Image } from '@/utils/components/Image'
 import { MarkdownViewer } from '@/utils/components/MdViewer'
 import { Page } from '@/utils/components/Page'
@@ -7,12 +8,9 @@ import { PageTitle } from '@/utils/components/PageTitle'
 import { Spacer } from '@/utils/components/Spacer'
 import { VStack } from '@/utils/components/Stack'
 import { useOpen } from '@/utils/hooks/useOpen'
-import { FooterLink } from '.'
+import { AboutPageProps } from '.'
 
-export const AboutPageMobile: React.FC<{
-  about: string | undefined
-  footerLinks: FooterLink[]
-}> = ({ about, footerLinks }) => {
+export const AboutPageMobile: React.FC<AboutPageProps> = ({ about }) => {
   const drawer = useOpen()
 
   if (!about) {

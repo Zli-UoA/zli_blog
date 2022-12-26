@@ -1,6 +1,7 @@
 import { BlogCard } from '@/components/BlogCard'
 import { MobileDrawerMenu } from '@/components/MobileDrawerMenu'
 import { MobileHeader } from '@/components/MobileHeader'
+import { footerLinks } from '@/consts/footerLinks'
 import { BlogInfo } from '@/models/BlogInfo'
 import { ItemList } from '@/utils/components/ItemList'
 import { Page } from '@/utils/components/Page'
@@ -8,12 +9,9 @@ import { PageTitle } from '@/utils/components/PageTitle'
 import { Spacer } from '@/utils/components/Spacer'
 import { VStack } from '@/utils/components/Stack'
 import { useOpen } from '@/utils/hooks/useOpen'
-import { FooterLink } from '.'
+import { BlogListPageProps } from '.'
 
-export const BlogListPageMobile: React.FC<{
-  blogs: BlogInfo[] | undefined
-  footerLinks: FooterLink[]
-}> = ({ blogs, footerLinks }) => {
+export const BlogListPageMobile: React.FC<BlogListPageProps> = ({ blogs }) => {
   const drawer = useOpen(false)
 
   if (!blogs) {

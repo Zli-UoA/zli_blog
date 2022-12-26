@@ -8,12 +8,10 @@ import { Page } from '@/utils/components/Page'
 import { PageTitle } from '@/utils/components/PageTitle'
 import { Spacer } from '@/utils/components/Spacer'
 import { VStack } from '@/utils/components/Stack'
-import { FooterLink } from '.'
+import { footerLinks } from '@/consts/footerLinks'
+import { BlogListPageProps } from '.'
 
-export const BlogListPagePC: React.FC<{
-  blogs: BlogInfo[] | undefined
-  footerLinks: FooterLink[]
-}> = ({ blogs, footerLinks }) => {
+export const BlogListPagePC: React.FC<BlogListPageProps> = ({ blogs }) => {
   if (!blogs) {
     return (
       <Page title="Blog">

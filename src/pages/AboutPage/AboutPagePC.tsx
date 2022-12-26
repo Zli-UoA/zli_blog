@@ -1,17 +1,15 @@
 import { PCFooter } from '@/components/PCFooter'
 import { PCHeader } from '@/components/PCHeader'
+import { footerLinks } from '@/consts/footerLinks'
 import { Image } from '@/utils/components/Image'
 import { MarkdownViewer } from '@/utils/components/MdViewer'
 import { Page } from '@/utils/components/Page'
 import { PageTitle } from '@/utils/components/PageTitle'
 import { Spacer } from '@/utils/components/Spacer'
 import { VStack } from '@/utils/components/Stack'
-import { FooterLink } from '.'
+import { AboutPageProps } from '.'
 
-export const AboutPagePC: React.FC<{
-  about: string | undefined
-  footerLinks: FooterLink[]
-}> = ({ about, footerLinks }) => {
+export const AboutPagePC: React.FC<AboutPageProps> = ({ about }) => {
   if (!about) {
     return (
       <Page title="About">

@@ -1,6 +1,7 @@
 import { MobileDrawerMenu } from '@/components/MobileDrawerMenu'
 import { MobileHeader } from '@/components/MobileHeader'
 import { UserCard } from '@/components/UserCard'
+import { footerLinks } from '@/consts/footerLinks'
 import { Image } from '@/utils/components/Image'
 import { MarkdownViewer } from '@/utils/components/MdViewer'
 import { Page } from '@/utils/components/Page'
@@ -10,11 +11,7 @@ import { VStack } from '@/utils/components/Stack'
 import { useOpen } from '@/utils/hooks/useOpen'
 import { BlogPageProps } from '.'
 
-export const BlogPageMobile: React.FC<BlogPageProps> = ({
-  blog,
-  author,
-  footerLinks,
-}) => {
+export const BlogPageMobile: React.FC<BlogPageProps> = ({ blog, author }) => {
   const drawer = useOpen()
 
   if (!blog || !author) {

@@ -5,17 +5,9 @@ import { useMobile } from '@/utils/hooks/useMobile'
 import { BlogListPageMobile } from './BlogListPageMobile'
 import { BlogListPagePC } from './BlogListPagePC'
 
-export type FooterLink = {
-  url: string
-  label: string
+export type BlogListPageProps = {
+  blogs: BlogInfo[] | undefined
 }
-
-const footerLinks = [
-  { label: 'Twitter', url: 'https://twitter.com/zliofficial' },
-  { label: 'Connpass', url: 'https://zli.connpass.com/' },
-  { label: 'Qiita', url: 'https://qiita.com/organizations/zli' },
-  { label: 'GitHub', url: 'https://github.com/zli-UoA' },
-]
 
 const useBlogListPage = (): {
   data?: BlogInfo[]
@@ -46,8 +38,8 @@ export const BlogListPage: React.FC = () => {
   const { data } = useBlogListPage()
 
   if (isMobile) {
-    return <BlogListPageMobile blogs={data} footerLinks={footerLinks} />
+    return <BlogListPageMobile blogs={data} />
   }
 
-  return <BlogListPagePC blogs={data} footerLinks={footerLinks} />
+  return <BlogListPagePC blogs={data} />
 }

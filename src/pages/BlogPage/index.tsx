@@ -7,23 +7,11 @@ import { Blog } from '@/models/Blog'
 import { useMobile } from '@/utils/hooks/useMobile'
 import { BlogPageMobile } from './BlogPageMobile'
 import { BlogPagePC } from './BlogPagePC'
-
-export type FooterLink = {
-  url: string
-  label: string
-}
-
-const footerLinks = [
-  { label: 'Twitter', url: 'https://twitter.com/zliofficial' },
-  { label: 'Connpass', url: 'https://zli.connpass.com/' },
-  { label: 'Qiita', url: 'https://qiita.com/organizations/zli' },
-  { label: 'GitHub', url: 'https://github.com/zli-UoA' },
-]
+import { FooterLink } from '@/consts/footerLinks'
 
 export type BlogPageProps = {
   blog: Blog | undefined
   author: Author | undefined
-  footerLinks: FooterLink[]
 }
 
 const useBlogPage = (): {
@@ -61,8 +49,8 @@ const useBlogPage = (): {
   }, [blog])
 
   return {
-    blog: blog,
-    author: author,
+    blog,
+    author,
     loading,
   }
 }
@@ -73,10 +61,8 @@ export const BlogPage: React.FC = () => {
   const { blog, author } = useBlogPage()
 
   if (isMobile) {
-    return (
-      <BlogPageMobile blog={blog} author={author} footerLinks={footerLinks} />
-    )
+    return <BlogPageMobile blog={blog} author={author} />
   }
 
-  return <BlogPagePC blog={blog} author={author} footerLinks={footerLinks} />
+  return <BlogPagePC blog={blog} author={author} />
 }
