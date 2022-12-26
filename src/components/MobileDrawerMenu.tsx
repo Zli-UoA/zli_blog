@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { ReactComponent as CloseIcon } from '@/assets/Close.svg'
 import { ReactComponent as Logo } from '@/assets/Logo.svg'
 import { footerLinks } from '@/consts/footerLinks'
-import { routes } from '@/Router'
+import { isInBlog, isInAbout, routes } from '@/Router'
 import { AdditionalInformation } from '@/utils/components/AdditionalInformation'
 import { Drawer } from '@/utils/components/Drawer'
 import { ExternalLink } from '@/utils/components/ExternalLink'
@@ -16,6 +16,8 @@ export const MobileDrawerMenu: React.FC<{
   isOpen: boolean
   close: () => void
 }> = ({ isOpen, close }) => {
+  const { pathname } = useLocation()
+
   return (
     <Drawer isOpen={isOpen} close={close}>
       <VStack fill>
@@ -33,11 +35,13 @@ export const MobileDrawerMenu: React.FC<{
         <VStack style={{ justifyContent: 'between' }} fill>
           <nav>
             <VStack style={{ gap: 12, alignItems: 'start' }}>
-              <NavigationLink to={routes.BLOG_LIST} active>
+              <NavigationLink to={routes.BLOG_LIST} active={isInBlog(pathname)}>
                 Blog
               </NavigationLink>
               <NavigationLink to="/">Member</NavigationLink>
-              <NavigationLink to={routes.ABOUT}>About</NavigationLink>
+              <NavigationLink to={routes.ABOUT} active={isInAbout(pathname)}>
+                About
+              </NavigationLink>
             </VStack>
           </nav>
           <Footer>
