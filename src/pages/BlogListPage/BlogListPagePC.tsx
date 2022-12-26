@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { BlogCard } from '@/components/BlogCard'
+import { ArticleCard } from '@/components/BlogCard'
 import { PCFooter } from '@/components/PCFooter'
 import { PCHeader } from '@/components/PCHeader'
 import { ItemList } from '@/utils/components/ItemList'
@@ -41,7 +41,7 @@ export const BlogListPagePC: React.FC<BlogListPageProps> = ({ articles }) => {
             {articles.map((article, i) => {
               return (
                 <Link to={article.dirName} key={i}>
-                  <BlogCard article={article} />
+                  <ArticleCard article={article} />
                 </Link>
               )
             })}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { getArticle } from '@/api/getArticle'
 import { getAuthorById } from '@/api/getAuthorById'
-import { getBlog } from '@/api/getBlog'
 import { Article } from '@/models/Article'
 import { Author } from '@/models/Author'
 import { useMobile } from '@/utils/hooks/useMobile'
@@ -26,7 +26,7 @@ const useBlogPage = (): {
   useEffect(() => {
     const fetcher = async (blogName: string): Promise<void> => {
       setLoading(true)
-      setBlog(await getBlog(blogName))
+      setBlog(await getArticle(blogName))
       setLoading(false)
     }
 

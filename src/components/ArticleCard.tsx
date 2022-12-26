@@ -1,9 +1,9 @@
 import { ArticleInfo } from '@/models/ArticleInfo'
 import { Image } from '@/utils/components/Image'
 import { HStack, VStack } from '@/utils/components/Stack'
-import { authorName, title } from './BlogCard.css'
+import { authorName, title } from './ArticleCard.css'
 
-export const BlogCard: React.FC<{
+export const ArticleCard: React.FC<{
   article: ArticleInfo
 }> = ({ article }) => {
   return (

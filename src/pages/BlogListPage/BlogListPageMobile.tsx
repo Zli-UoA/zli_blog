@@ -1,4 +1,4 @@
-import { BlogCard } from '@/components/BlogCard'
+import { ArticleCard } from '@/components/BlogCard'
 import { MobileDrawerMenu } from '@/components/MobileDrawerMenu'
 import { MobileHeader } from '@/components/MobileHeader'
 import { ItemList } from '@/utils/components/ItemList'
@@ -42,7 +42,7 @@ export const BlogListPageMobile: React.FC<BlogListPageProps> = ({
           <Spacer size={40} />
           <ItemList>
             {articles.map((article, i) => {
-              return <BlogCard article={article} key={i} />
+              return <ArticleCard article={article} key={i} />
             })}
           </ItemList>
           <Spacer size={80} />

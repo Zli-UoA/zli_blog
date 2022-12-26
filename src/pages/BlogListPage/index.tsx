@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getBlogInfoList } from '@/api/getBlogInfoList'
+import { getArticleInfoList } from '@/api/getArticleInfo'
 import { ArticleInfo } from '@/models/ArticleInfo'
 import { useMobile } from '@/utils/hooks/useMobile'
 import { BlogListPageMobile } from './BlogListPageMobile'
@@ -19,7 +19,7 @@ const useBlogListPage = (): {
   useEffect(() => {
     const fetcher = async (): Promise<void> => {
       setLoading(true)
-      setData(await getBlogInfoList())
+      setData(await getArticleInfoList())
       setLoading(false)
     }
 

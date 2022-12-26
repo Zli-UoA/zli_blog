@@ -1,12 +1,12 @@
 import { Article } from '@/models/Article'
 import { getMarkdownBody, getMarkdownMetaData } from '@/utils/lib/markdown'
 
-export const getBlog = async (blogName: string): Promise<Article> => {
-  const res = await fetch('/articles/' + blogName + '/index.md')
-  return createBlog(blogName, await res.text())
+export const getArticle = async (articleName: string): Promise<Article> => {
+  const res = await fetch('/articles/' + articleName + '/index.md')
+  return createArticle(articleName, await res.text())
 }
 
-const createBlog = (blogName: string, md: string): Article => {
+const createArticle = (articleName: string, md: string): Article => {
   const metaData = getMarkdownMetaData<{
     authorId: [string]
     title: [string]
@@ -17,7 +17,7 @@ const createBlog = (blogName: string, md: string): Article => {
     authorId: metaData.authorId ? metaData.authorId[0] : '',
     title: metaData.title ? metaData.title[0] : '',
     tags: metaData.tags ? metaData.tags : [],
-    eyeCatchUrl: '/articles/' + blogName + '/eyeCatch.png',
+    eyeCatchUrl: '/articles/' + articleName + '/eyeCatch.png',
     mdText: getMarkdownBody(md),
   }
 }
