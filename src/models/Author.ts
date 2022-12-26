@@ -1,4 +1,4 @@
-export interface Author {
+export type Author = {
   id: string
   iconUrl: string
   introduction: string

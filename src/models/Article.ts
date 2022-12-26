@@ -1,4 +1,4 @@
-export interface Article {
+export type Article = {
   authorId: string
   title: string
   eyeCatchUrl: string
