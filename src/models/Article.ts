@@ -1,4 +1,4 @@
-export interface Blog {
+export interface Article {
   authorId: string
   title: string
   eyeCatchUrl: string

@@ -9,10 +9,12 @@ import { VStack } from '@/utils/components/Stack'
 import { useOpen } from '@/utils/hooks/useOpen'
 import { BlogListPageProps } from '.'
 
-export const BlogListPageMobile: React.FC<BlogListPageProps> = ({ blogs }) => {
+export const BlogListPageMobile: React.FC<BlogListPageProps> = ({
+  articles,
+}) => {
   const drawer = useOpen(false)
 
-  if (!blogs) {
+  if (!articles) {
     return (
       <Page title="Blog">
         <MobileHeader onClickMenuIcon={drawer.open} />
@@ -39,8 +41,8 @@ export const BlogListPageMobile: React.FC<BlogListPageProps> = ({ blogs }) => {
           <PageTitle>Blog</PageTitle>
           <Spacer size={40} />
           <ItemList>
-            {blogs.map((blog, i) => {
-              return <BlogCard blog={blog} key={i} />
+            {articles.map((article, i) => {
+              return <BlogCard article={article} key={i} />
             })}
           </ItemList>
           <Spacer size={80} />

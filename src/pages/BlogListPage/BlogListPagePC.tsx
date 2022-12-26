@@ -9,8 +9,8 @@ import { Spacer } from '@/utils/components/Spacer'
 import { VStack } from '@/utils/components/Stack'
 import { BlogListPageProps } from '.'
 
-export const BlogListPagePC: React.FC<BlogListPageProps> = ({ blogs }) => {
-  if (!blogs) {
+export const BlogListPagePC: React.FC<BlogListPageProps> = ({ articles }) => {
+  if (!articles) {
     return (
       <Page title="Blog">
         <PCHeader />
@@ -38,10 +38,10 @@ export const BlogListPagePC: React.FC<BlogListPageProps> = ({ blogs }) => {
           <PageTitle>Blog</PageTitle>
           <Spacer size={32} />
           <ItemList>
-            {blogs.map((blog, i) => {
+            {articles.map((article, i) => {
               return (
-                <Link to={blog.dirName} key={i}>
-                  <BlogCard blog={blog} />
+                <Link to={article.dirName} key={i}>
+                  <BlogCard article={article} />
                 </Link>
               )
             })}

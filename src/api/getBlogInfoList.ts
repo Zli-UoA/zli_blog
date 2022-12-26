@@ -1,9 +1,9 @@
-import { BlogInfo } from '@/models/BlogInfo'
+import { ArticleInfo } from '@/models/ArticleInfo'
 
-export const getBlogInfoList = async (): Promise<BlogInfo[]> => {
+export const getBlogInfoList = async (): Promise<ArticleInfo[]> => {
   const res = await fetch('/articles/list.json')
   const data = (await res.json()) as {
-    articles: BlogInfo[]
+    articles: ArticleInfo[]
   }
 
   return data.articles

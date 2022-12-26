@@ -2,23 +2,23 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getAuthorById } from '@/api/getAuthorById'
 import { getBlog } from '@/api/getBlog'
+import { Article } from '@/models/Article'
 import { Author } from '@/models/Author'
-import { Blog } from '@/models/Blog'
 import { useMobile } from '@/utils/hooks/useMobile'
 import { BlogPageMobile } from './BlogPageMobile'
 import { BlogPagePC } from './BlogPagePC'
 
 export type BlogPageProps = {
-  blog: Blog | undefined
+  blog: Article | undefined
   author: Author | undefined
 }
 
 const useBlogPage = (): {
-  blog: Blog | undefined
+  blog: Article | undefined
   author: Author | undefined
   loading: boolean
 } => {
-  const [blog, setBlog] = useState<Blog>()
+  const [blog, setBlog] = useState<Article>()
   const [author, setAuthor] = useState<Author>()
   const [loading, setLoading] = useState(false)
   const { blogName } = useParams()
