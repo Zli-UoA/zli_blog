@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom'
 import { BlogCard } from '@/components/BlogCard'
 import { PCFooter } from '@/components/PCFooter'
 import { PCHeader } from '@/components/PCHeader'
+import { footerLinks } from '@/consts/footerLinks'
 import { BlogInfo } from '@/models/BlogInfo'
 import { ItemList } from '@/utils/components/ItemList'
 import { Page } from '@/utils/components/Page'
 import { PageTitle } from '@/utils/components/PageTitle'
 import { Spacer } from '@/utils/components/Spacer'
 import { VStack } from '@/utils/components/Stack'
-import { footerLinks } from '@/consts/footerLinks'
 import { BlogListPageProps } from '.'
 
 export const BlogListPagePC: React.FC<BlogListPageProps> = ({ blogs }) => {
@@ -26,7 +26,7 @@ export const BlogListPagePC: React.FC<BlogListPageProps> = ({ blogs }) => {
           </VStack>
         </main>
         <Spacer size="grow" />
-        <PCFooter footerLinks={footerLinks} />
+        <PCFooter />
       </Page>
     )
   }
@@ -52,7 +52,7 @@ export const BlogListPagePC: React.FC<BlogListPageProps> = ({ blogs }) => {
         </VStack>
       </main>
       <Spacer size="grow" />
-      <PCFooter footerLinks={footerLinks} />
+      <PCFooter />
     </Page>
   )
 }

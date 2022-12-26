@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getAuthorById } from '@/api/getAuthorById'
 import { getBlog } from '@/api/getBlog'
+import { FooterLink } from '@/consts/footerLinks'
 import { Author } from '@/models/Author'
 import { Blog } from '@/models/Blog'
 import { useMobile } from '@/utils/hooks/useMobile'
 import { BlogPageMobile } from './BlogPageMobile'
 import { BlogPagePC } from './BlogPagePC'
-import { FooterLink } from '@/consts/footerLinks'
 
 export type BlogPageProps = {
   blog: Blog | undefined

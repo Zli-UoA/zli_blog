@@ -23,7 +23,7 @@ export const BlogPagePC: React.FC<BlogPageProps> = ({ blog, author }) => {
           </VStack>
         </main>
         <Spacer size="grow" />
-        <PCFooter footerLinks={footerLinks} />
+        <PCFooter />
       </Page>
     )
   }
@@ -61,7 +61,7 @@ export const BlogPagePC: React.FC<BlogPageProps> = ({ blog, author }) => {
         </VStack>
       </main>
       <Spacer size="grow" />
-      <PCFooter footerLinks={footerLinks} />
+      <PCFooter />
     </Page>
   )
 }

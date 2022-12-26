@@ -1,13 +1,11 @@
 import { ReactComponent as Logo } from '@/assets/Logo.svg'
-import { FooterLink } from '@/pages/BlogListPage'
+import { footerLinks } from '@/consts/footerLinks'
 import { AdditionalInformation } from '@/utils/components/AdditionalInformation'
 import { ExternalLink } from '@/utils/components/ExternalLink'
 import { Footer } from '@/utils/components/Footer'
 import { HStack, VStack } from '@/utils/components/Stack'
 
-export const PCFooter: React.FC<{
-  footerLinks: FooterLink[]
-}> = ({ footerLinks }) => {
+export const PCFooter: React.FC = () => {
   return (
     <Footer>
       <HStack style={{ justifyContent: 'between' }}>

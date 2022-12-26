@@ -10,12 +10,12 @@ import { Header } from '@/utils/components/Header'
 import { NavigationLink } from '@/utils/components/NavigationLink'
 import { Spacer } from '@/utils/components/Spacer'
 import { HStack, VStack } from '@/utils/components/Stack'
+import { footerLinks } from '@/consts/footerLinks'
 
 export const MobileDrawerMenu: React.FC<{
   isOpen: boolean
   close: () => void
-  footerLinks: { label: string; url: string }[]
-}> = ({ isOpen, close, footerLinks }) => {
+}> = ({ isOpen, close }) => {
   return (
     <Drawer isOpen={isOpen} close={close}>
       <VStack fill>

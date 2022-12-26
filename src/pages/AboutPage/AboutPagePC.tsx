@@ -24,7 +24,7 @@ export const AboutPagePC: React.FC<AboutPageProps> = ({ about }) => {
           </VStack>
         </main>
         <Spacer size="grow" />
-        <PCFooter footerLinks={footerLinks} />
+        <PCFooter />
       </Page>
     )
   }
@@ -53,7 +53,7 @@ export const AboutPagePC: React.FC<AboutPageProps> = ({ about }) => {
         </VStack>
       </main>
       <Spacer size="grow" />
-      <PCFooter footerLinks={footerLinks} />
+      <PCFooter />
     </Page>
   )
 }

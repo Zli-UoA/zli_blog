@@ -27,11 +27,7 @@ export const BlogListPageMobile: React.FC<BlogListPageProps> = ({ blogs }) => {
             <Spacer size={80} />
           </VStack>
         </main>
-        <MobileDrawerMenu
-          isOpen={drawer.isOpen}
-          close={drawer.close}
-          footerLinks={footerLinks}
-        />
+        <MobileDrawerMenu isOpen={drawer.isOpen} close={drawer.close} />
       </Page>
     )
   }
@@ -52,11 +48,7 @@ export const BlogListPageMobile: React.FC<BlogListPageProps> = ({ blogs }) => {
           <Spacer size={80} />
         </VStack>
       </main>
-      <MobileDrawerMenu
-        isOpen={drawer.isOpen}
-        close={drawer.close}
-        footerLinks={footerLinks}
-      />
+      <MobileDrawerMenu isOpen={drawer.isOpen} close={drawer.close} />
     </Page>
   )
 }
