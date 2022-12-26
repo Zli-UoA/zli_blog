@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ReactComponent as CloseIcon } from '@/assets/Close.svg'
 import { ReactComponent as Logo } from '@/assets/Logo.svg'
+import { footerLinks } from '@/consts/footerLinks'
 import { routes } from '@/Router'
 import { AdditionalInformation } from '@/utils/components/AdditionalInformation'
 import { Drawer } from '@/utils/components/Drawer'
@@ -10,7 +11,6 @@ import { Header } from '@/utils/components/Header'
 import { NavigationLink } from '@/utils/components/NavigationLink'
 import { Spacer } from '@/utils/components/Spacer'
 import { HStack, VStack } from '@/utils/components/Stack'
-import { footerLinks } from '@/consts/footerLinks'
 
 export const MobileDrawerMenu: React.FC<{
   isOpen: boolean
