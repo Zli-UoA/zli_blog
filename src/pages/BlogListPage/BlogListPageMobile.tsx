@@ -1,4 +1,4 @@
-import { ArticleCard } from '@/components/BlogCard'
+import { ArticleCard } from '@/components/ArticleCard'
 import { MobileDrawerMenu } from '@/components/MobileDrawerMenu'
 import { MobileHeader } from '@/components/MobileHeader'
 import { ItemList } from '@/utils/components/ItemList'

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArticleCard } from '@/components/BlogCard'
+import { ArticleCard } from '@/components/ArticleCard'
 import { PCFooter } from '@/components/PCFooter'
 import { PCHeader } from '@/components/PCHeader'
 import { ItemList } from '@/utils/components/ItemList'
