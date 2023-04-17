@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
+import { createHashRouter, Navigate, RouterProvider } from 'react-router-dom'
 import { AboutPage } from './pages/AboutPage'
 import { BlogListPage } from './pages/BlogListPage'
 import { BlogPage } from './pages/BlogPage'
@@ -9,7 +9,7 @@ export enum routes {
   ABOUT = '/about',
 }
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <Navigate to={routes.BLOG_LIST} />,
