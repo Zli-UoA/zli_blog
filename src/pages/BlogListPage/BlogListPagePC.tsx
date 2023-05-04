@@ -1,20 +1,16 @@
 import { Link } from 'react-router-dom'
-import { BlogCard } from '@/components/BlogCard'
+import { ArticleCard } from '@/components/ArticleCard'
 import { PCFooter } from '@/components/PCFooter'
 import { PCHeader } from '@/components/PCHeader'
-import { BlogInfo } from '@/models/BlogInfo'
 import { ItemList } from '@/utils/components/ItemList'
 import { Page } from '@/utils/components/Page'
 import { PageTitle } from '@/utils/components/PageTitle'
 import { Spacer } from '@/utils/components/Spacer'
 import { VStack } from '@/utils/components/Stack'
-import { FooterLink } from '.'
+import { BlogListPageProps } from '.'
 
-export const BlogListPagePC: React.FC<{
-  blogs: BlogInfo[] | undefined
-  footerLinks: FooterLink[]
-}> = ({ blogs, footerLinks }) => {
-  if (!blogs) {
+export const BlogListPagePC: React.FC<BlogListPageProps> = ({ articles }) => {
+  if (!articles) {
     return (
       <Page title="Blog">
         <PCHeader />
@@ -28,7 +24,7 @@ export const BlogListPagePC: React.FC<{
           </VStack>
         </main>
         <Spacer size="grow" />
-        <PCFooter footerLinks={footerLinks} />
+        <PCFooter />
       </Page>
     )
   }
@@ -42,10 +38,10 @@ export const BlogListPagePC: React.FC<{
           <PageTitle>Blog</PageTitle>
           <Spacer size={32} />
           <ItemList>
-            {blogs.map((blog, i) => {
+            {articles.map((article, i) => {
               return (
-                <Link to={blog.dirName} key={i}>
-                  <BlogCard blog={blog} />
+                <Link to={article.dirName} key={i}>
+                  <ArticleCard article={article} />
                 </Link>
               )
             })}
@@ -54,7 +50,7 @@ export const BlogListPagePC: React.FC<{
         </VStack>
       </main>
       <Spacer size="grow" />
-      <PCFooter footerLinks={footerLinks} />
+      <PCFooter />
     </Page>
   )
 }

@@ -16,7 +16,7 @@ export const PCHeader: React.FC = () => {
           alignItems: 'center',
         }}
       >
-        <Link to="/">
+        <Link style={{ height: '32px' }} to="/">
           <Logo />
         </Link>
         <nav>

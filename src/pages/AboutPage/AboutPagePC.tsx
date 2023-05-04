@@ -1,17 +1,14 @@
 import { PCFooter } from '@/components/PCFooter'
 import { PCHeader } from '@/components/PCHeader'
 import { Image } from '@/utils/components/Image'
-import { MarkdownViewer } from '@/utils/components/MdViewer'
+import { MarkdownViewer } from '@/utils/components/MarkdownViewer'
 import { Page } from '@/utils/components/Page'
 import { PageTitle } from '@/utils/components/PageTitle'
 import { Spacer } from '@/utils/components/Spacer'
 import { VStack } from '@/utils/components/Stack'
-import { FooterLink } from '.'
+import { AboutPageProps } from '.'
 
-export const AboutPagePC: React.FC<{
-  about: string | undefined
-  footerLinks: FooterLink[]
-}> = ({ about, footerLinks }) => {
+export const AboutPagePC: React.FC<AboutPageProps> = ({ about }) => {
   if (!about) {
     return (
       <Page title="About">
@@ -26,7 +23,7 @@ export const AboutPagePC: React.FC<{
           </VStack>
         </main>
         <Spacer size="grow" />
-        <PCFooter footerLinks={footerLinks} />
+        <PCFooter />
       </Page>
     )
   }
@@ -55,7 +52,7 @@ export const AboutPagePC: React.FC<{
         </VStack>
       </main>
       <Spacer size="grow" />
-      <PCFooter footerLinks={footerLinks} />
+      <PCFooter />
     </Page>
   )
 }

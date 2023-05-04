@@ -2,7 +2,7 @@ import { MobileDrawerMenu } from '@/components/MobileDrawerMenu'
 import { MobileHeader } from '@/components/MobileHeader'
 import { UserCard } from '@/components/UserCard'
 import { Image } from '@/utils/components/Image'
-import { MarkdownViewer } from '@/utils/components/MdViewer'
+import { MarkdownViewer } from '@/utils/components/MarkdownViewer'
 import { Page } from '@/utils/components/Page'
 import { PageTitle } from '@/utils/components/PageTitle'
 import { Spacer } from '@/utils/components/Spacer'
@@ -10,11 +10,7 @@ import { VStack } from '@/utils/components/Stack'
 import { useOpen } from '@/utils/hooks/useOpen'
 import { BlogPageProps } from '.'
 
-export const BlogPageMobile: React.FC<BlogPageProps> = ({
-  blog,
-  author,
-  footerLinks,
-}) => {
+export const BlogPageMobile: React.FC<BlogPageProps> = ({ blog, author }) => {
   const drawer = useOpen()
 
   if (!blog || !author) {
@@ -28,11 +24,7 @@ export const BlogPageMobile: React.FC<BlogPageProps> = ({
             <Spacer size={56} />
           </VStack>
         </main>
-        <MobileDrawerMenu
-          isOpen={drawer.isOpen}
-          close={drawer.close}
-          footerLinks={footerLinks}
-        />
+        <MobileDrawerMenu isOpen={drawer.isOpen} close={drawer.close} />
       </Page>
     )
   }
@@ -69,11 +61,7 @@ export const BlogPageMobile: React.FC<BlogPageProps> = ({
           <Spacer size={80} />
         </VStack>
       </main>
-      <MobileDrawerMenu
-        isOpen={drawer.isOpen}
-        close={drawer.close}
-        footerLinks={footerLinks}
-      />
+      <MobileDrawerMenu isOpen={drawer.isOpen} close={drawer.close} />
     </Page>
   )
 }

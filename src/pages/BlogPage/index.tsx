@@ -1,37 +1,24 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { getArticle } from '@/api/getArticle'
 import { getAuthorById } from '@/api/getAuthorById'
-import { getBlog } from '@/api/getBlog'
+import { Article } from '@/models/Article'
 import { Author } from '@/models/Author'
-import { Blog } from '@/models/Blog'
 import { useMobile } from '@/utils/hooks/useMobile'
 import { BlogPageMobile } from './BlogPageMobile'
 import { BlogPagePC } from './BlogPagePC'
 
-export type FooterLink = {
-  url: string
-  label: string
-}
-
-const footerLinks = [
-  { label: 'Twitter', url: 'https://twitter.com/zliofficial' },
-  { label: 'Connpass', url: 'https://zli.connpass.com/' },
-  { label: 'Qiita', url: 'https://qiita.com/organizations/zli' },
-  { label: 'GitHub', url: 'https://github.com/zli-UoA' },
-]
-
 export type BlogPageProps = {
-  blog: Blog | undefined
+  blog: Article | undefined
   author: Author | undefined
-  footerLinks: FooterLink[]
 }
 
 const useBlogPage = (): {
-  blog: Blog | undefined
+  blog: Article | undefined
   author: Author | undefined
   loading: boolean
 } => {
-  const [blog, setBlog] = useState<Blog>()
+  const [blog, setBlog] = useState<Article>()
   const [author, setAuthor] = useState<Author>()
   const [loading, setLoading] = useState(false)
   const { blogName } = useParams()
@@ -39,7 +26,7 @@ const useBlogPage = (): {
   useEffect(() => {
     const fetcher = async (blogName: string): Promise<void> => {
       setLoading(true)
-      setBlog(await getBlog(blogName))
+      setBlog(await getArticle(blogName))
       setLoading(false)
     }
 
@@ -61,8 +48,8 @@ const useBlogPage = (): {
   }, [blog])
 
   return {
-    blog: blog,
-    author: author,
+    blog,
+    author,
     loading,
   }
 }
@@ -73,10 +60,8 @@ export const BlogPage: React.FC = () => {
   const { blog, author } = useBlogPage()
 
   if (isMobile) {
-    return (
-      <BlogPageMobile blog={blog} author={author} footerLinks={footerLinks} />
-    )
+    return <BlogPageMobile blog={blog} author={author} />
   }
 
-  return <BlogPagePC blog={blog} author={author} footerLinks={footerLinks} />
+  return <BlogPagePC blog={blog} author={author} />
 }

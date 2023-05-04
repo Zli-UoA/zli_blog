@@ -1,18 +1,15 @@
 import { MobileDrawerMenu } from '@/components/MobileDrawerMenu'
 import { MobileHeader } from '@/components/MobileHeader'
 import { Image } from '@/utils/components/Image'
-import { MarkdownViewer } from '@/utils/components/MdViewer'
+import { MarkdownViewer } from '@/utils/components/MarkdownViewer'
 import { Page } from '@/utils/components/Page'
 import { PageTitle } from '@/utils/components/PageTitle'
 import { Spacer } from '@/utils/components/Spacer'
 import { VStack } from '@/utils/components/Stack'
 import { useOpen } from '@/utils/hooks/useOpen'
-import { FooterLink } from '.'
+import { AboutPageProps } from '.'
 
-export const AboutPageMobile: React.FC<{
-  about: string | undefined
-  footerLinks: FooterLink[]
-}> = ({ about, footerLinks }) => {
+export const AboutPageMobile: React.FC<AboutPageProps> = ({ about }) => {
   const drawer = useOpen()
 
   if (!about) {
@@ -28,11 +25,7 @@ export const AboutPageMobile: React.FC<{
             <Spacer size={80} />
           </VStack>
         </main>
-        <MobileDrawerMenu
-          isOpen={drawer.isOpen}
-          close={drawer.close}
-          footerLinks={footerLinks}
-        />
+        <MobileDrawerMenu isOpen={drawer.isOpen} close={drawer.close} />
       </Page>
     )
   }
@@ -60,11 +53,7 @@ export const AboutPageMobile: React.FC<{
           <Spacer size={80} />
         </VStack>
       </main>
-      <MobileDrawerMenu
-        isOpen={drawer.isOpen}
-        close={drawer.close}
-        footerLinks={footerLinks}
-      />
+      <MobileDrawerMenu isOpen={drawer.isOpen} close={drawer.close} />
     </Page>
   )
 }

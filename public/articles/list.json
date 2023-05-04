@@ -2,7 +2,7 @@
   "articles": [
     {
       "dirName": "mock",
-      "title": "記事タイトル",
+      "title": "モック記事",
       "tags": [],
       "authorId": "eraser5th"
     }

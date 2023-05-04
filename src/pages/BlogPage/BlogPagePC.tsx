@@ -2,18 +2,14 @@ import { PCFooter } from '@/components/PCFooter'
 import { PCHeader } from '@/components/PCHeader'
 import { UserCard } from '@/components/UserCard'
 import { Image } from '@/utils/components/Image'
-import { MarkdownViewer } from '@/utils/components/MdViewer'
+import { MarkdownViewer } from '@/utils/components/MarkdownViewer'
 import { Page } from '@/utils/components/Page'
 import { PageTitle } from '@/utils/components/PageTitle'
 import { Spacer } from '@/utils/components/Spacer'
 import { VStack } from '@/utils/components/Stack'
 import { BlogPageProps } from '.'
 
-export const BlogPagePC: React.FC<BlogPageProps> = ({
-  blog,
-  author,
-  footerLinks,
-}) => {
+export const BlogPagePC: React.FC<BlogPageProps> = ({ blog, author }) => {
   if (!blog || !author) {
     return (
       <Page title="Blog">
@@ -26,7 +22,7 @@ export const BlogPagePC: React.FC<BlogPageProps> = ({
           </VStack>
         </main>
         <Spacer size="grow" />
-        <PCFooter footerLinks={footerLinks} />
+        <PCFooter />
       </Page>
     )
   }
@@ -64,7 +60,7 @@ export const BlogPagePC: React.FC<BlogPageProps> = ({
         </VStack>
       </main>
       <Spacer size="grow" />
-      <PCFooter footerLinks={footerLinks} />
+      <PCFooter />
     </Page>
   )
 }

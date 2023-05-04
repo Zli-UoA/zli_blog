@@ -1,33 +1,25 @@
 import { useEffect, useState } from 'react'
-import { getBlogInfoList } from '@/api/getBlogInfoList'
-import { BlogInfo } from '@/models/BlogInfo'
+import { getArticleInfoList } from '@/api/getArticleInfo'
+import { ArticleInfo } from '@/models/ArticleInfo'
 import { useMobile } from '@/utils/hooks/useMobile'
 import { BlogListPageMobile } from './BlogListPageMobile'
 import { BlogListPagePC } from './BlogListPagePC'
 
-export type FooterLink = {
-  url: string
-  label: string
+export type BlogListPageProps = {
+  articles: ArticleInfo[] | undefined
 }
 
-const footerLinks = [
-  { label: 'Twitter', url: 'https://twitter.com/zliofficial' },
-  { label: 'Connpass', url: 'https://zli.connpass.com/' },
-  { label: 'Qiita', url: 'https://qiita.com/organizations/zli' },
-  { label: 'GitHub', url: 'https://github.com/zli-UoA' },
-]
-
 const useBlogListPage = (): {
-  data?: BlogInfo[]
+  data?: ArticleInfo[]
   loading: boolean
 } => {
-  const [data, setData] = useState<BlogInfo[]>()
+  const [data, setData] = useState<ArticleInfo[]>()
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const fetcher = async (): Promise<void> => {
       setLoading(true)
-      setData(await getBlogInfoList())
+      setData(await getArticleInfoList())
       setLoading(false)
     }
 
@@ -46,8 +38,8 @@ export const BlogListPage: React.FC = () => {
   const { data } = useBlogListPage()
 
   if (isMobile) {
-    return <BlogListPageMobile blogs={data} footerLinks={footerLinks} />
+    return <BlogListPageMobile articles={data} />
   }
 
-  return <BlogListPagePC blogs={data} footerLinks={footerLinks} />
+  return <BlogListPagePC articles={data} />
 }

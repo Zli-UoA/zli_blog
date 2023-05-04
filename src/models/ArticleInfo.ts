@@ -1,4 +1,4 @@
-export interface BlogInfo {
+export type ArticleInfo = {
   dirName: string
   title: string
   tags: string[]

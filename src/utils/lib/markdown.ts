@@ -1,4 +1,4 @@
-export const extractMetaData = <T extends Record<string, string[]>>(
+export const getMarkdownMetaData = <T extends Record<string, string[]>>(
   text: string
 ): Partial<T> => {
   const metaRegExp = RegExp(/^---[\r\n](((?!---).|[\r\n])*)[\r\n]---$/m)
@@ -21,7 +21,7 @@ export const extractMetaData = <T extends Record<string, string[]>>(
     .reduce((a, b) => ({ ...a, ...b })) as Partial<T>
 }
 
-export const removeMetaData = (text: string): string => {
+export const getMarkdownBody = (text: string): string => {
   const metaRegExp = RegExp(/^---[\r\n](((?!---).|[\r\n])*)[\r\n]---$/m)
   return text.replace(metaRegExp, '')
 }

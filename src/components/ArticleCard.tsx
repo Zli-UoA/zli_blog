@@ -1,16 +1,16 @@
-import { BlogInfo } from '@/models/BlogInfo'
+import { ArticleInfo } from '@/models/ArticleInfo'
 import { Image } from '@/utils/components/Image'
 import { HStack, VStack } from '@/utils/components/Stack'
-import { authorName, title } from './BlogCard.css'
+import { authorName, title } from './ArticleCard.css'
 
-export const BlogCard: React.FC<{
-  blog: BlogInfo
-}> = ({ blog }) => {
+export const ArticleCard: React.FC<{
+  article: ArticleInfo
+}> = ({ article }) => {
   return (
     <section>
       <HStack style={{ gap: 16 }}>
         <Image
-          src={'/articles/' + blog.dirName + '/eyeCatch.png'}
+          src={'/articles/' + article.dirName + '/eyeCatch.png'}
           alt="eyeCatch"
           style={{
             height: 92,
@@ -19,10 +19,10 @@ export const BlogCard: React.FC<{
           }}
         />
         <VStack style={{ gap: 8 }}>
-          <h1 className={title}>{blog.title}</h1>
+          <h1 className={title}>{article.title}</h1>
           <HStack style={{ gap: 8 }}>
             <Image
-              src={'/authors/' + blog.authorId + '/icon.png'}
+              src={'/authors/' + article.authorId + '/icon.png'}
               alt="icon"
               style={{
                 height: 20,
@@ -30,7 +30,7 @@ export const BlogCard: React.FC<{
                 radius: 'rounded',
               }}
             />
-            <p className={authorName}>{blog.authorId}</p>
+            <p className={authorName}>{article.authorId}</p>
           </HStack>
         </VStack>
       </HStack>
