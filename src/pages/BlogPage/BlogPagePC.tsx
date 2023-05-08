@@ -14,6 +14,8 @@ export const BlogPagePC: React.FC<BlogPageProps> = ({
   author,
   footerLinks,
 }) => {
+  const fallbackEyeCatchUrl = '/articles/fallbackEyeCatch.png'
+
   if (!blog || !author) {
     return (
       <Page title="Blog">
@@ -38,7 +40,8 @@ export const BlogPagePC: React.FC<BlogPageProps> = ({
         <VStack style={{ alignItems: 'center' }}>
           <Spacer size={40} />
           <Image
-            src={blog.eyeCatchUrl}
+            src={blog.eyeCatchUrl ?? fallbackEyeCatchUrl}
+            fallbackSrc={fallbackEyeCatchUrl}
             alt="eyeCatch"
             style={{
               height: 270,
