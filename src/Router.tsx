@@ -12,7 +12,7 @@ export enum routes {
 const router = createHashRouter([
   {
     path: '/',
-    element: <Navigate to={routes.BLOG_LIST} />,
+    element: <Navigate to={routes.BLOG_LIST} replace />,
   },
   {
     path: routes.BLOG_LIST,
