@@ -10,7 +10,8 @@ tags: elm workshop
 
 ## Elm勉強会の概要
 2023年の5月4日と5日にUBICで開催されたElm勉強会に参加しました。主催してくれた[sou7][sou7___]先輩、ありがとうございました！
-Elmは純粋関数型として設計されたAltJSであり、reactなどに影響を与えたTEA (The Elm Architecture)などで有名です。
+
+Elmは純粋関数型として設計されたAltJSであり、reactなどに影響を与えたTEA (The Elm Architecture)などで有名です。存在することは知っていたが触ったことは無い、という感じでした。
 
 ## 1日目
 初日は[ノービス][A24882645]君と私[39sho(さくしょー)][G_39sho]の2人が参加しました。12時から6時までの6時間、Elmの基礎や関数型言語について学びました。主に公式の[Elm guide](https://guide.elm-lang.jp/)を使用しましたが、とてもわかりやすくて良かったです。特に関数型言語における副作用への考え方や、The Elm Architectureには興味深い点が多かったです。
