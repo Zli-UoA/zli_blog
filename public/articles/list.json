@@ -5,6 +5,12 @@
       "title": "ZliのBlog作った話",
       "tags": ["Webフロント", "React"],
       "authorId": "eraser5th"
+    },
+    {
+      "dirName": "git_github",
+      "title": "git,GitHubについて",
+      "tags": ["git", "GitHub"],
+      "authorId": "yuorei"
     }
   ]
 }
