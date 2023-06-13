@@ -1,6 +1,12 @@
 {
   "articles": [
     {
+      "dirName": "elm-workshop-2023",
+      "title": "Elm勉強会@2023に参加しました！l",
+      "tags": ["elm", "workshop"],
+      "authorId": "39sho"
+    },
+    {
       "dirName": "create_zli_blog",
       "title": "ZliのBlog作った話",
       "tags": ["Webフロント", "React"],
