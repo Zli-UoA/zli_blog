@@ -666,7 +666,9 @@ git push origin feature/practice2
 GitHubの作成したリポジトリにPR(プルリクエスト)の作成するボタンがあります。
 
 `Compare&pull request`を押してください。
+
 ![Compare&pull request](/articles/git_github/PR.png)
+
 ここでどこからどこにマージをするか、今回のPRで何をしたかを書いてください。完成したら`Create pull request`を押してPRを作成してください。問題なければマージするボタンを押してマージしてください。
 最後にmainブランチでプルしてください。
 
