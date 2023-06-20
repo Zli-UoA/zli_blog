@@ -30,7 +30,9 @@ git -v
 これでバージョンが出てきていればすでにダウンロード済みなのでここは飛ばしてください。
 出なかった方は今からダウンロードしていきます。
 ここからダウンロードしてください。
+
 https://git-scm.com/downloads
+
 ダウンロードが終わったら先ほどのコマンドを実行してバージョンが出たらダウンロード完了です。
 
 ### セットアップ
@@ -220,7 +222,7 @@ git mv 古いファイル名 新しいファイル名
 git restore
 ```
 
-`git restore ファイルのパス`で変更したものをリセットできます。　
+`git restore ファイルのパス`で変更したものをリセットできます。
 
 オプションには以下のものがあります。
 
@@ -616,7 +618,7 @@ cat test1.txt
 
 ![プッシュした画像](/articles/git_github/pushedImage.png)
 
-16. GitHub上で`Add a README with an overview of your project.`を押して追加してください。
+- GitHub上で`Add a README with an overview of your project.`を押して追加してください。
 ![Add a README with an overview of your project.](/articles/git_github/README.png)
 
 - GitHubから最新の情報をとってきてください。
@@ -819,6 +821,7 @@ gitの追跡の対象外にするためのものがあります。`.gitignore`�
 https://www.toptal.com/developers/gitignore
 
 他の対策としては`git status`できちんと確認をすることがあげられます。
+
 ## おわりに
 
 これでgit,GitHubは最低限は使えるようになったと思います。これらは慣れるまでは大変ですが、普段から使っていけば快適に開発を行えるのでぜひ扱えるようにがんばってください。
