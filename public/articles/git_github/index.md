@@ -8,10 +8,10 @@ tags: git github
 
 こんにちは!
 Zliの[ユオレイ](https://yuorei.github.io/)です。
-今回はgit,GitHubについて解説していきます。この記事を読めばgit,GitHubを最低限は使えるようになると思います。ぜひ参考にしてみてください。  
+今回はgit, GitHubについて解説していきます。この記事を読めばgit, GitHubを最低限は使えるようになると思います。ぜひ参考にしてみてください。  
 gitの全てを知りたい方は
 
-https://git-scm.com/
+<https://git-scm.com/>
 
 こちらの公式を参考にしてください。
 
@@ -19,21 +19,21 @@ https://git-scm.com/
 
 gitとは、小規模なプロジェクトから非常に大規模なプロジェクトまで、あらゆるプロジェクトを迅速かつ効率的に処理できるように設計された、 無料のオープンソースの分散バージョン管理システムです。gitを使うことでソースコードの管理が非常に快適になります。
 gitは、プログラムのソースコードなどの変更履歴を記録できて、過去の履歴を参照してその時の状態に戻すことができます。
-共同作業をするときは、branchをきって作業できるのでmainのbranchには影響をあたえずに作業できます。
+共同作業をするときは、別にブランチを切って作業できるので本番ブランチへ影響を与えずに作業することができます。
 
-### ダウンロード
+### ダウンロードとインストール
 
 ```shell
 git -v
 ```
 
-これでバージョンが出てきていればすでにダウンロード済みなのでここは飛ばしてください。
+これでバージョンが出てきていればすでにインストール済みなのでここは飛ばしてください。
 出なかった方は今からダウンロードしていきます。
 ここからダウンロードしてください。
 
-https://git-scm.com/downloads
+<https://git-scm.com/downloads>
 
-ダウンロードが終わったら先ほどのコマンドを実行してバージョンが出たらダウンロード完了です。
+ダウンロードが終わったら先ほどのコマンドを実行してバージョンが出たらインストール完了です。
 
 ### セットアップ
 
@@ -42,7 +42,7 @@ https://git-scm.com/downloads
 ユーザーネームとメールアドレスは適宜変更してください。
 
 ```shell
-git config --global user.name "yuorei"
+git config --global user.name "example"
 git config --global user.email "example@example.com"
 ```
 
@@ -57,13 +57,13 @@ git config --global -l
 ```
 
 ```shell
-user.name=yuorei
+user.name=example
 user.email=example@example.com
 init.defaultbranch=main
 core.autocrlf=false
 ```
 
-もしくは` ~/.gitconfig`から確認もできます。
+もしくは`~/.gitconfig`から確認もできます。
 
 ### プロジェクトの作成
 
@@ -73,13 +73,13 @@ core.autocrlf=false
 mkdir git-practice && cd git-practice
 ```
 
-`git init`を使うことで作成ができます。もしもともと存在していた場合は再度作り直されます。`.git`のあるディレクトリで作業をします。
+`git init`を使うことで作成ができます。もし、リポジトリがもともと存在していた場合は再度作り直されます。。`.git`のあるディレクトリで作業をします。
 
 ```shell
 git init
 ```
 
-`.git`があるかを確認するには`ls -a`で確認してみてください。これがGitリポジトリです。現在は空にGitリポジトリです。
+`.git`があるかを確認するには`ls -a`で確認してみてください。これがあるディレクトリがGitリポジトリです。現在は空のGitリポジトリです。
 デフォルトではブランチ名は`main`になっています。ブランチについては後ほど解説をします。もしmain以外のブランチ名を使いたい場合は`git init -b ブランチ名`もしくは`git branch --initial-branch=ブランチ名`となります。
 
 ### ファイルの内容をインデックスに追加
@@ -259,7 +259,7 @@ git log
 
 ```shell
 commit 39c2e9e967cabce71abba975b83f2fadbd758b82 (HEAD -> main)
-Author: yuorei <example@example.com>
+Author: example <example@example.com>
 Date:   Fri Jun 9 17:20:28 2023 +0900
 
     first commit
@@ -268,7 +268,7 @@ Date:   Fri Jun 9 17:20:28 2023 +0900
 `39c2e9e967cabce71abba975b83f2fadbd758b82`これはSHA-1でハッシュ化されたものです。これを指定することで、このコミットに対して何かしらのことができます。
 
 ```shell
-Author: yuorei <example@example.com>
+Author: example <example@example.com>
 Date:   Fri Jun 9 17:20:28 2023 +0900
 ```
 
@@ -471,7 +471,7 @@ GitHubでリポジトリを作成してください。任意の名前をつけ�
 ![リポジトリにアップロード](/articles/git_github/uploadToRepository.png)
 
 作成をするとリポジトリの画面に移動します。
-`git remote add origin git@github.com:yuorei/practice-git.git`このように書かれているものをコピーしてください。ターミナルでGitリポジトリの場所で先ほどのコマンドを実行します。
+`git remote add origin git@github.com:example/practice-git.git`このように書かれているものをコピーしてください。ターミナルでGitリポジトリの場所で先ほどのコマンドを実行します。
 `remote`はリモートリポジトリを設定するコマンドです。
 
 設定できたかを確認するには以下のオプションをつけてください。
@@ -529,7 +529,7 @@ mkdir git-practice && cd git-practice
 - git configの設定してください。
 
 ```shell
-git config --global user.name "yuorei"
+git config --global user.name "example"
 git config --global user.email "example@example.com"
 ```
 
@@ -750,7 +750,7 @@ git log
 
 ```shell
 commit 39bd5daaaac06369d5bb070cc0a658556b55a0db
-Author: yuorei <example@example.com>
+Author: example <example@example.com>
 Date:   Wed Jun 14 16:48:10 2023 +0900
 
     first commit
@@ -818,7 +818,7 @@ gitの追跡の対象外にするためのものがあります。`.gitignore`�
 `.gitignore`に入れるべきものを自動で生成してくれる良いサイトがあるので紹介しておきます。
 **gitignore.io - プロジェクトに役立つ.gitignoreファイルを作成しよう**
 
-https://www.toptal.com/developers/gitignore
+<https://www.toptal.com/developers/gitignore>
 
 他の対策としては`git status`できちんと確認をすることがあげられます。
 
