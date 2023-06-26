@@ -456,7 +456,7 @@ cd ~/.ssh
 鍵を生成します。
 
 ```shell
-ssh-keygen -t
+ssh-keygen
 ```
 
 実行時にいろいろと聞かれますが3回ともEnterを押してもらって大丈夫です。
