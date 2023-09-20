@@ -114,27 +114,34 @@ AizuHackとは、プログラミング初心者の1,2年生向けに開催する
 最終的には、以下のチームが表彰されました。
 
 ### 最優秀賞
-![グランプリ](gp.png)
-*学食API*
+### 学食API
+![グランプリ](/articles/aizuhack-2023/gp.png)
+![グランプリ](/articles/aizuhack-2023/gp2.png)
+
 学食をおしえてくれるLINEbotを作成していました。
-![グランプリ](gp2.png)
+
 ### LINE賞
-![line1](line1.png)
-*謎解き*
+### 謎解き
+![line1](/articles/aizuhack-2023/line1.png)
+![line2](/articles/aizuhack-2023/line2.png)
+
 LINEbotで謎解きゲームを作成していました。
-![line2](line2.png)
 
 ### Web賞
-![web1](web1.png)
-*ZZZ-travel*
+### ZZZ-travel
+
+![web1](/articles/aizuhack-2023/web1.png)
+![web2](/articles/aizuhack-2023/web2.png)
+
 観光情報登録サイトを作成していました。
-![web2](web2.png)
 
 ### IoT賞
-![iot1](iot1.png)
-*高性能赤べこ*
+
+#### 高性能赤べこ
+![iot1](/articles/aizuhack-2023/iot1.png)
+![iot2](/articles/aizuhack-2023/iot2.png)
+
 高性能赤べこを作成していました。アラーム、画像処理、3Dプリントをしていました。
-![iot2](iot2.png)
 
 ## まとめ
 皆さん初めてのハッカソンにも関わらず、完成度の高いものを作成していました。素晴らしい成長です。これからもどんどん成長してほかのハッカソンにも参加してほしいです。みなさんお疲れ様でした。
