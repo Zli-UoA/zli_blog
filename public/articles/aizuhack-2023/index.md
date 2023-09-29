@@ -15,7 +15,7 @@ AizuHackとは、プログラミング初心者の1, 2年生向けに開催す�
 
 今回のAizuHackでは、以下の3コースに分かれて勉強会を行いました。
 
-- LINEBotコース
+- LINE Botコース
 - Webフロントエンドコース
 - IoTコース
 
@@ -43,17 +43,17 @@ AizuHackとは、プログラミング初心者の1, 2年生向けに開催す�
 
 ## コース一覧
 
-### LINEBotコース
+### LINE Botコース
 
 - Webコースと合同のJavaScript勉強会
-- LINEBotを作って動かしてみよう, ソースコードの解説
+- LINE Botを作って動かしてみよう, ソースコードの解説
 - LINE Bot Designer, FlexMessage
 - リッチメニュー, PUSHメッセージについて, 外部APIとの通信, DynamoDBの使い方
 - AWSへのデプロイ
 
 ### Webコース
 
-- LINEBotコースと合同のJavaScript勉強会
+- LINE Botコースと合同のJavaScript勉強会
 - HTML・CSS
 - DOM API
 - HTTP API
@@ -117,14 +117,14 @@ AizuHackとは、プログラミング初心者の1, 2年生向けに開催す�
 ![グランプリ](/articles/aizuhack-2023/gp.png)
 ![グランプリ](/articles/aizuhack-2023/gp2.png)
 
-学食をおしえてくれるLINEbotを作成していました。
+学食をおしえてくれるLINE Botを作成していました。
 
 ### LINE賞
 ### 謎解き
 ![line1](/articles/aizuhack-2023/line1.png)
 ![line2](/articles/aizuhack-2023/line2.png)
 
-LINEbotで謎解きゲームを作成していました。
+LINE Botで謎解きゲームを作成していました。
 
 ### Web賞
 ### ZZZ-travel
