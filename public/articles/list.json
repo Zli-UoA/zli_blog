@@ -17,6 +17,12 @@
       "title": "AizuHack2023を開催しました!",
       "tags": ["AizuHack", "Webフロント", "LINE", "IoT"],
       "authorId": "yuorei"
+    },
+    {
+      "dirName": "git_github",
+      "title": "git,GitHubについて",
+      "tags": ["git", "GitHub"],
+      "authorId": "yuorei"
     }
   ]
 }
