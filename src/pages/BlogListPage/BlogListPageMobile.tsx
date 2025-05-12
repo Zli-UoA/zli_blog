@@ -49,9 +49,11 @@ export const BlogListPageMobile: React.FC<{
           <Spacer size={40} />
           <ItemList>
             {blogs.map((blog, i) => {
-              return <Link to={blog.dirName} key={i}>
-                <BlogCard blog={blog} key={i} />
-              </Link>
+              return (
+                <Link to={blog.dirName} key={i}>
+                  <BlogCard blog={blog} key={i} />
+                </Link>
+              )
             })}
           </ItemList>
           <Spacer size={80} />
