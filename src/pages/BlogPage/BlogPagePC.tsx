@@ -52,7 +52,7 @@ export const BlogPagePC: React.FC<BlogPageProps> = ({
           <Spacer size={32} />
           <PageTitle>{blog.title}</PageTitle>
           <Spacer size={56} />
-          <article>
+          <article style={{ maxWidth: '100%' }}>
             <MarkdownViewer mdText={blog.mdText} />
           </article>
           <Spacer size={64} />
