@@ -7,6 +7,7 @@ export const anchor = style([
   {
     color: color.blue,
     textDecoration: 'underline',
+    wordWrap: 'break-word',
     selectors: {
       '&:visited': {
         color: color.purple,

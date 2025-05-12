@@ -17,5 +17,6 @@ export const inlineCode = style([
     color: color.gray,
     borderRadius: '4px',
     background: color.elevation3,
+    wordWrap: 'break-word',
   },
 ])
