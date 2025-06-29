@@ -1,12 +1,10 @@
 ---
-title: AizuHack2023を開催しました！
-authorId: yuorei
-tags: aizuhack web line iot
+title: AizuHack2025を開催しました！
+authorId: atto
+tags: aizuhack web game 
 ---
 
-# AizuHack2023を開催しました！
-
-## AizuHackの概要
+## 概要
 
 AizuHackとは、プログラミング初心者の1, 2年生向けに開催する勉強会付きハッカソンです。
 勉強会4回+各チームメンター付きのハッカソンを1ヶ月実施することで1, 2年生にプログラミングの楽しさを知ってもらう、関心を高めてもらうことを目的としています。
@@ -43,7 +41,7 @@ AizuHackとは、プログラミング初心者の1, 2年生向けに開催す�
 
 ## コース一覧
 
-### LINE Botコース
+### Web勉強会
 
 - Webコースと合同のJavaScript勉強会
 - LINE Botを作って動かしてみよう, ソースコードの解説
