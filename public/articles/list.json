@@ -23,6 +23,12 @@
       "title": "git,GitHubについて",
       "tags": ["git", "GitHub"],
       "authorId": "yuorei"
+    },
+    {
+      "dirName": "aizuhack-2025",
+      "title": "AizuHack/Re_AizuHack開催報告！",
+      "tags": ["AizuHack", "Web", "Game", "IoT", "Unity"],
+      "authorId": "atto"
     }
   ]
 }
