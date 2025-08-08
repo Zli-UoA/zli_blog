@@ -11,9 +11,9 @@ tags: aizuhack web game iot unity
 Zli Blogをご覧の皆様！
 会津大学学部2年、Zliに所属している[アト](https://x.com/Aizu_AizuAizu)と申します。
 この度、Aizu Hack / Re:Aizu Hackについての振り返り記事を寄稿させていただく運びとなりました。
-拙筆ではございますが、ご覧になっていただけると幸いです。
+拙筆ではございますが、是非ご覧になっていただけると幸いです。
 
-各URLはこちらからご覧になっていただけると幸いです。
+各URLはこちらからご覧下さい。
 
 [一昨年のAizuHackの記事](https://blog.zli.works/#/blog/aizuhack-2023)
 
@@ -21,74 +21,112 @@ Zli Blogをご覧の皆様！
 
 [Aizu Hack / Re:Aizu Hack Website](https://2025.aizuhack.zli.works/)
 
-## 協賛企業様
+## 協賛
+Aizu Hack / Re:Aizu Hackを開催するにあたり、以下の企業にご協賛をいただきました。
 
-## Aizu Hack / Re:Aizu Hackについて
-AizuHackとは、プログラミング初心者の1, 2年生向けに開催する勉強会付きハッカソンです。
-勉強会4回+各チームメンター付きのハッカソンを1ヶ月実施することで1, 2年生にプログラミングの楽しさを知ってもらう、関心を高めてもらうことを目的としています。
+ご協賛いただき、心より御礼申し上げます。
+
+- 株式会社jストリーム様
+- 株式会社stores様
+- 株式会社いい生活様
+
+## Aizu Hack / Re:Aizu Hack開催の経緯
+これまで「AizuHack」は、プログラミング初心者の1、2年生を対象に、勉強会とハッカソンを組み合わせたイベントとして開催してきました。
+しかし、開催するにあたって勉強会の途中で離脱してしまう学生が多いという課題に直面していました。（去年はZli BootCampという形で勉強会を行なったものの、最終的に6~7割の方が離脱してしまうためすごく悲しい...）
+
+そのため、ただ勉強会+ハッカソンを行うだけでなく、企業様のご支援をいただくことで参加者が技術力を身につけつつ、参加した学生が最後まで意欲的に開発できる環境を整えられるのではないかと考えました。
+
+また、会津大学には高い技術力を持つ学生が数多くいるにも関わらず、学内でその能力を発揮する機会が限られていたため、ハッカソンという形で対外的な成果にも繋げたいと考えました。
+以上の理由から、新入生および未経験者向けの枠をAizu Hack、上級者向けの枠をRe:Aizu Hackとして、新たな形での開催が決まりました。
 
 ## スケジュール
+参加フォームでもご案内した通り、次のような日程にて行われました。
+
+![参加条件](/articles/aizuhack-2025/IfJoin.png)
 
 | 日程           | イベント                |
 |---------------|-----------------------|
-| 4/5(水)       | 募集開始              |
-| 4/26(水)      | 募集終了              |
-| 4/30(日)      | キックオフ            |
-| 5/8(月)~5/14(日) | 勉強会1回          |
-| 5/15(月)~5/21(日) | 勉強会2回        |
-| 5/22(月)~5/28(日) | 勉強会3回        |
-| 6/9(金)~6/11(日)  | 勉強会4回        |
-| 6/12(月)~6/16(金) | 勉強会EX回         |
-| 6/17(土), 6/18(日) | アイデアソン&ハッカソンキックオフ |
-| 7/16(日)      | 最終発表              |
-| 7/23(日)      | 表彰式                |
+| 5/11(日)       | アイデアソン |
+| 5/12(月)〜5/16(日) | 勉強会期間  |
+| 6/14(日)      | HackDay: KickOff |
+| 6/21(土) | HackDay: 発表会 |
+| 6/22(日) | HackDay: 結果発表および懇親会 |
 
 ## アイデアソン
 
-### Web勉強会
-
-- Webコースと合同のJavaScript勉強会
-- LINE Botを作って動かしてみよう, ソースコードの解説
-- LINE Bot Designer, FlexMessage
-- リッチメニュー, PUSHメッセージについて, 外部APIとの通信, DynamoDBの使い方
-- AWSへのデプロイ
-
-### Webコース
-
-- LINE Botコースと合同のJavaScript勉強会
-- HTML・CSS
-- DOM API
-- HTTP API
-- expressでバックエンド
-
-### IoTコース
-
-- C言語
-- マイコンの基礎
-- センサ・アクチュエータを使うハンズオン
-- マイコンを使用したHTTP通信
-- IoT機器作成で役立つ他の知識
-
+Aizu Hack / Re:Aizu Hackのアイデアソンでは、発表されたテーマ「変幻自在」に基づき、各々のチームがそれぞれアイデアを出し合い、なかにはOSの自作を目指すチームもいました。
 
 ## 勉強会
+アイデアソンの後、AizuHack参加者向けにプログラミングの基礎の説明を行いました。
 
+https://docs.google.com/presentation/d/136iRuj0gSxJ5fXYNcKed8d9YH1NmM7iDmchpMWLzIF4/
 
-## スケジュール
+その後、各々のチームが考えたアイデアを実現するために先輩方がメンターを務める勉強会を行いました。
+### Web勉強会
 
+主にulong32([@ulong32](https://x.com/ulong32))と39sho([@G_39sho](https://x.com/G_39sho))がメンターとなり、Webフロントエンドの技術について学びました。
 
+![web基礎 経験者向け 説明](/articles/aizuhack-2025/Teach/ReactImage.png)
+
+勉強会資料リンク
+
+https://docs.google.com/presentation/d/1wWEHWzK4x12EyCARP7o0UgS1Xw5dznVOD02CFmOyOIU/
+
+### ハッカソンについての説明・戦い方
+
+複数のハッカソンに参加し、優勝経験もあるしゃけのきりみ。氏([@shakenokirimi12](https://x.com/shakenokirimi12))によって、ハッカソンの戦い方についての説明が行われました。
+
+![ハッカソンについての説明・戦い方 説明](/articles/aizuhack-2025/Teach/HackathonImage.png)
+
+### Git基礎
+
+kashu([@kasukashu02](https://x.com/kasukashu02))とyuorei([@yuorei71](https://x.com/yuorei71))によって、基礎編と応用編に分けてGitの使い方を学びました。
+
+### モバイル
+
+ress([@ress02_](https://x.com/ress02_))とPlat([@105techno](https://x.com/105techno))によって、Flutterで使われる言語であるDartの勉強と、Flutterの使い方の勉強会を行いました。
+
+![モバイル 説明](/articles/aizuhack-2025/Teach/mobileImage.png)
+
+勉強会資料リンク
+
+https://github.com/Outtech105k/AizuHack2025MobileTutorial/tree/main?tab=readme-ov-file
+
+### ゲーム制作入門
+
+XRサークルである[A-PxL](https://sites.google.com/view/a-pxl)と共同開催を行い、ゲーム開発に必要なUnityとBlenderの使い方を学びました。
+
+![Unity 説明](/articles/aizuhack-2025/Teach/UnityImage.png)
+
+勉強会資料リンク
+
+https://a-pxl.notion.site/2025_A-PxL-1e2f282be1eb8056bb4dcf82864c6256
+
+### アルゴリズムとデータ構造入門
+
+kotakun([@kotakun2724](https://x.com/kotakun2724))とamesyu([@amesyu2](https://x.com/amesyu2))によって、読みやすく、計算量の少ないコードの書き方について学びました。
+
+![Algo 説明](/articles/aizuhack-2025/Teach/AlgoImage.png)
+
+勉強会資料リンク
+
+https://www.notion.so/1f2dd07b5e12801a804ddd1742725cc0
 
 ## HackDay: キックオフ
 
+~hogehoge~
 1ヶ月間チームメンバーと協力して、アイデアソンで出たアイデアを実現するために、プログラミングを行いました。各自で調べたりメンターに相談するなどしてハッカソン中に新しい技術を習得するチームもいました。最終的には、各チームが素晴らしいもの制作できました。
 発表時間は10分で、その他も一般的なハッカソンの成果発表と同じような形です。
 
 ## HackDay: 発表会
 
+~hogehoge~
 1ヶ月間のハッカソンの成果を発表しました。各チームが素晴らしいものを作っていました。
 
 高性能赤べこを作成していました。アラーム、画像処理、3Dプリントをしていました。
 
 ## 表彰式
-
+~hogehoge~
 ## まとめ
-みなさん初めてのハッカソンにも関わらず、完成度の高いものを作成していました。素晴らしい成長です。これからもほかのハッカソンにも参加してどんどん成長してほしいです。みなさんお疲れ様でした。
+みなさん初めてのハッカソンにも関わらず、完成度の高いものを作成していました。ほんとにすごい！！！
+素晴らしい成長です。これからもほかのハッカソンや開発にも参加して技術的にどんどん成長してほしいです。みなさんお疲れ様でした〜
