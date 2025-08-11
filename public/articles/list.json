@@ -1,6 +1,12 @@
 {
   "articles": [
     {
+      "dirName": "aizuhack-2025",
+      "title": "AizuHack/Re_AizuHack開催報告！",
+      "tags": ["AizuHack", "Web", "Game", "IoT", "Unity"],
+      "authorId": "atto"
+    },
+    {
       "dirName": "elm-workshop-2023",
       "title": "Elm勉強会@2023に参加しました！l",
       "tags": ["elm", "workshop"],
@@ -23,12 +29,6 @@
       "title": "git,GitHubについて",
       "tags": ["git", "GitHub"],
       "authorId": "yuorei"
-    },
-    {
-      "dirName": "aizuhack-2025",
-      "title": "AizuHack/Re_AizuHack開催報告！",
-      "tags": ["AizuHack", "Web", "Game", "IoT", "Unity"],
-      "authorId": "atto"
     }
   ]
 }
