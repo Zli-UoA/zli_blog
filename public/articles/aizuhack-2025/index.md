@@ -16,8 +16,8 @@ Zli Blogをご覧の皆様こんにちは！
 ## 協賛
 Aizu Hack / Re:Aizu Hack の開催にあたり、ご協賛いただいた企業の皆様に、心より厚く御礼申し上げます。
 
-- 株式会社jストリーム 様
-- 株式会社stores 様
+- 株式会社Jストリーム 様
+- STORES 株式会社 様
 - 株式会社いい生活 様
 
 ## Aizu Hack / Re:Aizu Hack開催の経緯
@@ -50,7 +50,7 @@ Aizu Hack / Re:Aizu Hackのアイデアソンでは、発表されたテーマ�
 その後、各チームにフィードバックを送り、今後のプロダクト開発の参考にして頂きました。
 
 ## 勉強会
-アイデアソンの後、AizuHack参加者向けに39shoさん([@G_39sho](https://x.com/G_39sho))がプログラミングの基礎の説明を行いました。
+アイデアソンの後、AizuHack参加者向けに39sho([@G_39sho](https://x.com/G_39sho))がプログラミングの基礎の説明を行いました。
 
 プログラミング基礎資料リンク
 
@@ -60,7 +60,7 @@ https://docs.google.com/presentation/d/136iRuj0gSxJ5fXYNcKed8d9YH1NmM7iDmchpMWLz
 その後、各々のチームが考えたアイデアを実現するために先輩方がメンターを務める勉強会を行いました。
 ### Web勉強会
 
-主にulong32さん([@ulong32](https://x.com/ulong32))と39shoさんがメンターとなり、Webフロントエンドの技術について学びました。
+主にulong32([@ulong32](https://x.com/ulong32))と39shoがメンターとなり、Webフロントエンドの技術について学びました。
 
 ![web基礎 経験者向け 説明](/articles/aizuhack-2025/Teach/ReactImage.png)
 
@@ -76,11 +76,11 @@ https://docs.google.com/presentation/d/1wWEHWzK4x12EyCARP7o0UgS1Xw5dznVOD02CFmOy
 
 ### Git基礎
 
-kashuさん([@kasukashu02](https://x.com/kasukashu02))とyuoreiさん([@yuorei71](https://x.com/yuorei71))によって、基礎編と応用編に分けてGitの使い方を学びました。
+kashu([@kasukashu02](https://x.com/kasukashu02))とyuorei([@yuorei71](https://x.com/yuorei71))によって、基礎編と応用編に分けてGitの使い方を学びました。
 
 ### モバイル
 
-ressさん([@ress02_](https://x.com/ress02_))とPlatさん([@105techno](https://x.com/105techno))によって、Flutterで使われる言語であるDartの勉強と、Flutterの使い方の勉強会を行いました。
+ress([@ress02_](https://x.com/ress02_))とPlat([@105techno](https://x.com/105techno))によって、Flutterで使われる言語であるDartの勉強と、Flutterの使い方の勉強会を行いました。
 
 ![モバイル 説明](/articles/aizuhack-2025/Teach/mobileImage.png)
 
@@ -100,7 +100,7 @@ https://a-pxl.notion.site/2025_A-PxL-1e2f282be1eb8056bb4dcf82864c6256
 
 ### アルゴリズムとデータ構造入門
 
-kotakunさん([@kotakun2724](https://x.com/kotakun2724))とamesyuさん([@amesyu2](https://x.com/amesyu2))によって、読みやすく、計算量の少ないコードの書き方について学びました。
+kotakun([@kotakun2724](https://x.com/kotakun2724))とamesyu([@amesyu2](https://x.com/amesyu2))によって、読みやすく、計算量の少ないコードの書き方について学びました。
 
 ![Algo 説明](/articles/aizuhack-2025/Teach/AlgoImage.png)
 
