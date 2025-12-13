@@ -1,6 +1,16 @@
 {
   "articles": [
     {
+      "dirName": "stores-tech-conf-2025",
+      "title": "STORES Tech Conf 2025に参加しました",
+      "tags": [
+        "PR",
+        "payment",
+        "conference"
+      ],
+      "authorId": "ktk"
+    },
+    {
       "dirName": "aizuhack-2025",
       "title": "AizuHack/Re_AizuHack開催報告！",
       "tags": ["AizuHack", "Web", "Game", "IoT", "Unity"],

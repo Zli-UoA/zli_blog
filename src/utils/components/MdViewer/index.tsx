@@ -1,4 +1,5 @@
 import ReactMarkdown from 'react-markdown'
+import rehypeGithubAlert from 'rehype-github-alert'
 import remarkGfm from 'remark-gfm'
 import { Anchor } from './components/Anchor'
 import { Code } from './components/Code'
@@ -9,13 +10,16 @@ import { Ul } from './components/List'
 import { Paragraph } from './components/Paragraph'
 import { Pre } from './components/Pre'
 import { Table, Td, Th } from './components/Table'
+import 'github-markdown-css/github-markdown-dark.css'
 
 export const MarkdownViewer: React.FC<{
   mdText: string
 }> = ({ mdText }) => {
   return (
     <ReactMarkdown
+      className={'markdown-body'}
       remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeGithubAlert]}
       components={{
         h1: H1,
         h2: H2,
