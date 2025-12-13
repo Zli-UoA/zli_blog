@@ -11,6 +11,7 @@ export const extractMetaData = <T extends Record<string, string[]>>(
 
   return rawMetaData[1]
     .split('\n')
+    .filter((line) => line)
     .map((keyValue) => {
       const [key, value] = keyValue.split(':')
 

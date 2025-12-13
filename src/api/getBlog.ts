@@ -13,7 +13,7 @@ export const getBlog = async (blogName: string): Promise<Blog> => {
 
   return {
     authorId: metaData.authorId ? metaData.authorId[0] : '',
-    title: metaData.title ? metaData.title[0] : '',
+    title: metaData.title ? metaData.title.join(' ') : '',
     tags: metaData.tags ? metaData.tags : [],
     eyeCatchUrl: '/articles/' + blogName + '/eyeCatch.png',
     mdText: removeMetaData(data),

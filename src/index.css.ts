@@ -7,3 +7,7 @@ globalStyle(':root', {
   minHeight: '100vh',
   fontFamily: 'sans-serif',
 })
+
+globalStyle('.markdown-body', {
+  background: 'none',
+})
