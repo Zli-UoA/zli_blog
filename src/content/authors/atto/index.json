@@ -1,0 +1,7 @@
+{
+  "$schema": "../../../../.astro/collections/authors.schema.json",
+  "id": "atto",
+  "displayName": "アト",
+  "bio": "会津大学32期生。ZliとA-PxLに所属。\n普段はUnityを用いた2D,3D,XRゲームの開発を行い、インターネット等に公開している。\n自分の作ったゲームで人を楽しませることが生きがい。",
+  "icon": "./icon.png"
+}

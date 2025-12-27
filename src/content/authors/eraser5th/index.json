@@ -1,0 +1,7 @@
+{
+  "$schema": "../../../../.astro/collections/authors.schema.json",
+  "id": "eraser5th",
+  "displayName": "ERASER",
+  "bio": "会津大学学部3年のERASERです。\n主にWebフロントをやっており、React, TSでの開発が主となります。\n趣味は Neovim と UNIX Pornです。\n以後、お見知り置きを。",
+  "icon": "./icon.png"
+}

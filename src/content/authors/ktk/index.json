@@ -1,0 +1,7 @@
+{
+  "$schema": "../../../../.astro/collections/authors.schema.json",
+  "id": "ktk",
+  "displayName": "かとこう",
+  "bio": "えぐ過ぎるパン、エッグパン",
+  "icon": "./icon.png"
+}
