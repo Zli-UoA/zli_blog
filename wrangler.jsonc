@@ -1,16 +1,13 @@
 {
-	"main": "dist/_worker.js/index.js",
-	"name": "zli_blog",
+  "main": "dist/_worker.js/index.js",
+  "name": "zli_blog",
   "compatibility_date": "2025-12-28",
-  "compatibility_flags": [
-    "nodejs_compat",
-    "global_fetch_strictly_public"
-  ],
-	"assets": {
-		"binding": "ASSETS",
-		"directory": "./dist"
-	},
-	"observability": {
-    "enabled": true
-  }
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist",
+  },
+  "observability": {
+    "enabled": true,
+  },
 }
