@@ -6,9 +6,11 @@ import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = Omit<CollectionEntry<"blog">["data"], "authors"> & {
+  authors: CollectionEntry<"authors">[];
+};
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, authors } = Astro.props;
 ---
 
 <html lang="en">
@@ -52,6 +54,31 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
       .last-updated-on {
         font-style: italic;
       }
+      .authors {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .author {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgb(var(--gray-light));
+        border-radius: 9999px;
+      }
+      .author-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .author-name {
+        font-size: 0.9rem;
+        color: rgb(var(--gray-dark));
+      }
     </style>
   </head>
 
@@ -79,6 +106,20 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
               }
             </div>
             <h1>{title}</h1>
+            <div class="authors">
+              {authors.map((author) => (
+                <div class="author">
+                  <Image
+                    class="author-icon"
+                    src={author.data.icon}
+                    alt={author.data.displayName}
+                    width={32}
+                    height={32}
+                  />
+                  <span class="author-name">{author.data.displayName}</span>
+                </div>
+              ))}
+            </div>
             <hr />
           </div>
           <slot />
