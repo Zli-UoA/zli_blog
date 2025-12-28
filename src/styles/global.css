@@ -5,8 +5,9 @@
  */
 
 :root {
-  --accent: #2337ff;
-  --accent-dark: #000d8a;
+  --accent: #ffd600;
+  --accent-dark: #c7a600;
+  --accent-text: #b39700;
   --black: 15, 18, 25;
   --gray: 96, 115, 159;
   --gray-light: 229, 233, 240;
@@ -15,6 +16,8 @@
   --box-shadow:
     0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
     0 16px 32px rgba(var(--gray), 33%);
+  --box-shadow-light: 0 2px 8px rgba(var(--gray), 25%);
+  --box-shadow-hover: 0 4px 12px rgba(var(--gray), 30%);
 }
 @font-face {
   font-family: "Atkinson";
@@ -79,10 +82,10 @@ b {
   font-weight: 700;
 }
 a {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 a:hover {
-  color: var(--accent);
+  color: var(--accent-dark);
 }
 p {
   margin-bottom: 1em;

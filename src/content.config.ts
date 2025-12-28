@@ -18,9 +18,9 @@ const posts = defineCollection({
 });
 
 const authors = defineCollection({
-  // Load Markdown and MDX files in the `src/content/authors/` directory.
+  // Load JSON files in the `src/content/authors/` directory.
   loader: glob({ base: "./src/content/authors", pattern: "**/index.json" }),
-  // Type-check frontmatter using a schema
+  // Type-check using a schema
   schema: ({ image }) =>
     z.object({
       id: z.string(),

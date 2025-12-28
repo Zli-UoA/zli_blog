@@ -71,15 +71,18 @@ const { title, description, pubDate, updatedDate, heroImage, authors } =
         background: rgb(var(--gray-light));
         border-radius: 9999px;
         text-decoration: none;
+        border: 2px solid transparent;
         transition:
           background 0.2s ease,
           transform 0.2s ease,
-          box-shadow 0.2s ease;
+          box-shadow 0.2s ease,
+          border-color 0.2s ease;
       }
       .author:hover {
-        background: rgb(var(--gray-light));
+        background: white;
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(var(--black), 15%);
+        border-color: var(--accent);
       }
       .author-icon {
         width: 32px;

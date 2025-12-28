@@ -56,7 +56,8 @@ const { author, posts } = Astro.props;
         padding: 2rem;
         background: white;
         border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(var(--gray), 25%);
+        box-shadow: var(--box-shadow-light);
+        border: 1px solid rgb(var(--gray-light));
       }
       .author-icon {
         width: 128px;
@@ -109,11 +110,11 @@ const { author, posts } = Astro.props;
       }
       .posts-list li a:hover img {
         transform: translateY(-4px);
-        box-shadow: 0 4px 12px rgba(var(--gray), 30%);
+        box-shadow: var(--box-shadow-hover);
       }
       .posts-list li a:hover .title,
       .posts-list li a:hover .date {
-        color: rgb(var(--accent));
+        color: var(--accent-dark);
       }
       .title {
         margin: 0;
