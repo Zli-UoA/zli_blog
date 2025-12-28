@@ -1,0 +1,183 @@
+---
+import { Image } from "astro:assets";
+import { type CollectionEntry, getCollection } from "astro:content";
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+import Header from "../../components/Header.astro";
+import { SITE_TITLE } from "../../consts";
+import placeholderImage from "../../assets/placeholder.png";
+
+export async function getStaticPaths() {
+  const authors = await getCollection("authors");
+  const posts = await getCollection("posts");
+
+  return authors.map((author) => {
+    // Find posts by this author
+    const authorPosts = posts
+      .filter((post) => post.data.authors.some((a) => a.id === author.data.id))
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+    return {
+      params: { id: author.data.id },
+      props: { author, posts: authorPosts },
+    };
+  });
+}
+
+type Props = {
+  author: CollectionEntry<"authors">;
+  posts: CollectionEntry<"posts">[];
+};
+
+const { author, posts } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <BaseHead
+      title={`${author.data.displayName} - ${SITE_TITLE}`}
+      description={author.data.bio}
+    />
+    <style>
+      main {
+        width: 960px;
+        max-width: calc(100% - 2em);
+        margin: auto;
+        padding: 2em 1em;
+      }
+      .author-profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(var(--gray), 25%);
+      }
+      .author-icon {
+        width: 128px;
+        height: 128px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+      }
+      .author-name {
+        font-size: 2rem;
+        margin: 0 0 1rem 0;
+      }
+      .author-bio {
+        color: rgb(var(--gray-dark));
+        line-height: 1.8;
+        white-space: pre-line;
+        max-width: 600px;
+        margin: 0;
+      }
+      .posts-section h2 {
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+      .posts-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      .posts-list li {
+        width: calc(50% - 1rem);
+      }
+      .posts-list li a {
+        display: block;
+        text-decoration: none;
+        transition: 0.2s ease;
+      }
+      .posts-list li img {
+        margin-bottom: 0.5rem;
+        border-radius: 12px;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 2 / 1;
+        object-fit: cover;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .posts-list li a:hover img {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(var(--gray), 30%);
+      }
+      .posts-list li a:hover .title,
+      .posts-list li a:hover .date {
+        color: rgb(var(--accent));
+      }
+      .title {
+        margin: 0;
+        color: rgb(var(--black));
+        line-height: 1.2;
+      }
+      .date {
+        margin: 0.5rem 0 0 0;
+        color: rgb(var(--gray));
+        font-size: 0.9rem;
+      }
+      .no-posts {
+        color: rgb(var(--gray));
+        text-align: center;
+        padding: 2rem;
+      }
+      @media (max-width: 720px) {
+        .posts-list li {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <div class="author-profile">
+        <Image
+          class="author-icon"
+          src={author.data.icon}
+          alt={author.data.displayName}
+          width={128}
+          height={128}
+        />
+        <h1 class="author-name">{author.data.displayName}</h1>
+        <p class="author-bio">{author.data.bio}</p>
+      </div>
+
+      <section class="posts-section">
+        <h2>投稿記事</h2>
+        {
+          posts.length > 0 ? (
+            <ul class="posts-list">
+              {posts.map((post) => {
+                const heroImage = post.data.heroImage ?? placeholderImage;
+                return (
+                  <li>
+                    <a href={`/posts/${post.id}/`}>
+                      <Image width={720} height={360} src={heroImage} alt="" />
+                      <h3 class="title">{post.data.title}</h3>
+                      <p class="date">
+                        <FormattedDate date={post.data.pubDate} />
+                      </p>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            <p class="no-posts">まだ投稿がありません</p>
+          )
+        }
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

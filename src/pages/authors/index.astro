@@ -1,0 +1,109 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import { SITE_TITLE } from "../../consts";
+
+const authors = await getCollection("authors");
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <BaseHead
+      title={`Authors - ${SITE_TITLE}`}
+      description="ブログの執筆者一覧"
+    />
+    <style>
+      main {
+        width: 960px;
+        max-width: calc(100% - 2em);
+        margin: auto;
+        padding: 2em 1em;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .authors-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+      .author-card {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-decoration: none;
+        color: inherit;
+        box-shadow: 0 2px 8px rgba(var(--gray), 25%);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .author-card:hover {
+        transform: translateY(-4px);
+        box-shadow:
+          0 4px 12px rgba(var(--gray), 30%),
+          0 12px 32px rgba(var(--gray), 40%),
+          0 20px 40px rgba(var(--gray), 40%);
+      }
+      .author-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .author-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .author-name {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin: 0;
+        color: rgb(var(--black));
+      }
+      .author-bio {
+        color: rgb(var(--gray-dark));
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>Authors</h1>
+      <div class="authors-grid">
+        {
+          authors.map((author) => (
+            <a href={`/authors/${author.data.id}/`} class="author-card">
+              <div class="author-header">
+                <Image
+                  class="author-icon"
+                  src={author.data.icon}
+                  alt={author.data.displayName}
+                  width={64}
+                  height={64}
+                />
+                <h2 class="author-name">{author.data.displayName}</h2>
+              </div>
+              <p class="author-bio">{author.data.bio}</p>
+            </a>
+          ))
+        }
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

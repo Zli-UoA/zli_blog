@@ -30,7 +30,6 @@ const { title, description, pubDate, updatedDate, heroImage, authors } =
         display: block;
         margin: 0 auto;
         border-radius: 12px;
-        box-shadow: var(--box-shadow);
         aspect-ratio: 2 / 1;
         object-fit: cover;
       }
@@ -71,6 +70,16 @@ const { title, description, pubDate, updatedDate, heroImage, authors } =
         padding: 0.5rem 1rem;
         background: rgb(var(--gray-light));
         border-radius: 9999px;
+        text-decoration: none;
+        transition:
+          background 0.2s ease,
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .author:hover {
+        background: rgb(var(--gray-light));
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(var(--black), 15%);
       }
       .author-icon {
         width: 32px;
@@ -81,6 +90,9 @@ const { title, description, pubDate, updatedDate, heroImage, authors } =
       .author-name {
         font-size: 0.9rem;
         color: rgb(var(--gray-dark));
+      }
+      .author:hover .author-name {
+        color: rgb(var(--black));
       }
     </style>
   </head>
@@ -112,7 +124,7 @@ const { title, description, pubDate, updatedDate, heroImage, authors } =
             <div class="authors">
               {
                 authors.map((author) => (
-                  <div class="author">
+                  <a href={`/authors/${author.data.id}/`} class="author">
                     <Image
                       class="author-icon"
                       src={author.data.icon}
@@ -121,7 +133,7 @@ const { title, description, pubDate, updatedDate, heroImage, authors } =
                       height={32}
                     />
                     <span class="author-name">{author.data.displayName}</span>
-                  </div>
+                  </a>
                 ))
               }
             </div>
