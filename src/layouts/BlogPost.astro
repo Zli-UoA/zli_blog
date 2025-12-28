@@ -6,11 +6,12 @@ import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
 
-type Props = Omit<CollectionEntry<"blog">["data"], "authors"> & {
+type Props = Omit<CollectionEntry<"posts">["data"], "authors"> & {
   authors: CollectionEntry<"authors">[];
 };
 
-const { title, description, pubDate, updatedDate, heroImage, authors } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, authors } =
+  Astro.props;
 ---
 
 <html lang="ja">
@@ -109,18 +110,20 @@ const { title, description, pubDate, updatedDate, heroImage, authors } = Astro.p
             </div>
             <h1>{title}</h1>
             <div class="authors">
-              {authors.map((author) => (
-                <div class="author">
-                  <Image
-                    class="author-icon"
-                    src={author.data.icon}
-                    alt={author.data.displayName}
-                    width={32}
-                    height={32}
-                  />
-                  <span class="author-name">{author.data.displayName}</span>
-                </div>
-              ))}
+              {
+                authors.map((author) => (
+                  <div class="author">
+                    <Image
+                      class="author-icon"
+                      src={author.data.icon}
+                      alt={author.data.displayName}
+                      width={32}
+                      height={32}
+                    />
+                    <span class="author-name">{author.data.displayName}</span>
+                  </div>
+                ))
+              }
             </div>
             <hr />
           </div>

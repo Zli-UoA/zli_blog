@@ -1,22 +1,27 @@
 ---
-import { type CollectionEntry, getCollection, getEntry, render } from "astro:content";
+import {
+  type CollectionEntry,
+  getCollection,
+  getEntry,
+  render,
+} from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("posts");
   return posts.map((post) => ({
     params: { slug: post.id },
     props: post,
   }));
 }
-type Props = CollectionEntry<"blog">;
+type Props = CollectionEntry<"posts">;
 
 const post = Astro.props;
 const { Content } = await render(post);
 
 // Resolve author references to full author data
 const authors = await Promise.all(
-  post.data.authors.map((authorRef) => getEntry(authorRef))
+  post.data.authors.map((authorRef) => getEntry(authorRef)),
 );
 ---
 
