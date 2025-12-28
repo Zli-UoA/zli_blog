@@ -13,7 +13,7 @@ type Props = Omit<CollectionEntry<"blog">["data"], "authors"> & {
 const { title, description, pubDate, updatedDate, heroImage, authors } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="ja">
   <head>
     <BaseHead title={title} description={description} />
     <style>
@@ -30,6 +30,8 @@ const { title, description, pubDate, updatedDate, heroImage, authors } = Astro.p
         margin: 0 auto;
         border-radius: 12px;
         box-shadow: var(--box-shadow);
+        aspect-ratio: 2 / 1;
+        object-fit: cover;
       }
       .prose {
         width: 720px;
