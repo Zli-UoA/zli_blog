@@ -4,7 +4,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import type { APIRoute } from "astro";
 
 export const GET: APIRoute = async (context) => {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("posts");
   return rss({
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
