@@ -1,0 +1,92 @@
+{
+  "event": {
+    "displayName": "イベント",
+    "description": "Zliが開催・参加したイベントの記事",
+    "color": "#3b82f6"
+  },
+  "hackathon": {
+    "displayName": "ハッカソン",
+    "description": "ハッカソンに関する記事",
+    "color": "#ef4444"
+  },
+  "aizuhack": {
+    "displayName": "AizuHack",
+    "description": "AizuHack関連の記事",
+    "color": "#f97316"
+  },
+  "development": {
+    "displayName": "開発",
+    "description": "開発に関する記事",
+    "color": "#22c55e"
+  },
+  "zli": {
+    "displayName": "Zli",
+    "description": "Zliサークルに関する記事",
+    "color": "#8b5cf6"
+  },
+  "workshop": {
+    "displayName": "勉強会",
+    "description": "勉強会に関する記事",
+    "color": "#06b6d4"
+  },
+  "elm": {
+    "displayName": "Elm",
+    "description": "Elm言語に関する記事",
+    "color": "#1293d8"
+  },
+  "conference": {
+    "displayName": "カンファレンス",
+    "description": "技術カンファレンスに関する記事",
+    "color": "#ec4899"
+  },
+  "tutorial": {
+    "displayName": "チュートリアル",
+    "description": "チュートリアル・入門記事",
+    "color": "#14b8a6"
+  },
+  "git": {
+    "displayName": "Git",
+    "description": "Gitに関する記事",
+    "color": "#f05032"
+  },
+  "github": {
+    "displayName": "GitHub",
+    "description": "GitHubに関する記事",
+    "color": "#181717"
+  },
+  "web": {
+    "displayName": "Web開発",
+    "description": "Web開発に関する記事",
+    "color": "#0ea5e9"
+  },
+  "line": {
+    "displayName": "LINE",
+    "description": "LINE関連の記事",
+    "color": "#00c300"
+  },
+  "iot": {
+    "displayName": "IoT",
+    "description": "IoT・ハードウェアに関する記事",
+    "color": "#64748b"
+  },
+  "game": {
+    "displayName": "ゲーム",
+    "description": "ゲーム開発に関する記事",
+    "color": "#a855f7"
+  },
+  "unity": {
+    "displayName": "Unity",
+    "description": "Unityに関する記事",
+    "color": "#000000"
+  },
+  "payment": {
+    "displayName": "決済",
+    "description": "決済・FinTechに関する記事",
+    "color": "#eab308"
+  },
+  "pr": {
+    "displayName": "PR",
+    "description": "PR・スポンサー記事",
+    "color": "#f43f5e"
+  }
+}

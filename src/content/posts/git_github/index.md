@@ -6,6 +6,10 @@ authors:
 pubDate: 2023-05-11
 updateDate: 2024-05-11
 heroImage: ./eyeCatch.png
+tags:
+  - tutorial
+  - git
+  - github
 ---
 
 # Git,GitHub について

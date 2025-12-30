@@ -23,8 +23,13 @@ const { Content } = await render(post);
 const authors = await Promise.all(
   post.data.authors.map((authorRef) => getEntry(authorRef)),
 );
+
+// Resolve tag references to full tag data
+const tags = await Promise.all(
+  post.data.tags.map((tagRef) => getEntry(tagRef)),
+);
 ---
 
-<BlogPost {...post.data} authors={authors}>
+<BlogPost {...post.data} authors={authors} tags={tags}>
   <Content />
 </BlogPost>

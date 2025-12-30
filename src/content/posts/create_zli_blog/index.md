@@ -5,6 +5,9 @@ authors:
   - eraser5th
 pubDate: 2023-05-08
 updateDate: 2024-05-08
+tags:
+  - development
+  - zli
 ---
 
 ## 経緯

@@ -5,6 +5,13 @@ authors:
   - yuorei
 pubDate: 2023-09-30
 updateDate: 2023-09-30
+tags:
+  - event
+  - hackathon
+  - aizuhack
+  - web
+  - line
+  - iot
 ---
 
 # AizuHack2023 を開催しました！

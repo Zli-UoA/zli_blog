@@ -3,10 +3,9 @@ import { Image } from "astro:assets";
 import { type CollectionEntry, getCollection } from "astro:content";
 import BaseHead from "../../components/BaseHead.astro";
 import Footer from "../../components/Footer.astro";
-import FormattedDate from "../../components/FormattedDate.astro";
 import Header from "../../components/Header.astro";
+import PostCard from "../../components/PostCard.astro";
 import { SITE_TITLE } from "../../consts";
-import placeholderImage from "../../assets/placeholder.png";
 
 export async function getStaticPaths() {
   const authors = await getCollection("authors");
@@ -67,31 +66,11 @@ const { author, posts } = Astro.props;
         {
           posts.length > 0 ? (
             <ul class="grid grid-cols-1 md:grid-cols-2 gap-8 list-none m-0 p-0">
-              {posts.map((post) => {
-                const heroImage = post.data.heroImage ?? placeholderImage;
-                return (
-                  <li>
-                    <a
-                      href={`/posts/${post.id}/`}
-                      class="block no-underline transition-all duration-200 group"
-                    >
-                      <Image
-                        width={720}
-                        height={360}
-                        src={heroImage}
-                        alt=""
-                        class="mb-2 rounded-xl w-full h-auto aspect-video object-cover transition-all duration-200 group-hover:-translate-y-1 group-hover:shadow-md"
-                      />
-                      <h3 class="m-0 text-slate-900 leading-tight group-hover:text-accent-dark">
-                        {post.data.title}
-                      </h3>
-                      <p class="mt-2 mb-0 text-slate-500 text-sm group-hover:text-accent-dark">
-                        <FormattedDate date={post.data.pubDate} />
-                      </p>
-                    </a>
-                  </li>
-                );
-              })}
+              {posts.map((post) => (
+                <li>
+                  <PostCard post={post} />
+                </li>
+              ))}
             </ul>
           ) : (
             <p class="text-slate-500 text-center p-8">まだ投稿がありません</p>

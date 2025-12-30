@@ -9,6 +9,7 @@
 - [セットアップ](#セットアップ)
 - [記事の投稿方法](#記事の投稿方法)
 - [著者の追加方法](#著者の追加方法)
+- [タグの追加方法](#タグの追加方法)
 - [コマンド一覧](#コマンド一覧)
 
 ## 技術スタック
@@ -25,7 +26,8 @@
 │   ├── components/      # Astroコンポーネント
 │   ├── content/
 │   │   ├── authors/     # 著者情報
-│   │   └── posts/       # ブログ記事
+│   │   ├── posts/       # ブログ記事
+│   │   └── tags.json    # タグ情報
 │   ├── layouts/         # ページレイアウト
 │   ├── pages/           # ルーティング
 │   └── styles/          # グローバルスタイル
@@ -79,7 +81,12 @@ authors:
 pubDate: 2025-01-01 # 公開日
 updatedDate: 2025-01-02 # 更新日（任意）
 heroImage: ./eyeCatch.png # アイキャッチ画像（任意）
+tags: # タグ（任意、複数指定可能）
+  - event
+  - hackathon
 ```
+
+> **Note**: タグIDは `src/content/tags.json` に存在するものを指定してください。存在しないタグを指定するとビルドエラーになります。新しいタグが必要な場合は、先に[タグを追加](#タグの追加方法)してください。
 
 ### 3. 画像を追加（任意）
 
@@ -139,6 +146,51 @@ src/content/authors/your-id/
 ├── index.json
 └── icon.png
 ```
+
+## タグの追加方法
+
+`src/content/tags.json` にタグを追加します。キーがタグIDになります。
+
+```json
+{
+  "event": {
+    "displayName": "イベント",
+    "description": "Zliが開催・参加したイベントの記事",
+    "color": "#3b82f6"
+  },
+  "your-new-tag": {
+    "displayName": "新しいタグ",
+    "description": "タグの説明（任意）",
+    "color": "#3b82f6"
+  }
+}
+```
+
+### フィールド説明
+
+| フィールド    | 必須 | 説明                                        |
+| :------------ | :--: | :------------------------------------------ |
+| キー          |  ✓   | タグのID（URLに使用、英数字とハイフン推奨） |
+| `displayName` |  ✓   | タグの表示名                                |
+| `description` |      | タグの説明文（タグページに表示）            |
+| `color`       |      | タグの色（HEXカラーコード、例: `#3b82f6`）  |
+
+### 既存のタグ一覧
+
+| ID            | 表示名         | 色      |
+| :------------ | :------------- | :------ |
+| `event`       | イベント       | #3b82f6 |
+| `hackathon`   | ハッカソン     | #ef4444 |
+| `aizuhack`    | AizuHack       | #f97316 |
+| `workshop`    | 勉強会         | #06b6d4 |
+| `conference`  | カンファレンス | #ec4899 |
+| `tutorial`    | チュートリアル | #14b8a6 |
+| `development` | 開発           | #22c55e |
+| `zli`         | Zli            | #8b5cf6 |
+| `git`         | Git            | #f05032 |
+| `github`      | GitHub         | #181717 |
+| `elm`         | Elm            | #1293d8 |
+| `stores`      | STORES         | #000000 |
 
 ## コマンド一覧
 

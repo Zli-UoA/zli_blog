@@ -1,0 +1,57 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  tag: CollectionEntry<"tags">;
+  /** リンクを有効にするか（デフォルト: true） */
+  link?: boolean;
+  /** サイズ: "sm" | "md" | "lg"（デフォルト: "md"） */
+  size?: "sm" | "md" | "lg";
+  /** アクティブ状態（ハイライト表示） */
+  active?: boolean;
+  /** カウント数を表示 */
+  count?: number;
+}
+
+const { tag, link = true, size = "md", active = false, count } = Astro.props;
+
+const sizeClasses = {
+  sm: "text-xs px-2 py-0.5",
+  md: "text-sm px-3 py-1",
+  lg: "px-4 py-2",
+};
+
+const baseClasses = `inline-flex items-center gap-1 rounded-full transition-all duration-200 ${sizeClasses[size]}`;
+const linkClasses = link
+  ? "no-underline hover:-translate-y-0.5 hover:shadow-md"
+  : "";
+
+// スタイルを計算
+const getStyle = () => {
+  const color = tag.data.color;
+  if (active) {
+    return color
+      ? `background-color: ${color}; color: white`
+      : "background-color: var(--accent); color: white";
+  }
+  return color
+    ? `background-color: ${color}20; color: ${color}`
+    : "background-color: #f1f5f9; color: #475569";
+};
+
+const style = getStyle();
+const classes = `${baseClasses} ${linkClasses}`.trim();
+---
+
+{
+  link ? (
+    <a href={`/tags/${tag.id}/`} class={classes} style={style}>
+      <span>#{tag.data.displayName}</span>
+      {count !== undefined && <span class="opacity-70">({count})</span>}
+    </a>
+  ) : (
+    <span class={baseClasses} style={style}>
+      #{tag.data.displayName}
+    </span>
+  )
+}

@@ -6,6 +6,11 @@ authors:
 pubDate: 2025-12-13
 updateDate: 2025-12-13
 heroImage: ./eyeCatch.png
+tags:
+  - event
+  - conference
+  - payment
+  - pr
 ---
 
 > [!NOTE]

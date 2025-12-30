@@ -1,12 +1,10 @@
 ---
-import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
-import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
+import PostCard from "../components/PostCard.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
-import placeholderImage from "../assets/placeholder.png";
 
 const posts = (await getCollection("posts")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -39,32 +37,12 @@ const recentPosts = posts.slice(1, 5);
         latestPost && (
           <section class="mb-16">
             <h2 class="text-3xl font-bold mb-8 text-slate-900">最新の投稿</h2>
-            <a
-              href={`/posts/${latestPost.id}/`}
-              class="block no-underline transition-all duration-200 group"
-            >
-              <div class="relative overflow-hidden rounded-2xl">
-                <Image
-                  width={1020}
-                  height={510}
-                  src={latestPost.data.heroImage ?? placeholderImage}
-                  alt=""
-                  class="w-full h-auto aspect-video object-cover transition-all duration-300 group-hover:scale-105"
-                />
-                <div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
-                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <p class="text-sm opacity-80 mb-2">
-                    <FormattedDate date={latestPost.data.pubDate} />
-                  </p>
-                  <h3 class="text-3xl md:text-4xl font-bold m-0 text-white group-hover:text-accent">
-                    {latestPost.data.title}
-                  </h3>
-                  <p class="mt-2 text-lg opacity-90 line-clamp-2">
-                    {latestPost.data.description}
-                  </p>
-                </div>
-              </div>
-            </a>
+            <PostCard
+              post={latestPost}
+              size="featured"
+              showDescription
+              showTags={false}
+            />
           </section>
         )
       }
@@ -83,31 +61,11 @@ const recentPosts = posts.slice(1, 5);
               </a>
             </div>
             <ul class="grid grid-cols-1 md:grid-cols-2 gap-8 list-none m-0 p-0">
-              {recentPosts.map((post) => {
-                const heroImage = post.data.heroImage ?? placeholderImage;
-                return (
-                  <li>
-                    <a
-                      href={`/posts/${post.id}/`}
-                      class="block no-underline transition-all duration-200 group"
-                    >
-                      <Image
-                        width={720}
-                        height={360}
-                        src={heroImage}
-                        alt=""
-                        class="mb-3 rounded-xl w-full h-auto aspect-video object-cover transition-all duration-200 group-hover:-translate-y-1 group-hover:shadow-lg"
-                      />
-                      <h4 class="m-0 text-slate-900 leading-snug group-hover:text-accent-dark text-xl">
-                        {post.data.title}
-                      </h4>
-                      <p class="mt-2 mb-0 text-slate-500 text-sm">
-                        <FormattedDate date={post.data.pubDate} />
-                      </p>
-                    </a>
-                  </li>
-                );
-              })}
+              {recentPosts.map((post) => (
+                <li>
+                  <PostCard post={post} showTags={false} />
+                </li>
+              ))}
             </ul>
           </section>
         )

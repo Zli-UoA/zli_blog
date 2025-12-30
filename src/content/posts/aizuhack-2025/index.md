@@ -6,6 +6,14 @@ authors:
 pubDate: 2025-10-25
 updateDate: 2025-10-25
 heroImage: ./eyeCatch.png
+tags:
+  - event
+  - hackathon
+  - aizuhack
+  - web
+  - game
+  - iot
+  - unity
 ---
 
 ※記事のタイトルでは AizuHack/Re_AizuHack となっていますが、以降は Aizu Hack / Re:Aizu Hack と表記させていただきます。

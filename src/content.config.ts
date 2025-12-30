@@ -1,5 +1,5 @@
 import { defineCollection, reference, z } from "astro:content";
-import { glob } from "astro/loaders";
+import { file, glob } from "astro/loaders";
 
 const posts = defineCollection({
   // Load Markdown and MDX files in the `src/content/posts/` directory.
@@ -14,6 +14,7 @@ const posts = defineCollection({
       pubDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
       heroImage: image().optional(),
+      tags: reference("tags").array().default([]),
     }),
 });
 
@@ -30,4 +31,15 @@ const authors = defineCollection({
     }),
 });
 
-export const collections = { posts, authors };
+const tags = defineCollection({
+  // Load tags from a single JSON file (keys are used as IDs)
+  loader: file("./src/content/tags.json"),
+  // Type-check using a schema
+  schema: z.object({
+    displayName: z.string(),
+    description: z.string().optional(),
+    color: z.string().optional(),
+  }),
+});
+
+export const collections = { posts, authors, tags };

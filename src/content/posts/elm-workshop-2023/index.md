@@ -5,6 +5,10 @@ authors:
   - 39sho
 pubDate: 2023-06-13
 updateDate: 2024-06-13
+tags:
+  - event
+  - workshop
+  - elm
 ---
 
 ## 要約
