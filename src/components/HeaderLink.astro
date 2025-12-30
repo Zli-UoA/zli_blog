@@ -1,21 +1,33 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-type Props = HTMLAttributes<"a">;
+interface Props extends HTMLAttributes<"a"> {
+  variant?: "desktop" | "mobile";
+}
 
-const { href, class: className, ...props } = Astro.props;
+const { href, class: className, variant = "desktop", ...props } = Astro.props;
 
 const isActive = Astro.url.pathname.startsWith(href?.toString() ?? "");
+
+const baseStyles = "no-underline transition-colors duration-200";
+
+const variantStyles = {
+  desktop: [
+    "inline-block py-4 px-2 text-slate-700 border-b-2 border-transparent",
+    { "border-accent font-bold": isActive },
+    "hover:border-accent",
+  ],
+  mobile: [
+    "block py-2 px-4 text-slate-700 rounded-lg",
+    { "bg-amber-100 text-amber-700 font-bold": isActive },
+    "hover:bg-gray-100",
+  ],
+};
 ---
 
 <a
   href={href}
-  class:list={[
-    "inline-block py-4 px-2 text-slate-700 no-underline border-b-2 border-transparent transition-colors duration-200",
-    { "border-accent font-bold": isActive },
-    "hover:border-accent",
-    className,
-  ]}
+  class:list={[baseStyles, ...variantStyles[variant], className]}
   {...props}
 >
   <slot />
