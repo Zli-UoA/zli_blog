@@ -21,9 +21,9 @@ const { title, description, pubDate, updatedDate, heroImage, authors } =
 
   <body>
     <Header />
-    <main class="w-full max-w-full m-0">
+    <main class="w-full max-w-full m-0 p-4">
       <article>
-        <div class="w-full">
+        <div class="w-full max-w-4xl mx-auto">
           {
             heroImage && (
               <Image
@@ -31,12 +31,12 @@ const { title, description, pubDate, updatedDate, heroImage, authors } =
                 height={510}
                 src={heroImage}
                 alt=""
-                class="block mx-auto rounded-xl aspect-video object-cover"
+                class="blockrounded-xl aspect-video object-cover"
               />
             )
           }
         </div>
-        <div class="prose max-w-3xl mx-auto p-4 text-slate-700">
+        <div class="prose max-w-4xl mx-auto text-slate-700">
           <div class="mb-4 py-4 text-center leading-none">
             <div class="mb-2 text-slate-500">
               <FormattedDate date={pubDate} />

@@ -3,6 +3,8 @@
 @theme {
   --color-accent: #ffd600;
   --color-accent-dark: #c7a600;
+  --color-brand-black: #2c2c2c;
+  --color-brand-white: #d9d9d9;
 }
 
 @font-face {

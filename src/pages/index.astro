@@ -51,7 +51,7 @@ const recentPosts = posts.slice(1, 5);
                   alt=""
                   class="w-full h-auto aspect-video object-cover transition-all duration-300 group-hover:scale-105"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
                 <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
                   <p class="text-sm opacity-80 mb-2">
                     <FormattedDate date={latestPost.data.pubDate} />
@@ -114,21 +114,17 @@ const recentPosts = posts.slice(1, 5);
       }
 
       <!-- CTAセクション -->
-      <section
-        class="bg-gradient-to-r from-amber-50 to-amber-100 rounded-2xl p-8 md:p-12 text-center"
-      >
-        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+      <section class="bg-brand-black rounded-2xl p-8 md:p-12 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-brand-white mb-4">
           Zliについてもっと知る
         </h2>
-        <p class="text-slate-600 mb-6 max-w-xl mx-auto">
-          会津大学の総合技術系サークルZliでは、プログラミングやものづくりに興味のある仲間を募集しています。
+        <p class="text-brand-white mb-6 max-w-xl mx-auto">
+          Zliは、技術好きが集まる総合技術系サークルです。私たちの公式サイトで、最新のプロジェクトやイベント情報をチェックしてください！
         </p>
         <div class="flex flex-wrap justify-center gap-4">
           <a
             href="https://zli.works/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-block px-6 py-3 bg-amber-500 text-white font-semibold rounded-lg no-underline hover:bg-amber-600 transition-colors"
+            class="inline-block px-6 py-3 bg-accent text-brand-black font-semibold rounded-lg no-underline hover:bg-accent-dark transition-colors"
           >
             Zli公式サイトへ →
           </a>
