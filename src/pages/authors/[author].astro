@@ -18,7 +18,7 @@ export async function getStaticPaths() {
       .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
     return {
-      params: { id: author.data.id },
+      params: { author: author.data.id },
       props: { author, posts: authorPosts },
     };
   });
