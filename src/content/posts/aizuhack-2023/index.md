@@ -4,7 +4,7 @@ description: プログラミング初心者の1, 2年生向けに開催する勉
 authors:
   - yuorei
 pubDate: 2023-09-30
-updateDate: 2023-09-30
+updatedDate: 2023-09-30
 tags:
   - event
   - hackathon

@@ -4,7 +4,7 @@ description: 2023年5月4日と5日に開催されたElm勉強会にZliメンバ
 authors:
   - 39sho
 pubDate: 2023-06-13
-updateDate: 2024-06-13
+updatedDate: 2024-06-13
 tags:
   - event
   - workshop

@@ -4,7 +4,7 @@ description: Zliの公式ブログを内製した話を書きました。使用�
 authors:
   - eraser5th
 pubDate: 2023-05-08
-updateDate: 2024-05-08
+updatedDate: 2024-05-08
 tags:
   - development
   - zli

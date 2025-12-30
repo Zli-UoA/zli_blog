@@ -4,7 +4,7 @@ description: STORES Tech Conf 2025 "What Would You Do?" にZliメンバーが参
 authors:
   - ktk
 pubDate: 2025-12-13
-updateDate: 2025-12-13
+updatedDate: 2025-12-13
 heroImage: ./eyeCatch.png
 tags:
   - event

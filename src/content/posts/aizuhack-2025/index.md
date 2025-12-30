@@ -4,7 +4,7 @@ description: 2025年5月から6月にかけて開催されたAizu Hack / Re:Aizu
 authors:
   - atto
 pubDate: 2025-10-25
-updateDate: 2025-10-25
+updatedDate: 2025-10-25
 heroImage: ./eyeCatch.png
 tags:
   - event

@@ -4,7 +4,7 @@ description: GitとGitHubの基本的な使い方について解説します。�
 authors:
   - yuorei
 pubDate: 2023-05-11
-updateDate: 2024-05-11
+updatedDate: 2024-05-11
 heroImage: ./eyeCatch.png
 tags:
   - tutorial
