@@ -1,62 +1,152 @@
-# Astro Starter Kit: Blog
+# Zli Official Blog
 
-```sh
-npm create astro@latest -- --template blog
-```
+会津大学の総合技術系サークル [Zli](https://zli.jp/) の公式ブログです。技術情報やイベントレポートなどを発信しています。
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 目次
 
-Features:
+- [技術スタック](#技術スタック)
+- [プロジェクト構造](#プロジェクト構造)
+- [セットアップ](#セットアップ)
+- [記事の投稿方法](#記事の投稿方法)
+- [著者の追加方法](#著者の追加方法)
+- [コマンド一覧](#コマンド一覧)
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+## 技術スタック
 
-## 🚀 Project Structure
+- **フレームワーク**: [Astro](https://astro.build/) v5
+- **スタイリング**: [Tailwind CSS](https://tailwindcss.com/) v4
+- **コンテンツ**: Markdown / MDX
 
-Inside of your Astro project, you'll see the following folders and files:
+## プロジェクト構造
 
 ```text
-├── public/
+├── public/              # 静的ファイル（フォント等）
 ├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
+│   ├── components/      # Astroコンポーネント
+│   ├── content/
+│   │   ├── authors/     # 著者情報
+│   │   └── posts/       # ブログ記事
+│   ├── layouts/         # ページレイアウト
+│   ├── pages/           # ルーティング
+│   └── styles/          # グローバルスタイル
+├── astro.config.ts      # Astro設定
 ├── package.json
 └── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## セットアップ
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### 必要な環境
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+- Node.js 18以上
+- npm
 
-Any static assets, like images, can be placed in the `public/` directory.
+### インストール
 
-## 🧞 Commands
+```bash
+# リポジトリをクローン
+git clone https://github.com/Zli-UoA/zli_blog.git
+cd zli_blog
 
-All commands are run from the root of the project, from a terminal:
+# 依存関係をインストール
+npm install
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+# 開発サーバーを起動
+npm run dev
+```
 
-## 👀 Want to learn more?
+開発サーバーは `http://localhost:4321` で起動します。
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 記事の投稿方法
 
-## Credit
+### 1. 記事用ディレクトリを作成
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+`src/content/posts/` 配下に記事用のディレクトリを作成します。
+
+```bash
+mkdir src/content/posts/your-article-slug
+```
+
+### 2. 記事ファイルを作成
+
+ディレクトリ内に `index.md`（または `index.mdx`）を作成し、以下のフロントマターを記述します。
+
+```yaml
+title: 記事のタイトル
+description: 記事の説明文
+authors:
+  - your-author-id # 著者のID（複数指定可能）
+pubDate: 2025-01-01 # 公開日
+updatedDate: 2025-01-02 # 更新日（任意）
+heroImage: ./eyeCatch.png # アイキャッチ画像（任意）
+```
+
+### 3. 画像を追加（任意）
+
+アイキャッチ画像や記事内で使用する画像は、記事と同じディレクトリに配置します。
+
+```text
+src/content/posts/your-article-slug/
+├── index.md
+├── eyeCatch.png
+└── screenshot.png
+```
+
+記事内で画像を使用する場合：
+
+```markdown
+![画像の説明](./screenshot.png)
+```
+
+### 4. プレビューで確認
+
+```bash
+npm run dev
+```
+
+`http://localhost:4321/posts/your-article-slug` で記事を確認できます。
+
+## 著者の追加方法
+
+### 1. 著者用ディレクトリを作成
+
+`src/content/authors/` 配下に著者IDのディレクトリを作成します。
+
+```bash
+mkdir src/content/authors/your-id
+```
+
+### 2. 著者情報ファイルを作成
+
+ディレクトリ内に `index.json` を作成します。
+
+```json
+{
+  "$schema": "../../../../.astro/collections/authors.schema.json",
+  "id": "your-id",
+  "displayName": "表示名",
+  "bio": "自己紹介文。\n改行も使用可能です。",
+  "icon": "./icon.png"
+}
+```
+
+### 3. アイコン画像を追加
+
+同じディレクトリにアイコン画像（`icon.png`など）を配置します。
+
+```text
+src/content/authors/your-id/
+├── index.json
+└── icon.png
+```
+
+## コマンド一覧
+
+| コマンド          | 説明                                  |
+| :---------------- | :------------------------------------ |
+| `npm install`     | 依存関係のインストール                |
+| `npm run dev`     | 開発サーバーを起動 (`localhost:4321`) |
+| `npm run build`   | 本番用ビルドを `./dist/` に出力       |
+| `npm run preview` | ビルド結果をローカルでプレビュー      |
+| `npm run fmt`     | Prettierでコードをフォーマット        |
+| `npm run astro`   | Astro CLIコマンドを実行               |
