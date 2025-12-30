@@ -16,89 +16,33 @@ const authors = await getCollection("authors");
       title={`Authors - ${SITE_TITLE}`}
       description="ブログの執筆者一覧"
     />
-    <style>
-      main {
-        width: 960px;
-        max-width: calc(100% - 2em);
-        margin: auto;
-        padding: 2em 1em;
-      }
-      h1 {
-        text-align: center;
-        margin-bottom: 2rem;
-      }
-      .authors-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 2rem;
-      }
-      .author-card {
-        background: white;
-        border-radius: 12px;
-        padding: 1.5rem;
-        text-decoration: none;
-        color: inherit;
-        box-shadow: var(--box-shadow-light);
-        border: 1px solid rgb(var(--gray-light));
-        transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease,
-          border-color 0.2s ease;
-      }
-      .author-card:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--box-shadow-hover);
-        border-color: var(--accent);
-      }
-      .author-header {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 1rem;
-      }
-      .author-icon {
-        width: 64px;
-        height: 64px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-      .author-name {
-        font-size: 1.25rem;
-        font-weight: bold;
-        margin: 0;
-        color: rgb(var(--black));
-      }
-      .author-bio {
-        color: rgb(var(--gray-dark));
-        font-size: 0.9rem;
-        line-height: 1.6;
-        margin: 0;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-    </style>
   </head>
   <body>
     <Header />
-    <main>
-      <h1>Authors</h1>
-      <div class="authors-grid">
+    <main class="max-w-5xl mx-auto py-8 px-4">
+      <h1 class="text-center mb-8">Authors</h1>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {
           authors.map((author) => (
-            <a href={`/authors/${author.data.id}/`} class="author-card">
-              <div class="author-header">
+            <a
+              href={`/authors/${author.data.id}/`}
+              class="bg-white rounded-xl p-6 no-underline text-inherit shadow-sm border border-gray-200 transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-accent"
+            >
+              <div class="flex items-center gap-4 mb-4">
                 <Image
-                  class="author-icon"
+                  class="w-16 h-16 rounded-full object-cover"
                   src={author.data.icon}
                   alt={author.data.displayName}
                   width={64}
                   height={64}
                 />
-                <h2 class="author-name">{author.data.displayName}</h2>
+                <h2 class="text-xl font-bold m-0 text-slate-900">
+                  {author.data.displayName}
+                </h2>
               </div>
-              <p class="author-bio">{author.data.bio}</p>
+              <p class="text-slate-700 text-sm leading-relaxed m-0 line-clamp-3">
+                {author.data.bio}
+              </p>
             </a>
           ))
         }

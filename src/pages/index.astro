@@ -11,114 +11,128 @@ import placeholderImage from "../assets/placeholder.png";
 const posts = (await getCollection("posts")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+const latestPost = posts[0];
+const recentPosts = posts.slice(1, 5);
 ---
 
 <!doctype html>
 <html lang="ja">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <style>
-      main {
-        width: 960px;
-      }
-      ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-      }
-      ul li {
-        width: calc(50% - 1rem);
-      }
-      ul li * {
-        text-decoration: none;
-        transition: 0.2s ease;
-      }
-      ul li:first-child {
-        width: 100%;
-        margin-bottom: 1rem;
-        text-align: center;
-      }
-      ul li:first-child img {
-        width: 100%;
-      }
-      ul li:first-child .title {
-        font-size: 2.369rem;
-      }
-      ul li img {
-        margin-bottom: 0.5rem;
-        border-radius: 12px;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 2 / 1;
-        object-fit: cover;
-        transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease;
-      }
-      ul li a {
-        display: block;
-      }
-      .title {
-        margin: 0;
-        color: rgb(var(--black));
-        line-height: 1.3;
-      }
-      .date {
-        margin: 0.5rem 0 0 0;
-        color: rgb(var(--gray));
-        font-size: 0.9rem;
-      }
-      ul li a:hover h4,
-      ul li a:hover .date {
-        color: var(--accent-dark);
-      }
-      ul a:hover img {
-        transform: translateY(-4px);
-        box-shadow: var(--box-shadow-hover);
-      }
-      @media (max-width: 720px) {
-        ul {
-          gap: 0.5em;
-        }
-        ul li {
-          width: 100%;
-          text-align: center;
-        }
-        ul li:first-child {
-          margin-bottom: 0;
-        }
-        ul li:first-child .title {
-          font-size: 1.563em;
-        }
-      }
-    </style>
   </head>
   <body>
     <Header />
-    <main>
-      <section>
-        <ul>
-          {
-            posts.map((post) => {
-              const heroImage = post.data.heroImage ?? placeholderImage;
+    <main class="w-full max-w-5xl mx-auto py-12 px-4">
+      <!-- ヒーローセクション -->
+      <section class="text-center mb-16">
+        <h1 class="text-5xl md:text-6xl font-bold mb-4 text-slate-900">
+          {SITE_TITLE}
+        </h1>
+        <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+          {SITE_DESCRIPTION}
+        </p>
+      </section>
 
-              return (
-                <li>
-                  <a href={`/posts/${post.id}/`}>
-                    <Image width={720} height={360} src={heroImage} alt="" />
-                    <h4 class="title">{post.data.title}</h4>
-                    <p class="date">
-                      <FormattedDate date={post.data.pubDate} />
-                    </p>
-                  </a>
-                </li>
-              );
-            })
-          }
-        </ul>
+      <!-- 最新の投稿 -->
+      {
+        latestPost && (
+          <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-slate-900">最新の投稿</h2>
+            <a
+              href={`/posts/${latestPost.id}/`}
+              class="block no-underline transition-all duration-200 group"
+            >
+              <div class="relative overflow-hidden rounded-2xl">
+                <Image
+                  width={1020}
+                  height={510}
+                  src={latestPost.data.heroImage ?? placeholderImage}
+                  alt=""
+                  class="w-full h-auto aspect-video object-cover transition-all duration-300 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                  <p class="text-sm opacity-80 mb-2">
+                    <FormattedDate date={latestPost.data.pubDate} />
+                  </p>
+                  <h3 class="text-3xl md:text-4xl font-bold m-0 text-white group-hover:text-accent">
+                    {latestPost.data.title}
+                  </h3>
+                  <p class="mt-2 text-lg opacity-90 line-clamp-2">
+                    {latestPost.data.description}
+                  </p>
+                </div>
+              </div>
+            </a>
+          </section>
+        )
+      }
+
+      <!-- 最近の投稿 -->
+      {
+        recentPosts.length > 0 && (
+          <section class="mb-16">
+            <div class="flex justify-between items-center mb-8">
+              <h2 class="text-3xl font-bold text-slate-900 m-0">最近の投稿</h2>
+              <a
+                href="/posts/"
+                class="text-amber-600 hover:text-amber-700 font-medium no-underline"
+              >
+                すべての投稿を見る →
+              </a>
+            </div>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-8 list-none m-0 p-0">
+              {recentPosts.map((post) => {
+                const heroImage = post.data.heroImage ?? placeholderImage;
+                return (
+                  <li>
+                    <a
+                      href={`/posts/${post.id}/`}
+                      class="block no-underline transition-all duration-200 group"
+                    >
+                      <Image
+                        width={720}
+                        height={360}
+                        src={heroImage}
+                        alt=""
+                        class="mb-3 rounded-xl w-full h-auto aspect-video object-cover transition-all duration-200 group-hover:-translate-y-1 group-hover:shadow-lg"
+                      />
+                      <h4 class="m-0 text-slate-900 leading-snug group-hover:text-accent-dark text-xl">
+                        {post.data.title}
+                      </h4>
+                      <p class="mt-2 mb-0 text-slate-500 text-sm">
+                        <FormattedDate date={post.data.pubDate} />
+                      </p>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        )
+      }
+
+      <!-- CTAセクション -->
+      <section
+        class="bg-gradient-to-r from-amber-50 to-amber-100 rounded-2xl p-8 md:p-12 text-center"
+      >
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+          Zliについてもっと知る
+        </h2>
+        <p class="text-slate-600 mb-6 max-w-xl mx-auto">
+          会津大学の総合技術系サークルZliでは、プログラミングやものづくりに興味のある仲間を募集しています。
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="https://zli.works/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block px-6 py-3 bg-amber-500 text-white font-semibold rounded-lg no-underline hover:bg-amber-600 transition-colors"
+          >
+            Zli公式サイトへ →
+          </a>
+        </div>
       </section>
     </main>
     <Footer />

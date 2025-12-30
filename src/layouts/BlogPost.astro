@@ -16,131 +16,61 @@ const { title, description, pubDate, updatedDate, heroImage, authors } =
 
 <html lang="ja">
   <head>
-    <BaseHead title={title} description={description} />
-    <style>
-      main {
-        width: calc(100% - 2em);
-        max-width: 100%;
-        margin: 0;
-      }
-      .hero-image {
-        width: 100%;
-      }
-      .hero-image img {
-        display: block;
-        margin: 0 auto;
-        border-radius: 12px;
-        aspect-ratio: 2 / 1;
-        object-fit: cover;
-      }
-      .prose {
-        width: 720px;
-        max-width: calc(100% - 2em);
-        margin: auto;
-        padding: 1em;
-        color: rgb(var(--gray-dark));
-      }
-      .title {
-        margin-bottom: 1em;
-        padding: 1em 0;
-        text-align: center;
-        line-height: 1;
-      }
-      .title h1 {
-        margin: 0 0 0.5em 0;
-      }
-      .date {
-        margin-bottom: 0.5em;
-        color: rgb(var(--gray));
-      }
-      .last-updated-on {
-        font-style: italic;
-      }
-      .authors {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 1rem;
-      }
-      .author {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
-        background: rgb(var(--gray-light));
-        border-radius: 9999px;
-        text-decoration: none;
-        border: 2px solid transparent;
-        transition:
-          background 0.2s ease,
-          transform 0.2s ease,
-          box-shadow 0.2s ease,
-          border-color 0.2s ease;
-      }
-      .author:hover {
-        background: white;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(var(--black), 15%);
-        border-color: var(--accent);
-      }
-      .author-icon {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-      .author-name {
-        font-size: 0.9rem;
-        color: rgb(var(--gray-dark));
-      }
-      .author:hover .author-name {
-        color: rgb(var(--black));
-      }
-    </style>
+    <BaseHead title={title} description={description} image={heroImage} />
   </head>
 
   <body>
     <Header />
-    <main>
+    <main class="w-full max-w-full m-0">
       <article>
-        <div class="hero-image">
+        <div class="w-full">
           {
             heroImage && (
-              <Image width={1020} height={510} src={heroImage} alt="" />
+              <Image
+                width={1020}
+                height={510}
+                src={heroImage}
+                alt=""
+                class="block mx-auto rounded-xl aspect-video object-cover"
+              />
             )
           }
         </div>
-        <div class="prose">
-          <div class="title">
-            <div class="date">
+        <div class="prose max-w-3xl mx-auto p-4 text-slate-700">
+          <div class="mb-4 py-4 text-center leading-none">
+            <div class="mb-2 text-slate-500">
               <FormattedDate date={pubDate} />
               {
                 updatedDate && (
-                  <div class="last-updated-on">
+                  <div class="italic">
                     Last updated on <FormattedDate date={updatedDate} />
                   </div>
                 )
               }
             </div>
-            <h1>{title}</h1>
-            <div class="authors">
+            <h1 class="m-0 mb-2">{title}</h1>
+            <div class="flex flex-wrap justify-center gap-4 mt-4">
               {
                 authors.map((author) => (
-                  <a href={`/authors/${author.data.id}/`} class="author">
+                  <a
+                    href={`/authors/${author.data.id}/`}
+                    class="flex items-center gap-2 py-2 px-4 bg-gray-100 rounded-full no-underline border-2 border-transparent transition-all duration-200 hover:bg-white hover:-translate-y-0.5 hover:shadow-md hover:border-accent"
+                  >
                     <Image
-                      class="author-icon"
+                      class="w-8 h-8 rounded-full object-cover"
                       src={author.data.icon}
                       alt={author.data.displayName}
                       width={32}
                       height={32}
                     />
-                    <span class="author-name">{author.data.displayName}</span>
+                    <span class="text-sm text-slate-700 hover:text-slate-900">
+                      {author.data.displayName}
+                    </span>
                   </a>
                 ))
               }
             </div>
-            <hr />
+            <hr class="mt-4" />
           </div>
           <slot />
         </div>

@@ -5,30 +5,18 @@ type Props = HTMLAttributes<"a">;
 
 const { href, class: className, ...props } = Astro.props;
 
-// 末尾スラッシュを統一して除去（ルートパスは除く）
-function normalizePath(path: string): string {
-  if (path === "/") return "/";
-  return path.replace(/\/$/, "");
-}
-
-const currentPath = normalizePath(Astro.url.pathname);
-const linkPath = normalizePath(href?.toString() || "");
-
-// 完全一致、または現在のパスがリンクパス配下にある場合にアクティブ
-const isActive =
-  currentPath === linkPath || currentPath.startsWith(linkPath + "/");
+const isActive = Astro.url.pathname.startsWith(href?.toString() ?? "");
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a
+  href={href}
+  class:list={[
+    "inline-block py-4 px-2 text-slate-700 no-underline border-b-2 border-transparent transition-colors duration-200",
+    { "border-accent font-bold": isActive },
+    "hover:border-accent",
+    className,
+  ]}
+  {...props}
+>
   <slot />
 </a>
-<style>
-  a {
-    display: inline-block;
-    text-decoration: none;
-  }
-  a.active {
-    font-weight: bolder;
-    text-decoration: underline;
-  }
-</style>

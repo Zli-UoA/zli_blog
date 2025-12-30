@@ -3,53 +3,14 @@ import { SITE_TITLE } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
 ---
 
-<header>
-  <nav>
-    <h2><a href="/">{SITE_TITLE}</a></h2>
+<header class="m-0 px-4 bg-white shadow-sm sticky top-0 z-50">
+  <nav class="flex items-center justify-between">
+    <h2 class="my-2.5 text-2xl">
+      <a href="/" class="no-underline text-slate-900">{SITE_TITLE}</a>
+    </h2>
     <div class="internal-links">
-      <HeaderLink href="/">Home</HeaderLink>
+      <HeaderLink href="/posts/">Posts</HeaderLink>
       <HeaderLink href="/authors/">Authors</HeaderLink>
     </div>
   </nav>
 </header>
-<style>
-  header {
-    margin: 0;
-    padding: 0 1em;
-    background: white;
-    box-shadow: 0 2px 8px rgba(var(--black), 5%);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  h2 {
-    margin: 10px;
-    font-size: 1em;
-  }
-
-  h2 a,
-  h2 a.active {
-    text-decoration: none;
-    color: rgb(var(--black));
-  }
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  nav a {
-    padding: 1em 0.5em;
-    color: rgb(var(--gray-dark));
-    border-bottom: 3px solid transparent;
-    text-decoration: none;
-    transition: border-color 0.2s ease;
-  }
-  nav a:hover {
-    border-bottom-color: var(--accent);
-  }
-  nav a.active {
-    text-decoration: none;
-    border-bottom-color: var(--accent);
-    font-weight: bold;
-  }
-</style>
