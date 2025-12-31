@@ -33,7 +33,7 @@ const { title, description, pubDate, updatedDate, heroImage, authors, tags } =
                 height={510}
                 src={heroImage}
                 alt=""
-                class="blockrounded-xl aspect-video object-cover"
+                class="rounded-xl aspect-video object-cover"
               />
             )
           }
@@ -51,7 +51,7 @@ const { title, description, pubDate, updatedDate, heroImage, authors, tags } =
               }
             </div>
             <h1 class="m-0 mb-2">{title}</h1>
-            <div class="flex flex-wrap justify-center gap-4 mt-4">
+            <div class="not-prose flex flex-wrap justify-center gap-4 mt-4">
               {
                 authors.map((author) => (
                   <a
