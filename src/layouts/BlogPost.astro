@@ -38,7 +38,7 @@ const { title, description, pubDate, updatedDate, heroImage, authors, tags } =
             )
           }
         </div>
-        <div class="prose max-w-4xl mx-auto text-slate-700">
+        <div class="max-w-4xl mx-auto text-slate-700">
           <div class="mb-4 py-4 text-center leading-none">
             <div class="mb-2 text-slate-500">
               <FormattedDate date={pubDate} />
@@ -51,7 +51,7 @@ const { title, description, pubDate, updatedDate, heroImage, authors, tags } =
               }
             </div>
             <h1 class="m-0 mb-2">{title}</h1>
-            <div class="not-prose flex flex-wrap justify-center gap-4 mt-4">
+            <div class="flex flex-wrap justify-center gap-4 mt-4">
               {
                 authors.map((author) => (
                   <a
@@ -81,9 +81,11 @@ const { title, description, pubDate, updatedDate, heroImage, authors, tags } =
                 </div>
               )
             }
-            <hr class="mt-4" />
+            <hr class="text-gray-300 mt-4" />
           </div>
-          <slot />
+          <div class="prose markdown-body">
+            <slot />
+          </div>
         </div>
       </article>
     </main>

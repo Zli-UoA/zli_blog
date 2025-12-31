@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@import "github-markdown-css/github-markdown-light.css";
 
 @theme {
   --color-accent: #ffd600;
@@ -85,4 +86,9 @@
   body {
     @apply text-lg;
   }
+}
+
+.markdown-body {
+  max-width: 100%;
+  background-color: inherit;
 }
