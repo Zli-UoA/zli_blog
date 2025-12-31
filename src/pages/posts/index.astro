@@ -1,0 +1,90 @@
+---
+import { getCollection } from "astro:content";
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import PostCard from "../../components/PostCard.astro";
+import TagBadge from "../../components/TagBadge.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+
+const posts = (await getCollection("posts")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+// 全タグを取得
+const allTags = await getCollection("tags");
+
+// 各タグの記事数をカウント
+const tagCounts = new Map<string, number>();
+posts.forEach((post) => {
+  post.data.tags.forEach((tagRef) => {
+    const tagId = typeof tagRef === "string" ? tagRef : tagRef.id;
+    tagCounts.set(tagId, (tagCounts.get(tagId) || 0) + 1);
+  });
+});
+
+// タグを記事数でソート（降順）、記事数1以上のもののみ
+const sortedTags = allTags
+  .map((tag) => ({
+    tag,
+    count: tagCounts.get(tag.id) || 0,
+  }))
+  .filter(({ count }) => count > 0)
+  .sort((a, b) => b.count - a.count);
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <BaseHead title={`Posts - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main class="w-full max-w-5xl mx-auto py-12 px-4">
+      {
+        sortedTags.length > 0 && (
+          <section class="mb-8">
+            <details class="group">
+              <summary class="flex items-center gap-2 cursor-pointer text-lg font-semibold text-slate-700 hover:text-slate-900 transition-colors list-none">
+                <svg
+                  class="w-5 h-5 shrink-0 transition-transform group-open:rotate-90 mb-1.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+                <span>タグで絞り込む</span>
+                <span class="text-sm font-normal text-slate-500">
+                  ({sortedTags.length}個のタグ)
+                </span>
+              </summary>
+              <div class="flex flex-wrap gap-2 mt-3">
+                {sortedTags.map(({ tag, count }) => (
+                  <TagBadge tag={tag} size="md" count={count} />
+                ))}
+              </div>
+            </details>
+          </section>
+        )
+      }
+      <section>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-8 list-none m-0 p-0">
+          {
+            posts.map((post, index) => (
+              <li>
+                <PostCard post={post} />
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

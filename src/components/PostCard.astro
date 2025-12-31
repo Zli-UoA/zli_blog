@@ -1,0 +1,116 @@
+---
+import { Image } from "astro:assets";
+import { getEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
+import TagBadge from "./TagBadge.astro";
+import placeholderImage from "../assets/placeholder.png";
+
+interface Props {
+  post: CollectionEntry<"posts">;
+  /** カードのサイズ */
+  size?: "sm" | "md" | "lg" | "featured";
+  /** タグを表示するか */
+  showTags?: boolean;
+  /** 説明文を表示するか */
+  showDescription?: boolean;
+  /** ハイライトするタグのID */
+  activeTagId?: string;
+}
+
+const {
+  post,
+  size = "md",
+  showTags = true,
+  showDescription = false,
+  activeTagId,
+} = Astro.props;
+
+const heroImage = post.data.heroImage ?? placeholderImage;
+
+// タグを解決
+const tags = showTags
+  ? (
+      await Promise.all(post.data.tags.map((tagRef) => getEntry(tagRef)))
+    ).filter((t): t is CollectionEntry<"tags"> => t !== undefined)
+  : [];
+
+// サイズに応じたスタイル
+const imageSize = {
+  sm: { width: 480, height: 240 },
+  md: { width: 720, height: 360 },
+  lg: { width: 720, height: 360 },
+  featured: { width: 1020, height: 510 },
+};
+
+const titleClass = {
+  sm: "text-base",
+  md: "text-xl",
+  lg: "text-4xl",
+  featured: "text-3xl md:text-4xl font-bold text-white group-hover:text-accent",
+};
+---
+
+{
+  size === "featured" ? (
+    <a
+      href={`/posts/${post.id}/`}
+      class="block no-underline transition-all duration-200 group"
+    >
+      <div class="relative overflow-hidden rounded-2xl">
+        <Image
+          width={imageSize.featured.width}
+          height={imageSize.featured.height}
+          src={heroImage}
+          alt=""
+          class="w-full h-auto aspect-video object-cover transition-all duration-300 group-hover:scale-105"
+        />
+        <div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
+        <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+          <p class="text-sm opacity-80 mb-2">
+            <FormattedDate date={post.data.pubDate} />
+          </p>
+          <h3 class={`m-0 ${titleClass.featured}`}>{post.data.title}</h3>
+          {showDescription && post.data.description && (
+            <p class="mt-2 text-lg opacity-90 line-clamp-2">
+              {post.data.description}
+            </p>
+          )}
+        </div>
+      </div>
+    </a>
+  ) : (
+    <a
+      href={`/posts/${post.id}/`}
+      class="block no-underline transition-all duration-200 group"
+    >
+      <Image
+        width={imageSize[size].width}
+        height={imageSize[size].height}
+        src={heroImage}
+        alt=""
+        class="mb-2 rounded-xl w-full h-auto aspect-video object-cover transition-all duration-200 group-hover:-translate-y-1 group-hover:shadow-md"
+      />
+      <h4
+        class={`m-0 text-slate-900 leading-snug group-hover:text-accent-dark ${titleClass[size]}`}
+      >
+        {post.data.title}
+      </h4>
+      <p class="mt-2 mb-0 text-slate-500 text-sm group-hover:text-accent-dark">
+        <FormattedDate date={post.data.pubDate} />
+      </p>
+      {showTags && tags.length > 0 && (
+        <div class="flex flex-wrap gap-1 mt-2">
+          {tags.map((tag) => (
+            <TagBadge
+              tag={tag}
+              size="sm"
+              link={false}
+              active={tag.id === activeTagId}
+            />
+          ))}
+        </div>
+      )}
+    </a>
+  )
+}

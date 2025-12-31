@@ -1,0 +1,7 @@
+{
+  "$schema": "../../../../.astro/collections/authors.schema.json",
+  "id": "yuorei",
+  "displayName": "ユオレイ",
+  "bio": "ユオレイです。\nソフトウェアエンジニアとして修行中！\nバックエンドがメインのインフラや動画技術にも挑戦しています！",
+  "icon": "./icon.png"
+}

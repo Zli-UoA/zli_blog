@@ -1,188 +1,204 @@
-# Zli Blog
+# Zli Official Blog
 
-## デザイン
+会津大学の総合技術系サークル [Zli](https://zli.jp/) の公式ブログです。技術情報やイベントレポートなどを発信しています。
 
-[figma](https://www.figma.com/file/BeealdPJxbboY3Uh9k17vg/ZliBlog?node-id=109%3A990&t=cqelnDMyiYIpFclv-1)
+## 目次
 
-## 環境
+- [技術スタック](#技術スタック)
+- [プロジェクト構造](#プロジェクト構造)
+- [セットアップ](#セットアップ)
+- [記事の投稿方法](#記事の投稿方法)
+- [著者の追加方法](#著者の追加方法)
+- [タグの追加方法](#タグの追加方法)
+- [コマンド一覧](#コマンド一覧)
 
-- [node v17.2.0](https://nodejs.org/ja/)
+## 技術スタック
 
-## 記事の投稿方法
+- **フレームワーク**: [Astro](https://astro.build/) v5
+- **スタイリング**: [Tailwind CSS](https://tailwindcss.com/) v4
+- **コンテンツ**: Markdown / MDX
 
-大まかな流れとしては
+## プロジェクト構造
 
-1. ブランチを切る
-2. 自身をメンバーに追加（初回のみ）
-3. 記事を追加
-4. PR を投げてレビューしてもらう（誰にしてもらうかは決めてない。とりま@shinbunbun に）
-5. 問題なけれマージして完了
-
-### 2. 自身をメンバーに追加（初回のみ）
-
-1. `/public/authors/list.json` に自分の id と displayName を追加する。id は a\~z, A\~Z, 0\~9, -, \_のみでお願いします。
-2. `/public/authors`内に先ほど list に追加した id のディレクトリを作成する。
-3. 作成したディレクトリ内に、表示したいアイコンを`icon.png`で配置。
-4. 同ディレクトリ内に、自己紹介を`index.md`で配置
-
-### 3. 記事を追加
-
-1. `/public/articles`内に a\~z, A\~Z, 0\~9, -, \_のみを使った自分で識別できる名前のディレクトリを作成する。（例：zli_no_blog_wo_tukutta_hanashi）。
-2. 作成したディレクトリにアイキャッチを`eyeCatch.png`で配置。
-3. 同ディレクトリに、記事を`index.md`で配置
-
-記事の最初にはいくつかのメタデータを含めてもらう必要があります。以下のような形でお願いします。
-
-```md
----
-authorId: eraser5th
-title: ZliのBlogを作った話
-tags: React hoge fuga
----
-
-# hogehoge
+```text
+├── public/              # 静的ファイル（フォント等）
+├── src/
+│   ├── components/      # Astroコンポーネント
+│   ├── content/
+│   │   ├── authors/     # 著者情報
+│   │   ├── posts/       # ブログ記事
+│   │   └── tags.json    # タグ情報
+│   ├── layouts/         # ページレイアウト
+│   ├── pages/           # ルーティング
+│   └── styles/          # グローバルスタイル
+├── astro.config.ts      # Astro設定
+├── package.json
+└── tsconfig.json
 ```
 
-authorId には、メンバー追加の際に決めたものを使ってください。
+## セットアップ
 
-title にはその記事のタイトルを容れてください。
+### 必要な環境
 
-タグを追加したくない場合には、`tags:`はそのままにして、タグを容れなければ大丈夫です。
-また日本語でタグを追加する場合、空白を全角にしないよう気をつけてください。
+- Node.js 18以上
+- npm
 
-4. `/public/articles/list.json`に以下の形式で記事の情報を登録する。
+### インストール
 
-```
-{
-  "dirName": "zli_no_blog_wo_tukutta_hanashi", // 作成したディレクトリの名前
-  "title": "ZliのBlogを作った話",              // 記事のタイトル
-  "tags": ["React", "hoge", "fuga"],           // タグを配列で
-  "authorId": "eraser5th"                      // 自身のid
-}
-```
+```bash
+# リポジトリをクローン
+git clone https://github.com/Zli-UoA/zli_blog.git
+cd zli_blog
 
-## 執筆時に見ためを確認したい場合。
+# 依存関係をインストール
+npm install
 
-プロジェクトのルートで以下を実行すると開発サーバが立ち上がる。
-
-```sh
+# 開発サーバーを起動
 npm run dev
 ```
 
-表示された URl にアクセスすれば確認可能。
+開発サーバーは `http://localhost:4321` で起動します。
 
-# 以下開発者向け(wip)
+## 記事の投稿方法
 
-## 使用するもの
+### 1. 記事用ディレクトリを作成
 
-### ビルドツール
+`src/content/posts/` 配下に記事用のディレクトリを作成します。
 
-- [Vite v3.2.3](https://vitejs.dev/)
-
-### ライブラリ
-
-- [React v18.2.0](https://ja.reactjs.org/)
-- [Typescript v4.6.4](https://www.typescriptlang.org/)
-- [SWR](https://swr.vercel.app/ja)
-- [React Hook Form 7.39.5](https://react-hook-form.com/)
-- [classnames](https://github.com/JedWatson/classnames)
-- [React router v6.4.3](https://reactrouter.com/en/main)
-- [Vanilla extract](https://vanilla-extract.style/)
-  - [css](https://vanilla-extract.style/documentation/getting-started/)
-  - [sprinkles](https://vanilla-extract.style/documentation/packages/sprinkles/)
-  - [recipes](https://vanilla-extract.style/documentation/packages/recipes/)
-
-### リンター・フォーマッター
-
-- [ESLint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
-
-## 構成
-
-```
-/
-├ public/
-├ src/
-├ .gitignore
-├ index.html
-├ package.json
-├ package-lock.json
-├ README.md
-├ tsconfig.json
-├ tsconfig.node.json
-├ vite.config.ts
-├ .eslintrc.json
-├ .prettierrc.json
-
+```bash
+mkdir src/content/posts/your-article-slug
 ```
 
-### src 案 1
+### 2. 記事ファイルを作成
 
-コードはこの中に配置する。
+ディレクトリ内に `index.md`（または `index.mdx`）を作成し、以下のフロントマターを記述します。
 
-```
-/src
-├─ hooks/
-├─ types/
-├─ utils/
-├─ style_utils/
-├─ components/
-├─ pages/
-```
-
-#### hooks
-
-汎用的なカスタムフックを配置。
-
-#### types
-
-汎用的な型を配置。
-
-#### utils
-
-汎用的な関数群を配置。
-
-#### style_utils
-
-汎用的なスタイルを配置。utility first css の ユーティリティクラスだと思ってもらえるとよいかも。
-
-#### components
-
-汎用的な React コンポーネントを配置。
-
-#### pages
-
-### src 案２
-
-```
-src
-├─ utils/
-│  ├─ hooks/
-│  ├─ lib/
-│  ├─ types/
-│  ├─ style/
-│  ├─ components/
-├─ usecase/
-├─ pages/
+```yaml
+title: 記事のタイトル
+description: 記事の説明文
+authors:
+  - your-author-id # 著者のID（複数指定可能）
+pubDate: 2025-01-01 # 公開日
+updatedDate: 2025-01-02 # 更新日（任意）
+heroImage: ./eyeCatch.png # アイキャッチ画像（任意）
+tags: # タグ（任意、複数指定可能）
+  - event
+  - hackathon
 ```
 
-#### utils
+> **Note**: タグIDは `src/content/tags.json` に存在するものを指定してください。存在しないタグを指定するとビルドエラーになります。新しいタグが必要な場合は、先に[タグを追加](#タグの追加方法)してください。
 
-汎用的なコードを配置。
+### 3. 画像を追加（任意）
 
-#### pages
+アイキャッチ画像や記事内で使用する画像は、記事と同じディレクトリに配置します。
 
+```text
+src/content/posts/your-article-slug/
+├── index.md
+├── eyeCatch.png
+└── screenshot.png
 ```
-pages
-└─ [pageName]/
-   ├─ index.tsx
-   └─ components.tsx
 
-ページを配置。
+記事内で画像を使用する場合：
 
-### /public
-
-アイコン（ブラウザのタブに表示されるやつ）などを配置。
-
-###
+```markdown
+![画像の説明](./screenshot.png)
 ```
+
+### 4. プレビューで確認
+
+```bash
+npm run dev
+```
+
+`http://localhost:4321/posts/your-article-slug` で記事を確認できます。
+
+## 著者の追加方法
+
+### 1. 著者用ディレクトリを作成
+
+`src/content/authors/` 配下に著者IDのディレクトリを作成します。
+
+```bash
+mkdir src/content/authors/your-id
+```
+
+### 2. 著者情報ファイルを作成
+
+ディレクトリ内に `index.json` を作成します。
+
+```json
+{
+  "$schema": "../../../../.astro/collections/authors.schema.json",
+  "id": "your-id",
+  "displayName": "表示名",
+  "bio": "自己紹介文。\n改行も使用可能です。",
+  "icon": "./icon.png"
+}
+```
+
+### 3. アイコン画像を追加
+
+同じディレクトリにアイコン画像（`icon.png`など）を配置します。
+
+```text
+src/content/authors/your-id/
+├── index.json
+└── icon.png
+```
+
+## タグの追加方法
+
+`src/content/tags.json` にタグを追加します。キーがタグIDになります。
+
+```json
+{
+  "event": {
+    "displayName": "イベント",
+    "description": "Zliが開催・参加したイベントの記事",
+    "color": "#3b82f6"
+  },
+  "your-new-tag": {
+    "displayName": "新しいタグ",
+    "description": "タグの説明（任意）",
+    "color": "#3b82f6"
+  }
+}
+```
+
+### フィールド説明
+
+| フィールド    | 必須 | 説明                                        |
+| :------------ | :--: | :------------------------------------------ |
+| キー          |  ✓   | タグのID（URLに使用、英数字とハイフン推奨） |
+| `displayName` |  ✓   | タグの表示名                                |
+| `description` |      | タグの説明文（タグページに表示）            |
+| `color`       |      | タグの色（HEXカラーコード、例: `#3b82f6`）  |
+
+### 既存のタグ一覧
+
+| ID            | 表示名         | 色      |
+| :------------ | :------------- | :------ |
+| `event`       | イベント       | #3b82f6 |
+| `hackathon`   | ハッカソン     | #ef4444 |
+| `aizuhack`    | AizuHack       | #f97316 |
+| `workshop`    | 勉強会         | #06b6d4 |
+| `conference`  | カンファレンス | #ec4899 |
+| `tutorial`    | チュートリアル | #14b8a6 |
+| `development` | 開発           | #22c55e |
+| `zli`         | Zli            | #8b5cf6 |
+| `git`         | Git            | #f05032 |
+| `github`      | GitHub         | #181717 |
+| `elm`         | Elm            | #1293d8 |
+| `stores`      | STORES         | #000000 |
+
+## コマンド一覧
+
+| コマンド          | 説明                                  |
+| :---------------- | :------------------------------------ |
+| `npm install`     | 依存関係のインストール                |
+| `npm run dev`     | 開発サーバーを起動 (`localhost:4321`) |
+| `npm run build`   | 本番用ビルドを `./dist/` に出力       |
+| `npm run preview` | ビルド結果をローカルでプレビュー      |
+| `npm run fmt`     | Prettierでコードをフォーマット        |
+| `npm run astro`   | Astro CLIコマンドを実行               |

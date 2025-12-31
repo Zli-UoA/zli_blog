@@ -1,0 +1,91 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import PostCard from "../../components/PostCard.astro";
+import TagBadge from "../../components/TagBadge.astro";
+import { SITE_TITLE } from "../../consts";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  const allTags = await getCollection("tags");
+
+  // 各タグに対してパスを生成
+  return allTags.map((tag) => {
+    const tagId = tag.id;
+    const filteredPosts = posts
+      .filter((post) =>
+        post.data.tags.some((t) => {
+          const tId = typeof t === "string" ? t : t.id;
+          return tId === tagId;
+        }),
+      )
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+    return {
+      params: { tag: tagId },
+      props: {
+        tag,
+        posts: filteredPosts,
+      },
+    };
+  });
+}
+
+interface Props {
+  tag: CollectionEntry<"tags">;
+  posts: Awaited<ReturnType<typeof getCollection<"posts">>>;
+}
+
+const { tag, posts } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <BaseHead
+      title={`#${tag.data.displayName} - ${SITE_TITLE}`}
+      description={tag.data.description ||
+        `「${tag.data.displayName}」タグが付いた記事一覧`}
+    />
+  </head>
+  <body>
+    <Header />
+    <main class="w-full max-w-5xl mx-auto py-12 px-4">
+      <div class="mb-8">
+        <a
+          href="/tags/"
+          class="text-accent-dark hover:underline mb-2 inline-block"
+        >
+          ← タグ一覧へ
+        </a>
+        <h1 class="text-3xl font-bold text-slate-900">
+          <TagBadge tag={tag} link={false} size="lg" />
+          <span class="text-xl font-normal text-slate-500 ml-2"
+            >({posts.length}件)</span
+          >
+        </h1>
+        {
+          tag.data.description && (
+            <p class="mt-2 text-slate-600">{tag.data.description}</p>
+          )
+        }
+      </div>
+
+      <section>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-8 list-none m-0 p-0">
+          {
+            posts.map((post) => (
+              <li>
+                <PostCard post={post} activeTagId={tag.id} />
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

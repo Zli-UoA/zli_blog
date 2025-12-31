@@ -1,0 +1,56 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import TagBadge from "../../components/TagBadge.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+
+const posts = await getCollection("posts");
+const allTags = await getCollection("tags");
+
+// 各タグの記事数をカウント
+const tagCounts = new Map<string, number>();
+posts.forEach((post) => {
+  post.data.tags.forEach((tagRef) => {
+    const tagId = typeof tagRef === "string" ? tagRef : tagRef.id;
+    tagCounts.set(tagId, (tagCounts.get(tagId) || 0) + 1);
+  });
+});
+
+// タグを記事数でソート（降順）、記事数0のタグも含める
+const sortedTags = allTags
+  .map((tag) => ({
+    tag,
+    count: tagCounts.get(tag.id) || 0,
+  }))
+  .sort((a, b) => b.count - a.count);
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <BaseHead title={`Tags - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main class="w-full max-w-5xl mx-auto py-12 px-4">
+      <h1 class="text-3xl font-bold mb-8 text-slate-900">タグ一覧</h1>
+      {
+        sortedTags.length === 0 ? (
+          <p class="text-slate-500">タグが設定された記事はまだありません。</p>
+        ) : (
+          <ul class="flex flex-wrap gap-3 list-none m-0 p-0">
+            {sortedTags.map(({ tag, count }) => (
+              <li>
+                <TagBadge tag={tag} size="lg" count={count} />
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </main>
+    <Footer />
+  </body>
+</html>

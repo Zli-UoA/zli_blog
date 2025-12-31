@@ -1,0 +1,94 @@
+---
+import { getCollection } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import PostCard from "../components/PostCard.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+
+const posts = (await getCollection("posts")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const latestPost = posts[0];
+const recentPosts = posts.slice(1, 5);
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main class="w-full max-w-5xl mx-auto py-12 px-4">
+      <!-- ヒーローセクション -->
+      <section class="text-center mb-16">
+        <h1 class="text-5xl md:text-6xl font-bold mb-4 text-slate-900">
+          {SITE_TITLE}
+        </h1>
+        <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+          {SITE_DESCRIPTION}
+        </p>
+      </section>
+
+      <!-- 最新の投稿 -->
+      {
+        latestPost && (
+          <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-slate-900">最新の投稿</h2>
+            <PostCard
+              post={latestPost}
+              size="featured"
+              showDescription
+              showTags={false}
+            />
+          </section>
+        )
+      }
+
+      <!-- 最近の投稿 -->
+      {
+        recentPosts.length > 0 && (
+          <section class="mb-16">
+            <div class="flex justify-between items-center mb-8">
+              <h2 class="text-3xl font-bold text-slate-900 m-0">最近の投稿</h2>
+              <a
+                href="/posts/"
+                class="text-amber-600 hover:text-amber-700 font-medium no-underline"
+              >
+                すべての投稿を見る →
+              </a>
+            </div>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-8 list-none m-0 p-0">
+              {recentPosts.map((post) => (
+                <li>
+                  <PostCard post={post} showTags={false} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      <!-- CTAセクション -->
+      <section class="bg-brand-black rounded-2xl p-8 md:p-12 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-brand-white mb-4">
+          Zliについてもっと知る
+        </h2>
+        <p class="text-brand-white mb-6 max-w-xl mx-auto">
+          Zliは、技術好きが集まる総合技術系サークルです。私たちの公式サイトで、最新のプロジェクトやイベント情報をチェックしてください！
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="https://zli.works/"
+            class="inline-block px-6 py-3 bg-accent text-brand-black font-semibold rounded-lg no-underline hover:bg-accent-dark transition-colors"
+          >
+            Zli公式サイトへ →
+          </a>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

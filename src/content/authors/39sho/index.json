@@ -1,0 +1,7 @@
+{
+  "$schema": "../../../../.astro/collections/authors.schema.json",
+  "id": "39sho",
+  "displayName": "39sho(さくしょー)",
+  "bio": "31期の39sho(さくしょー)です。\n普段はJavaScript、TypeScriptを書きます。\n早くつよつよになりたい。",
+  "icon": "./icon.png"
+}

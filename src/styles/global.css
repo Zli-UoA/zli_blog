@@ -1,0 +1,94 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@import "github-markdown-css/github-markdown-light.css";
+
+@theme {
+  --color-accent: #ffd600;
+  --color-accent-dark: #c7a600;
+  --color-brand-black: #2c2c2c;
+  --color-brand-white: #d9d9d9;
+}
+
+@font-face {
+  font-family: "Atkinson";
+  src: url("/fonts/atkinson-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atkinson";
+  src: url("/fonts/atkinson-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  body {
+    @apply m-0 p-0 text-left break-words text-slate-700 text-xl leading-relaxed;
+    font-family: "Atkinson", sans-serif;
+    background: linear-gradient(rgb(229 231 235 / 0.5), #fff) no-repeat;
+    background-size: 100% 600px;
+  }
+
+  textarea,
+  input {
+    @apply w-full text-base;
+  }
+}
+
+/* Tailwind Typography のカスタマイズ */
+@layer components {
+  .prose {
+    --tw-prose-body: theme(--color-slate-700);
+    --tw-prose-headings: theme(--color-slate-900);
+    --tw-prose-links: theme(--color-amber-600);
+    --tw-prose-bold: theme(--color-slate-900);
+    --tw-prose-counters: theme(--color-slate-500);
+    --tw-prose-bullets: theme(--color-slate-300);
+    --tw-prose-hr: theme(--color-gray-200);
+    --tw-prose-quotes: theme(--color-slate-700);
+    --tw-prose-quote-borders: var(--color-accent);
+    --tw-prose-code: theme(--color-slate-900);
+    --tw-prose-pre-code: theme(--color-slate-200);
+    --tw-prose-pre-bg: theme(--color-slate-800);
+  }
+
+  .prose
+    :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply px-1.5 py-0.5 bg-gray-200 rounded-sm;
+  }
+
+  .prose
+    :where(code):not(
+      :where([class~="not-prose"], [class~="not-prose"] *)
+    )::before,
+  .prose
+    :where(code):not(
+      :where([class~="not-prose"], [class~="not-prose"] *)
+    )::after {
+    content: none;
+  }
+
+  .prose :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply rounded-lg;
+  }
+
+  .prose
+    :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)):hover {
+    @apply text-amber-700;
+  }
+}
+
+@media (max-width: 720px) {
+  body {
+    @apply text-lg;
+  }
+}
+
+.markdown-body {
+  max-width: 100%;
+  background-color: inherit;
+}
