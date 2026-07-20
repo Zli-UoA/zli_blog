@@ -11,7 +11,7 @@ tags: Zli ポートフォリオ 勉強会
 
 # 第一回
 
-場所 : とある古民家
+場所 : あいおいΔ
 参加人数 : 4名
 時間 : 10:00~13:00
 ![第一回の様子](/articles/portfolio-workshop/first-session.png)
