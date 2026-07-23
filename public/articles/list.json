@@ -1,6 +1,12 @@
 {
   "articles": [
     {
+      "dirName": "portfolio-workshop",
+      "title": "ポートフォリオ作成勉強会 - 完走した感想",
+      "tags": ["Zli", "ポートフォリオ", "勉強会"],
+      "authorId": "mtdnot"
+    },
+    {
       "dirName": "stores-tech-conf-2025",
       "title": "STORES Tech Conf 2025に参加しました",
       "tags": [
