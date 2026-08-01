@@ -1,6 +1,12 @@
 {
   "articles": [
     {
+      "dirName": "origin-anatomia-2026",
+      "title": "『Origin 解体新書』輪読会開催報告",
+      "tags": ["Origin解体新書", "Web"],
+      "authorId": "39sho"
+    },
+    {
       "dirName": "portfolio-workshop",
       "title": "ポートフォリオ作成勉強会 - 完走した感想",
       "tags": ["Zli", "ポートフォリオ", "勉強会"],
@@ -9,11 +15,7 @@
     {
       "dirName": "stores-tech-conf-2025",
       "title": "STORES Tech Conf 2025に参加しました",
-      "tags": [
-        "PR",
-        "payment",
-        "conference"
-      ],
+      "tags": ["PR", "payment", "conference"],
       "authorId": "ktk"
     },
     {
