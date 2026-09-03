@@ -36,27 +36,27 @@ LLM の進化によって手でコードを書いたりすることが少なく�
 
 どのくらい使われているのか、どのツールを使っているのかなどのログと一緒に展示されていました。見ることは叶いませんでしたが、ACTIVE がゼロになると kuro ちゃんが眠るみたいですね。普段だと tool calls は 5000 じゃ済まないようです。それだけ kuro ちゃんがいろんな人と働いていることがわかりますね。
 
-![kuroちゃんの展示の写真](/articles/stores-tech-conf-2026/kuro.png)
+![kuroちゃんの展示の写真](/articles/stores-tech-conf-2026/kuro.webp)
 
 ### Booth
 
 #### プロダクト体験ブース
 
 プロダクト体験ブースでは実際に注文したものを決済したり、厨房側から見られるプロダクトなどを体験しました！
-実際にやってみると、なぜか決済ってテンションが上がりますね。自分は飲食店でアルバイトをしていた時期があるので実際にそういったプロダクトに触れたりする機会が多くあったのですが、これはできるのかな？これはどうだろう？といった疑問にも丁寧に答えていただき、たくさん体験できました！
+実際にやってみると、なぜか決済ってテンションが上がりますね。自分は飲食店アルバイトをしていた時期があるので実際にそういったプロダクトに触れたりする機会が多くあったのですが、これはできるのかな？これはどうだろう？といった疑問にも丁寧に答えていただき、たくさん体験できました！
 
-![プロダクト体験ブースでの写真1](/articles/stores-tech-conf-2026/product-experience-1.png)
-![プロダクト体験ブースでの写真2](/articles/stores-tech-conf-2026/product-experience-2.png)
-![プロダクト体験ブースでの写真3](/articles/stores-tech-conf-2026/product-experience-3.png)
+![プロダクト体験ブースでの写真1](/articles/stores-tech-conf-2026/product-experience-1.webp)
+![プロダクト体験ブースでの写真2](/articles/stores-tech-conf-2026/product-experience-2.webp)
+![プロダクト体験ブースでの写真3](/articles/stores-tech-conf-2026/product-experience-3.webp)
 
 #### みんなの fun
 
 社員の方々の個性豊かな Fun を見られました！
 
-![fun1](/articles/stores-tech-conf-2026/fun1.png)
-![fun2](/articles/stores-tech-conf-2026/fun2.png)
-![fun3](/articles/stores-tech-conf-2026/fun3.png)
-![fun4](/articles/stores-tech-conf-2026/fun4.png)
+![fun1](/articles/stores-tech-conf-2026/fun1.webp)
+![fun2](/articles/stores-tech-conf-2026/fun2.webp)
+![fun3](/articles/stores-tech-conf-2026/fun3.webp)
+![fun4](/articles/stores-tech-conf-2026/fun4.webp)
 
 特に型システム入門はテンションが上がりました!!!
 
@@ -64,7 +64,7 @@ LLM の進化によって手でコードを書いたりすることが少なく�
 
 ここでは幾つかのお菓子をいただきました。持ち帰って作業のお供に美味しくいただいています。ドライみかんは特に初めて見ました！実際に STORES のサービスを利用されている方の利用体験について書かれているブースがあり、実際の利用者の方々の意見を見ることができました。
 
-![STORESのメンバーおすすめの商品紹介の写真](/articles/stores-tech-conf-2026/member-recommendation.png)
+![STORESのメンバーおすすめの商品紹介の写真](/articles/stores-tech-conf-2026/member-recommendation.webp)
 
 ## おわりに
 
