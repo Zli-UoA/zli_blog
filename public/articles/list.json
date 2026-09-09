@@ -1,6 +1,12 @@
 {
   "articles": [
     {
+      "dirName": "stores-tech-conf-2026",
+      "title": "STORES Tech Conf 2026に参加しました",
+      "tags": ["PR", "payment", "conference"],
+      "authorId": "tenplant"
+    },
+    {
       "dirName": "origin-anatomia-2026",
       "title": "『Origin 解体新書』輪読会開催報告",
       "tags": ["Origin解体新書", "Web"],
