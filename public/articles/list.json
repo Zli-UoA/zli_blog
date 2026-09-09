@@ -1,6 +1,12 @@
 {
   "articles": [
     {
+      "dirName": "trpl-workshop-2026",
+      "title": "『The Rust Programming Language』勉強会報告",
+      "tags": ["rust", "勉強会", "workshop"],
+      "authorId": "tenplant"
+    },
+    {
       "dirName": "origin-anatomia-2026",
       "title": "『Origin 解体新書』輪読会開催報告",
       "tags": ["Origin解体新書", "Web"],
