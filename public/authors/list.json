@@ -14,16 +14,19 @@
     },
     {
       "id": "yuorei",
-      "displayName":"ユオレイ"
-    }
-    ,
+      "displayName": "ユオレイ"
+    },
     {
       "id": "atto",
-      "displayName":"アト"
+      "displayName": "アト"
     },
     {
       "id": "mtdnot",
-      "displayName":"ナツ"
+      "displayName": "ナツ"
+    },
+    {
+      "id": "tenplant",
+      "displayName": "Tenplant"
     }
   ]
 }
